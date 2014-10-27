@@ -1,9 +1,15 @@
 __author__ = 'endru'
+
+
+import sys
 import numpy as np
 import cv2
 import cv2.cv as cv
 from video import create_capture
 from common import clock, draw_str
+
+
+
 
 class TargetCalculator:
     def __init__(self, cascade_path, video_src=0, do_display=True, pos_tolerance=20):
@@ -30,6 +36,7 @@ class TargetCalculator:
         y = 0
         x = 0
         counter = 0
+        lastposition=Point(sys.maxint,sys.maxint)
         while counter < 3:
             
             img = self.take_picture()
@@ -51,12 +58,11 @@ class TargetCalculator:
             dt = clock() - t
             draw_str(vis, (20, 20), 'position: %.1f ms' % (dt*1000))
             self.display(vis)
-        print 'x: ', x, ' | y: ', y
+        print('x: ', x, ' | y: ', y)
         return x
 
     def are_near(self, a, b):
         """
-
 
         :rtype : bool
         :param a: Point
@@ -99,6 +105,7 @@ class Point:
 
     def __init__(self, x=0, y=0):
         """ Create a new point at the origin 
+        :rtype : Point
         :type y: float
         :type x: float
         """
