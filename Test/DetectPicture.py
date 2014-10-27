@@ -1,12 +1,12 @@
 __author__ = 'endru'
 
 
-import sys
 import numpy as np
 import cv2
 import cv2.cv as cv
 from video import create_capture
 from common import clock, draw_str
+import sys
 
 
 
@@ -28,6 +28,10 @@ class TargetCalculator:
         self.pos_tolerance = pos_tolerance
 
     def take_picture(self):
+        """
+
+        :rtype : object
+        """
         img = self.cam.read()
         return img
 
@@ -36,10 +40,10 @@ class TargetCalculator:
         y = 0
         x = 0
         counter = 0
-        lastposition=Point(sys.maxint,sys.maxint)
+        last_pos=Point(sys.maxint,sys.maxint)
         while counter < 3:
             
-            img = self.take_picture()
+            ret, img = self.take_picture()
             gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
             gray = cv2.equalizeHist(gray)
     
@@ -54,7 +58,11 @@ class TargetCalculator:
                 y = (rect.y1+rect.y2)/2
     
             position = Point(x,y)
-    
+            if self.are_near(position,last_pos):
+                counter+=1
+            else:
+                counter=0
+            last_pos = position
             dt = clock() - t
             draw_str(vis, (20, 20), 'position: %.1f ms' % (dt*1000))
             self.display(vis)
