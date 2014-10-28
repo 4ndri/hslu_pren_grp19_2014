@@ -71,8 +71,8 @@ class TargetCalculator:
                     continue
                 x = (rect[0]+rect[2])/2
                 y = (rect[1]+rect[3])/2
-                print('found object at x: ', x, ' | y: ', y)
-                position = Point(x,y)
+                print 'found object at x: ', x, ' | y: ', y
+                position = Point(x, y)
                 if self.are_near(position,last_pos):
                     counter += 1
                 else:
@@ -82,6 +82,7 @@ class TargetCalculator:
                 draw_str(vis, (20, 40), 'position: %.1f px' % (x))
                 self.display(vis)
             print 'x: ', x, ' | y: ', y
+            self.cam.release()
             return x
 
         except:

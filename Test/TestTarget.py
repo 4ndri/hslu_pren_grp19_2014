@@ -12,4 +12,5 @@ while True:
     if 0xFF & cv2.waitKey(5) == 27:
         break
 cv2.destroyAllWindows()
+target_calc.cam.release()
 
