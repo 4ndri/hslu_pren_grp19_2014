@@ -37,38 +37,56 @@ class TargetCalculator:
 
     @property
     def calculate_target(self):
-        y = 0
-        x = 0
-        counter = 0
-        last_pos=Point(sys.maxint,sys.maxint)
-        while counter < 3:
-            
-            ret, img = self.take_picture()
-            gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-            gray = cv2.equalizeHist(gray)
-    
-            t = clock()
-            rects = detect(gray, self.cascade)
-            vis = img.copy()
-            draw_rects(vis, rects, (0, 255, 0))
-            
-            if len(rects) == 0:
-                rect=rects[0]
-                x = (rect.x1+rect.x2)/2
-                y = (rect.y1+rect.y2)/2
-    
-            position = Point(x,y)
-            if self.are_near(position,last_pos):
-                counter+=1
-            else:
-                counter=0
-            last_pos = position
-            dt = clock() - t
-            draw_str(vis, (20, 20), 'position: %.1f ms' % (dt*1000))
-            self.display(vis)
-        print('x: ', x, ' | y: ', y)
-        return x
+        """
 
+
+        :return: object
+        """
+        try:
+            y = 0
+            x = 0
+            counter = 0
+            last_pos=Point(sys.maxint,sys.maxint)
+            t = clock()
+            dt = 0
+            errorcounter = 0
+            while counter < 3 and dt < 100 and errorcounter<100:
+                dt = clock() - t
+                ret, img = self.take_picture()
+                if img is None:
+                    errorcounter += 1
+                    continue
+                gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+                gray = cv2.equalizeHist(gray)
+
+
+                rects = detect(gray, self.cascade)
+                vis = img.copy()
+                draw_rects(vis, rects, (0, 255, 0))
+
+                if len(rects) == 0:
+                    continue
+                rect=rects[0]
+                if len(rect) != 4:
+                    continue
+                x = (rect[0]+rect[2])/2
+                y = (rect[1]+rect[3])/2
+                print('found object at x: ', x, ' | y: ', y)
+                position = Point(x,y)
+                if self.are_near(position,last_pos):
+                    counter += 1
+                else:
+                    counter = 0
+                last_pos = position
+                draw_str(vis, (20, 20), 'time: %.1f ms' % (dt*1000))
+                draw_str(vis, (20, 40), 'position: %.1f px' % (x))
+                self.display(vis)
+            print 'x: ', x, ' | y: ', y
+            return x
+
+        except:
+            self.cam.release()
+        return -sys.maxint
     def are_near(self, a, b):
         """
 
@@ -91,17 +109,15 @@ class TargetCalculator:
         if self.do_display:
             cv2.imshow('calc target', img)
 
-
-
-
-def draw_rects(self, img, rects, color):
+def draw_rects(img, rects, color):
     """
 
     :rtype : object
     """
     for x1, y1, x2, y2 in rects:
         cv2.rectangle(img, (x1, y1), (x2, y2), color, 2)
-def detect(self, img, cascade):
+
+def detect(img, cascade):
     rects = cascade.detectMultiScale(img, scaleFactor=1.3, minNeighbors=4, minSize=(30, 30), flags = cv.CV_HAAR_SCALE_IMAGE)
     if len(rects) == 0:
         return []
