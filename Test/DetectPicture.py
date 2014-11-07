@@ -7,7 +7,8 @@ import cv2.cv as cv
 from video import create_capture
 from common import clock, draw_str
 import sys
-
+import picamera
+import picamera.array
 
 
 
