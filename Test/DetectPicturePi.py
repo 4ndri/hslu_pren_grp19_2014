@@ -113,6 +113,47 @@ class TargetCalculator:
             self.close()
         return -sys.maxint
 
+
+
+
+    def play_video(self):
+        with picamera.PiCamera() as camera:
+            stream = io.BytesIO()
+            camera.start_preview()
+            time.sleep(2)
+            while True:
+                t = clock()
+                camera.capture(stream, format="jpeg", use_video_port=True)
+                frame = np.fromstring(stream.getvalue(), dtype=np.uint8)
+                stream.seek(0)
+                frame = cv2.imdecode(frame, 1)
+                dt = clock() - t
+                draw_str(frame, (20, 20), 'time: %.1f ms' % (dt*1000))
+                cv2.imshow('picam img', frame)
+
+                if 0xFF & cv2.waitKey(5) == 27:
+                    break
+
+    def play_video2(self):
+        with picamera.PiCamera() as camera:
+            camera.resolution = (640, 480)
+            camera.start_preview()
+            time.sleep(2)
+            with picamera.array.PiRGBArray(camera) as stream:
+                while True:
+                    t = clock()
+                    print "capture"
+                    camera.capture(stream, format="bgr")
+                    print "get img"
+                    img = stream.array
+                    print "got img"
+                    dt = clock() - t
+                    # draw_str(img, (20, 20), 'time: %.1f ms' % (dt*1000))
+                    cv2.imshow('picam img', img)
+
+                    if 0xFF & cv2.waitKey(5) == 27:
+                        break
+
     @property
     def calc_target_pi(self):
         """
@@ -124,7 +165,7 @@ class TargetCalculator:
             stream1 = io.BytesIO()
             with picamera.PiCamera() as camera:
                 camera.start_preview()
-                time.sleep(3)
+                time.sleep(2)
                 img1 = camera.capture(stream1, format='jpeg')
                 cv2.imshow('calc target', img1)
                 y = 0
@@ -192,7 +233,7 @@ class TargetCalculator:
         return False
 
 
-        
+
 
     def display(self, img):
         """

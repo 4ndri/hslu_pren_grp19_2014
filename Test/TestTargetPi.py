@@ -7,8 +7,10 @@ import cv2.cv as cv
 
 target_calc = TargetCalculator("../cascades/lbpcascades/lbpcascade_frontalface.xml", True)
 try:
-    pos = target_calc.calc_target_pi
-    print(pos)
+    # pos = target_calc.showImage
+    # print(pos)
+    target_calc.play_video2()
+
     while True:
         if 0xFF & cv2.waitKey(5) == 27:
             break
