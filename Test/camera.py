@@ -25,16 +25,23 @@ class AbstractFactory:
 
 class CamFactory:
     factories = {}
-    def addFactory(id, shapeFactory):
-        CamFactory.factories.put[id] = shapeFactory
-    addFactory = staticmethod(addFactory)
+
+    
+    def add_factory(name, factory):
+        CamFactory.factories.put[name] = factory
+    add_factory = staticmethod(add_factory)
     # A Template Method:
-    def createCam(id):
-        if not CamFactory.factories.has_key(id):
+
+    @staticmethod
+    def create_cam(name):
+        """
+
+        :rtype : ICamera
+        """
+        if not CamFactory.factories.has_key(name):
             CamFactory.factories[id] = \
               eval(id + '.Factory()')
-        return CamFactory.factories[id].create()
-    createCam = staticmethod(createCam)
+        return CamFactory.factories[id].create
 
 
 class ICamera:
@@ -70,8 +77,10 @@ class Camera(ICamera):
         def __init__(self, video_src):
             self.video_src=video_src
 
+        @property
         def create(self):
             return Camera(self.video_src)
+
 
 
 
@@ -91,7 +100,6 @@ class PiCamera(ICamera):
         else:
             raise PiCamera.PiCameraException("initialization failed")
 
-
     @property
     def take_picture(self):
         self.cam.capture(self.stream, format="jpeg", use_video_port=True)
@@ -107,3 +115,19 @@ class PiCamera(ICamera):
         self.close()
         print self.id, 'del'
 
+    class Factory(AbstractFactory):
+        def __init__(self):
+            pass
+
+        @property
+        def create(self):
+            return PiCamera()
+
+
+def get_camera():
+    camera = None
+    if pi_cam_available:
+        camera = CamFactory.create_cam("PiCamera")
+    else:
+        camera = CamFactory.create_cam("Camera")
+    return camera
