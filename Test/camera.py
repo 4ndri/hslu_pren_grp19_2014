@@ -32,15 +32,15 @@ class CamFactory:
     add_factory = staticmethod(add_factory)
     # A Template Method:
 
-    @property
     def create_cam(name):
         """
 
         :rtype : ICamera
         """
         if not CamFactory.factories.has_key(name):
-            CamFactory.factories[name] = eval(name + '.Factory()')
-        return CamFactory.factories[id].create()
+            fac = eval(name+'.Factory()')
+            CamFactory.add_factory(name, fac)
+        return CamFactory.factories[name].create
     create_cam = staticmethod(create_cam)
 
 class ICamera:
@@ -62,18 +62,19 @@ class Camera(ICamera):
         self.cam = create_capture(video_src, fallback='synth:bg=../cpp/lena.jpg:noise=0.05')
 
     def take_picture(self):
-        pass
+        img = self.cam.read()
+        return img
 
     def close(self):
         self.cam.release()
 
     def __del__(self):
         self.close()
-        print self.id, 'del'
+        print 'del'
 
     class Factory(AbstractFactory):
-        def __init__(self, video_src):
-            self.video_src=video_src
+        def __init__(self, video_src=0):
+            self.video_src = video_src
 
         @property
         def create(self):
@@ -111,7 +112,7 @@ class PiCamera(ICamera):
 
     def __del__(self):
         self.close()
-        print self.id, 'del'
+        print 'del'
 
     class Factory(AbstractFactory):
         def __init__(self):
@@ -125,7 +126,9 @@ class PiCamera(ICamera):
 def get_camera():
     camera = None
     if pi_cam_available:
-        camera = CamFactory.create_cam
+        camera = CamFactory.create_cam('PiCamera')
     else:
-        camera = CamFactory.create_cam
+        camera = CamFactory.create_cam('Camera')
     return camera
+
+cam = get_camera()

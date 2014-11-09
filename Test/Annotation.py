@@ -5,6 +5,7 @@ import cv2
 import cv2.cv as cv
 from video import create_capture
 from common import clock, draw_str
+import camera
 from BasicFunctions import *
 import sys
 
@@ -13,17 +14,33 @@ import sys
 class Annotation:
     def __init__(self, annotation_path, video_src=0):
         self.annotation_path=annotation_path
-        self.video_src=video_src
-        self.cam = create_capture(video_src, fallback='synth:bg=../cpp/lena.jpg:noise=0.05')
+        self.video_src = video_src
+        self.cam = camera.get_camera()
         self.cascade = None
+        self.img = None
 
+    def define_object(self):
+        cv2.namedWindow('real image')
+        cv.SetMouseCallback('real image', self.on_mouse, 0)
+
+        pass
+
+    def on_mouse(self, event, x, y, flags, params):
+        if event == cv.CV_EVENT_LBUTTONDOWN:
+            print 'Start Mouse Position: '+str(x)+', '+str(y)
+            sbox = [x, y]
+            boxes.append(sbox)
+        elif event == cv.CV_EVENT_LBUTTONUP:
+            print 'End Mouse Position: '+str(x)+', '+str(y)
+            ebox = [x, y]
+            boxes.append(ebox)
 
     def play(self):
         try:
             errorcounter = 0
             while errorcounter<100:
                 t = clock()
-                ret, img = take_picture(self.cam)
+                ret, img = self.cam.take_picture()
                 if img is None:
                     errorcounter += 1
                     continue
@@ -43,7 +60,8 @@ class Annotation:
                 k = 0xFF & cv2.waitKey(5)
                 if k == 32:
                     print 'space'
-
+                    self.img = img
+                    self.define_object()
                 if k == 27:
                     print 'escape'
                     break
@@ -55,5 +73,6 @@ class Annotation:
             self.cam.release()
             cv2.destroyAllWindows()
 
-ann = Annotation("", 1)
+
+ann = Annotation("", 0)
 ann.play()
