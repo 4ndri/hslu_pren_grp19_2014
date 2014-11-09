@@ -28,21 +28,20 @@ class CamFactory:
 
     
     def add_factory(name, factory):
-        CamFactory.factories.put[name] = factory
+        CamFactory.factories[name] = factory
     add_factory = staticmethod(add_factory)
     # A Template Method:
 
-    @staticmethod
+    @property
     def create_cam(name):
         """
 
         :rtype : ICamera
         """
         if not CamFactory.factories.has_key(name):
-            CamFactory.factories[id] = \
-              eval(id + '.Factory()')
-        return CamFactory.factories[id].create
-
+            CamFactory.factories[name] = eval(name + '.Factory()')
+        return CamFactory.factories[id].create()
+    create_cam = staticmethod(create_cam)
 
 class ICamera:
     __metaclass__ = ABCMeta
@@ -54,7 +53,6 @@ class ICamera:
     @abstractmethod
     def close(self):
         raise NotImplementedError()
-
 
 
 class Camera(ICamera):
@@ -127,7 +125,7 @@ class PiCamera(ICamera):
 def get_camera():
     camera = None
     if pi_cam_available:
-        camera = CamFactory.create_cam("PiCamera")
+        camera = CamFactory.create_cam
     else:
-        camera = CamFactory.create_cam("Camera")
+        camera = CamFactory.create_cam
     return camera
