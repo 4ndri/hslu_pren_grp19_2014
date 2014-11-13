@@ -4,6 +4,7 @@ from abc import abstractproperty
 from abc import abstractmethod
 import numpy as np
 import cv2
+import cv2.cv as cv
 import io
 from video import create_capture
 try:
@@ -54,19 +55,36 @@ class ICamera:
     def close(self):
         raise NotImplementedError()
 
+    @abstractmethod
+    def set_resolution(self,w,h):
+        raise NotImplementedError()
+
 
 class Camera(ICamera):
     def __init__(self, video_src=0):
         self.video_src = video_src
         self.cam = None
         self.cam = create_capture(video_src, fallback='synth:bg=../cpp/lena.jpg:noise=0.05')
+        self.height = 480
+        self.width = 640
+        self.set_resolution()
+
 
     def take_picture(self):
-        img = self.cam.read()
+        ret, img = self.cam.read()
         return img
 
     def close(self):
         self.cam.release()
+
+    def set_resolution(self, w=0, h=0):
+        if w > 0:
+            self.width = w
+        if h > 0:
+            self.height = h
+        # cv.SetCaptureProperty(self.cam, cv.CV_CAP_PROP_FRAME_WIDTH, self.width)
+        self.cam.set(cv.CV_CAP_PROP_FRAME_WIDTH, self.width)
+        self.cam.set(cv.CV_CAP_PROP_FRAME_HEIGHT, self.height)
 
     def __del__(self):
         self.close()
@@ -110,6 +128,9 @@ class PiCamera(ICamera):
     def close(self):
         self.cam.close()
 
+    def set_resolution(self,w,h):
+        pass
+
     def __del__(self):
         self.close()
         print 'del'
@@ -124,6 +145,10 @@ class PiCamera(ICamera):
 
 
 def get_camera():
+    """
+
+    :rtype : ICamera
+    """
     camera = None
     if pi_cam_available:
         camera = CamFactory.create_cam('PiCamera')
@@ -131,4 +156,3 @@ def get_camera():
         camera = CamFactory.create_cam('Camera')
     return camera
 
-cam = get_camera()
