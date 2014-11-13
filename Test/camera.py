@@ -6,6 +6,7 @@ import numpy as np
 import cv2
 import cv2.cv as cv
 import io
+import time
 from video import create_capture
 try:
     import picamera
@@ -68,7 +69,7 @@ class Camera(ICamera):
         self.height = 480
         self.width = 640
         self.set_resolution()
-
+        time.sleep(2)
 
     def take_picture(self):
         ret, img = self.cam.read()
