@@ -3,7 +3,7 @@ import camera
 import cv2
 import cv2.cv as cv
 
-path = '/home/endru/Documents/OpenCV/CascadeTraining/opencv-haar-classifier-training/negative_images/'
+path = '/home/endru/Documents/OpenCV/CascadeClassifiers/TrashCan/negative_images/nocan'
 cam = camera.get_camera()
 i = 0
 while True:

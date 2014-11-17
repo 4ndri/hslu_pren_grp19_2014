@@ -68,8 +68,8 @@ class Camera(ICamera):
         self.cam = create_capture(video_src, fallback='synth:bg=../cpp/lena.jpg:noise=0.05')
         self.height = 480
         self.width = 640
-        self.set_resolution()
-        time.sleep(2)
+        # self.set_resolution()
+        # time.sleep(2)
 
     def take_picture(self):
         ret, img = self.cam.read()
