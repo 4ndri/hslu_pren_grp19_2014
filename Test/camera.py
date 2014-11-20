@@ -1,3 +1,5 @@
+from docutils.writers import null
+
 __author__ = 'endru'
 from abc import ABCMeta
 from abc import abstractproperty
@@ -119,12 +121,24 @@ class PiCamera(ICamera):
             raise PiCamera.PiCameraException("initialization failed")
 
     @property
-    def take_picture(self):
+    def take_picture3(self):
         self.cam.capture(self.stream, format="jpeg", use_video_port=True)
         frame = np.fromstring(self.stream.getvalue(), dtype=np.uint8)
         self.stream.seek(0)
         frame = cv2.imdecode(frame, 1)
         return frame
+
+    @property
+    def take_picture(self):
+        try:
+            image = None
+            self.stream = picamera.array.PiRGBArray(self.cam)
+            self.cam.capture(self.stream, format='bgr')
+            # At this point the image is available as stream.array
+            image = self.stream.array
+            return image
+        finally:
+            self.stream.truncate()
 
     def close(self):
         self.cam.close()

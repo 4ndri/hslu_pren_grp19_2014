@@ -7,7 +7,7 @@ path = '/home/endru/Documents/OpenCV/CascadeClassifiers/TrashCan/negative_images
 cam = camera.get_camera()
 i = 0
 while True:
-    img = cam.take_picture()
+    img = cam.take_picture
 
     cv2.imshow('facedetect', img)
 

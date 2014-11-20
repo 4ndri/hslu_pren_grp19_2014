@@ -40,7 +40,7 @@ class Annotation:
             errorcounter = 0
             while errorcounter<100:
                 t = clock()
-                ret, img = self.cam.take_picture()
+                ret, img = self.cam.take_picture
                 if img is None:
                     errorcounter += 1
                     continue

@@ -6,7 +6,7 @@ __author__ = 'endru'
 class TestCamera(TestCase):
     def test_take_picture(self):
         cam = camera.CamFactory.create_cam('Camera')
-        pic = cam.take_picture()
+        pic = cam.take_picture
         self.assertRaises(Exception)
         self.assertIsNotNone(pic, "no picture")
 
