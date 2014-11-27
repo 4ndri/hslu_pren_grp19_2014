@@ -67,13 +67,19 @@ class Camera(ICamera):
     def __init__(self, video_src=0):
         self.video_src = video_src
         self.cam = None
-        self.cam = create_capture(video_src, fallback='synth:bg=../cpp/lena.jpg:noise=0.05')
+        self.cam = create_capture(video_src)
         self.height = 480
         self.width = 640
-        # self.set_resolution()
+        self.set_resolution()
         # time.sleep(2)
 
+    @property
     def take_picture(self):
+        """
+
+
+        :return:
+        """
         ret, img = self.cam.read()
         return img
 
@@ -170,4 +176,3 @@ def get_camera():
     else:
         camera = CamFactory.create_cam('Camera')
     return camera
-
