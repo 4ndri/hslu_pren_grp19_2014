@@ -18,6 +18,18 @@ max_width_diff = max(field_rect[2] - approx_width, approx_width)
 max_height_diff = max(field_rect[3] - approx_height, approx_height)
 image_center = (field_rect[2]/2, field_rect[3]/2)
 
+def change_field(x, y, w, h):
+    global field_rect
+    field_rect = (x, y, w, h)
+
+def set_approx_values():
+    global max_area_diff, max_width_diff, max_height_diff, image_center, field_area
+    field_area = field_rect[2] * field_rect[3]
+    max_area_diff = max(field_area - approx_area, approx_area)
+    max_width_diff = max(field_rect[2] - approx_width, approx_width)
+    max_height_diff = max(field_rect[3] - approx_height, approx_height)
+    image_center = (field_rect[2]/2, field_rect[3]/2)
+
 def magic_sort(cnt):
     x, y, w, h = cv2.boundingRect(cnt)
     tmp_ratio = float(w)/h
@@ -71,6 +83,8 @@ while True:
 
     img_crop = img[field_rect[1]:field_rect[1]+field_rect[3], field_rect[0]:field_rect[0]+field_rect[2]]
     img_gray = cv2.cvtColor(img_crop, cv2.COLOR_BGR2GRAY)
+
+
 
     #img_gray = cv2.equalizeHist(img_gray)
     ret, thresh = cv2.threshold(img_gray, 70, 255, cv2.THRESH_BINARY_INV)
