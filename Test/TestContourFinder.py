@@ -6,12 +6,16 @@ import ContourFinder as cf
 import cv2
 import cv2.cv as cv
 import numpy as np
+from common import clock
+
 
 cam = camera.get_camera()
 threshold_val = 70
 cnt_calculator = cf.ContourCalc(cf.Rect(640, 480), cf.Field(0, 0, 640, 480), cf.Rect(100,120))
 
 while True:
+
+    t = clock()
     img = cam.take_picture
     cnt_info = cnt_calculator.find_contours(img)
 
@@ -39,6 +43,12 @@ while True:
     if k == 83:
         cnt_calculator.threshold_increase()
         print 'threshold up ' + str(cnt_calculator.threshold)
+    dt = clock() - t
+    if cnt_info is None:
+        continue
+
+    print '%s\r' % ' '*20, # clean up row
+    print 'time: %.1f ms' % (dt*1000) + '\t |\t distance: %.lf px' % cnt_info.center_distance.x + '\t |\t area: %.lf px' % cnt_info.area,
 
 cam.close()
 cv2.destroyAllWindows()

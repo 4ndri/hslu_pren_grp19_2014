@@ -50,8 +50,13 @@ class CamFactory:
 class ICamera:
     __metaclass__ = ABCMeta
 
-    height = 0
-    width = 0
+    @abstractproperty
+    def get_height(self):
+        return self.height
+
+    @abstractproperty
+    def get_width(self):
+        return self.width
 
     @abstractproperty
     def take_picture(self):
@@ -78,6 +83,14 @@ class Camera(ICamera):
         self.width = 640
         self.set_resolution()
         # time.sleep(2)
+
+    @property
+    def get_height(self):
+        return self.height
+
+    @property
+    def get_width(self):
+        return self.width
 
     @property
     def take_picture(self):
@@ -132,6 +145,14 @@ class PiCamera(ICamera):
             raise PiCamera.PiCameraException("initialization failed")
 
     @property
+    def get_height(self):
+        return self.height
+
+    @property
+    def get_width(self):
+        return self.width
+
+    @property
     def take_picture3(self):
         self.cam.capture(self.stream, format="jpeg", use_video_port=True)
         frame = np.fromstring(self.stream.getvalue(), dtype=np.uint8)
@@ -150,6 +171,8 @@ class PiCamera(ICamera):
             return image
         finally:
             self.stream.truncate()
+
+
 
     def close(self):
         self.cam.close()

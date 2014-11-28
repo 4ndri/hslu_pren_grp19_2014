@@ -6,41 +6,7 @@ import numpy as np
 import cv2
 import cv2.cv as cv
 import sys
-
-
-def magic_threshold(img):
-    img = cv2.imread('noisy2.png', 0)
-    blur = cv2.GaussianBlur(img, (5, 5), 0)
-
-    # find normalized_histogram, and its cumulative distribution function
-    hist = cv2.calcHist([blur], [0], None, [256], [0, 256])
-    hist_norm = hist.ravel() / hist.max()
-    Q = hist_norm.cumsum()
-
-    bins = np.arange(256)
-
-    fn_min = np.inf
-    thresh = -1
-
-    for i in xrange(1, 256):
-        p1, p2 = np.hsplit(hist_norm, [i])  # probabilities
-        q1, q2 = Q[i], Q[255] - Q[i]  # cum sum of classes
-        b1, b2 = np.hsplit(bins, [i])  # weights
-
-        # finding means and variances
-        m1, m2 = np.sum(p1 * b1) / q1, np.sum(p2 * b2) / q2
-        v1, v2 = np.sum(((b1 - m1) ** 2) * p1) / q1, np.sum(((b2 - m2) ** 2) * p2) / q2
-
-        # calculates the minimization function
-        fn = v1 * q1 + v2 * q2
-        if fn < fn_min:
-            fn_min = fn
-            thresh = i
-
-    # find otsu's threshold value with OpenCV function
-    ret, hierarchy = cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-    print thresh, ret
-
+from common import clock, draw_str
 
 def calc_ratio_compare(w, h):
     """
@@ -108,9 +74,10 @@ class ContourInfo:
         self.cnt = cnt
 
         x, y, w, h = cv2.boundingRect(cnt)
-        m_cnt = Point(x + w / 2, y + h / 2)
-        m_field = Point(self.field.width / 2, self.field.height / 2)
-        self.center_distance = Point(abs(m_cnt.x - m_field.x), abs(m_cnt.y - m_field.y))
+        self.area = cv2.contourArea(cnt)
+        self.m_cnt = Point(x + w / 2, y + h / 2)
+        self.m_field = Point(self.field.width / 2, self.field.height / 2)
+        self.center_distance = Point(abs(self.m_cnt.x - self.m_field.x), abs(self.m_cnt.y - self.m_field.y))
         self.rect = Field(x, y, w, h)
 
 
@@ -249,8 +216,7 @@ class ContourCalc:
         img_gray = cv2.cvtColor(img_crop, cv2.COLOR_BGR2GRAY)
 
         # img_gray = cv2.equalizeHist(img_gray)
-        thresh_value, thresh = magic_threshold(img_crop)
-        #ret, thresh = cv2.threshold(img_gray, self.threshold, 255, cv2.THRESH_BINARY_INV)
+        ret, thresh = cv2.threshold(img_gray, self.threshold, 255, cv2.THRESH_BINARY_INV)
 
         # th3 = cv2.adaptiveThreshold(img_gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
         # edges = cv2.Canny(img_gray, 100, 200)
@@ -258,23 +224,34 @@ class ContourCalc:
             cv2.imshow('threshold before', thresh)
 
         (contours, hierarchy) = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-
+        if contours.__len__<=0:
+            return None
         cnt_sort = sorted(contours, key=self.magic_sort, reverse=False)
+
         cnt = cnt_sort[0]
 
         cnt_info = ContourInfo(cnt, self.field)
         if do_display:
             cv2.rectangle(img, (self.field.x, self.field.y),
                           (self.field.x + self.field.width, self.field.y + self.field.height), (0, 200, 200), 3)
+            cv2.rectangle(img_crop, (cnt_info.rect.x, cnt_info.rect.y),
+                          (cnt_info.rect.x + cnt_info.rect.width, cnt_info.rect.y + cnt_info.rect.height),
+                          (255, 255, 0), 3)
+            cv2.line(img_crop, (cnt_info.m_field.x, cnt_info.m_cnt.y), (cnt_info.m_cnt.x, cnt_info.m_cnt.y), (255, 0, 255), 3)
 
-            mask = np.zeros(img_gray.shape, np.uint8)
-            cv2.drawContours(mask, [cnt], 0, 255, -1)
+            draw_str(img, (20, 20), 'threshold: %.1f' % self.threshold)
+            draw_str(img, (20, 40), 'distance x: %.1f px' % cnt_info.center_distance.x)
+            draw_str(img, (20, 60), 'area: %.1f px' % cnt_info.area)
 
             cv2.drawContours(img_crop, contours, -1, (100, 200, 0), 1)
             cv2.drawContours(img_crop, [cnt], -1, (0, 0, 255), 3)
-            cv2.imshow('color', img_crop)
+
+            # cv2.imshow('color', img_crop)
             cv2.imshow('whole', img)
-            cv2.imshow('mask', mask)
+
+            # mask = np.zeros(img_gray.shape, np.uint8)
+            # cv2.drawContours(mask, [cnt], 0, 255, -1)
+            # cv2.imshow('mask', mask)
 
         return cnt_info
 
