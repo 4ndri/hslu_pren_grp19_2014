@@ -57,9 +57,31 @@ class Field:
         self.width= width
         self.height = height
 
+class ContourInfo:
+    def __init__(self, cnt, field):
+        """
+
+        :rtype : ContourInfo
+        :param field: Point
+        :type center_distance: Point
+        :param cnt: object
+        """
+        self.field = field
+        self.cnt = cnt
+
+        x, y, w, h = cv2.boundingRect(cnt)
+        m_cnt = Point(x + w/2, y + h/2)
+        m_field = Point(self.field.width/2, self.field.height/2)
+        self.center_distance = Point(abs(m_cnt.x - m_field.x), abs(m_cnt.y - m_field.y))
+        self.rect = Field(x, y, w, h)
+
 
 class ContourCalc:
-    def __init__(self, cam_resolution=Rect(640, 480), field=Field(0, 0, 640, 480), approx_rect=Rect(100, 100)):
+    def __init__(self, cam_resolution=Rect(640, 480), field=Field(0, 0, 640, 480), approx_rect=Rect(100, 100), threshold=70):
+        """
+
+        :rtype : ContourCalc
+        """
         self.field = field
         self.cam_resolution = cam_resolution
         self.approx_rect = approx_rect
@@ -73,10 +95,54 @@ class ContourCalc:
         self.max_center_diff = 480
         self.image_center = Point(0, 0)
         self.set_approx_rect(approx_rect)
+        self.threshold = threshold
+
+    def set_threshold(self, threshold=70):
+        """
+
+        :param threshold: int
+        """
+        threshold = max(0, threshold)
+        threshold = min(255, threshold)
+        self.threshold = threshold
+
+    def threshold_increase(self):
+        self.set_threshold(self.threshold + 2)
+
+    def threshold_decrease(self):
+        self.set_threshold(self.threshold - 2)
 
     def set_field(self, field=Field(0, 0, 640, 480)):
+        """
+
+        :param field: Field
+        """
         self.field = field
+        self.field.x = min(self.cam_resolution.width, self.field.x)
+        self.field.x = max(0, self.field.x)
+        self.field.y = min(self.cam_resolution.height, self.field.y)
+        self.field.y = max(0, self.field.y)
+        self.field.width = min(self.field.width, self.cam_resolution.width - self.field.x)
+        self.field.width = max(0, self.field.width)
+        self.field.height = min(self.field.height, self.cam_resolution.height - self.field.y)
+        self.field.height = max(0, self.field.height)
         self.set_approx_rect(self.approx_rect)
+
+    def field_top_down(self):
+        new_field = Field(self.field.x, self.field.y + 3, self.field.width, self.field.height - 3)
+        self.set_field(new_field)
+
+    def field_top_up(self):
+        new_field = Field(self.field.x, self.field.y - 3, self.field.width, self.field.height + 3)
+        self.set_field(new_field)
+
+    def field_bottom_down(self):
+        new_field = Field(self.field.x, self.field.y, self.field.width, self.field.height + 3)
+        self.set_field(new_field)
+
+    def field_bottom_up(self):
+        new_field = Field(self.field.x, self.field.y, self.field.width, self.field.height - 3)
+        self.set_field(new_field)
 
     def calc_values(self):
         self.approx_area = self.approx_rect.width * self.approx_rect.height
@@ -89,12 +155,21 @@ class ContourCalc:
         self.max_center_diff = self.image_center.distance(Point(0, 0))
 
     def set_approx_rect(self, approx_rect=Rect(100, 100)):
+        """
+
+        :param approx_rect: Rect
+        """
         approx_rect.height = min(approx_rect.height, self.field.height)
         approx_rect.width = min(approx_rect.width, self.field.width)
         self.approx_rect = approx_rect
         self.calc_values()
 
     def magic_sort(self, cnt):
+        """
+
+        :param cnt: Object
+        :return: float
+        """
         x, y, w, h = cv2.boundingRect(cnt)
 
         tmp_area = cv2.contourArea(cnt)
@@ -121,17 +196,43 @@ class ContourCalc:
         p = p_area * 5 + p_width + p_height + p_center + float(1) / max(float(1)/sys.maxint, tmp_area)
         return p
 
-    def find_contours(self, image, do_display=True):
+    def find_contours(self, img, do_display=True):
 
         """
 
 
 
         :param do_display: bool
-        :param image:
-        :rtype : bool
+        :param img: np.numpy.array
+        :rtype : ContourInfo
         """
+        img_crop = img[self.field.y:self.field.y + self.field.height, self.field.x:self.field.x+self.field.width]
+        img_gray = cv2.cvtColor(img_crop, cv2.COLOR_BGR2GRAY)
+
+        # img_gray = cv2.equalizeHist(img_gray)
+        ret, thresh = cv2.threshold(img_gray, self.threshold, 255, cv2.THRESH_BINARY_INV)
+        # edges = cv2.Canny(img_gray, 100, 200)
+        if do_display:
+            cv2.imshow('threshold before', thresh)
+
+        (contours, hierarchy) = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
         cnt_sort = sorted(contours, key=self.magic_sort, reverse=False)
         cnt = cnt_sort[0]
-        return cnt
+
+        cnt_info = ContourInfo(cnt, self.field)
+        if do_display:
+            cv2.rectangle(img, (self.field.x, self.field.y), (self.field.x + self.field.width, self.field.y + self.field.height), (0, 200, 200), 3)
+
+            mask = np.zeros(img_gray.shape, np.uint8)
+            cv2.drawContours(mask, [cnt], 0, 255, -1)
+
+            cv2.drawContours(img_crop, contours, -1, (100, 200, 0), 1)
+            cv2.drawContours(img_crop, [cnt], -1, (0, 0, 255), 3)
+            cv2.imshow('color', img_crop)
+            cv2.imshow('whole', img)
+            cv2.imshow('mask', mask)
+
+        return cnt_info
+
+

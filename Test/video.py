@@ -130,9 +130,18 @@ presets = dict(
 )
 
 
-def create_capture(source = 0, fallback = presets['chess']):
-    '''source: <int> or '<int>|<filename>|synth [:<param_name>=<value> [:...]]'
-    '''
+def create_capture(source=0, fallback=presets['chess']):
+
+
+
+
+    """
+
+
+    :param source:
+    :param fallback:
+    :rtype : cv2.VideoCapture
+    """
     source = str(source).strip()
     chunks = source.split(':')
     # hanlde drive letter ('c:', ...)
@@ -152,6 +161,7 @@ def create_capture(source = 0, fallback = presets['chess']):
         except: pass
     else:
         cap = cv2.VideoCapture(source)
+
         if 'size' in params:
             w, h = map(int, params['size'].split('x'))
             cap.set(cv2.cv.CV_CAP_PROP_FRAME_WIDTH, w)

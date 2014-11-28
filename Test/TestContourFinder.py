@@ -13,33 +13,7 @@ cnt_calculator = cf.ContourCalc(cf.Rect(640, 480), cf.Field(0, 0, 640, 480), cf.
 
 while True:
     img = cam.take_picture
-
-    img_crop = img[cnt_calculator.field.y:cnt_calculator.field.y + cnt_calculator.field.height, cnt_calculator.field.x:cnt_calculator.field.x+cnt_calculator.field.width]
-    img_gray = cv2.cvtColor(img_crop, cv2.COLOR_BGR2GRAY)
-
-    # img_gray = cv2.equalizeHist(img_gray)
-    ret, thresh = cv2.threshold(img_gray, threshold_val, 255, cv2.THRESH_BINARY_INV)
-    # edges = cv2.Canny(img_gray, 100, 200)
-    cv2.imshow('threshold before', thresh)
-    (contours, hierarchy) = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    # cv2.imshow('threshold after', thresh)
-    cnt = cnt_calculator.magic_finder(img, contours)
-    # cv2.drawContours(thresh, contours, -1, (255, 0, 0), 3)
-    # cv2.rectangle(img, (field_rect[1], field_rect[1]+field_rect[3]), (field_rect[0], field_rect[0]+field_rect[2]), (0, 0, 255), 3)
-
-    cv2.rectangle(img, (cnt_calculator.field.x, cnt_calculator.field.y), (cnt_calculator.field.x + cnt_calculator.field.width, cnt_calculator.field.y + cnt_calculator.field.height), (0, 200, 200), 3)
-
-    mask = np.zeros(img_gray.shape, np.uint8)
-
-    cv2.drawContours(mask, [cnt], 0, 255, -1)
-
-    cv2.drawContours(img_crop, contours, -1, (100, 200, 0), 1)
-    cv2.drawContours(img_crop, [cnt], -1, (0, 0, 255), 1)
-    # cv2.imshow('grey', img_gray)
-    # cv2.imshow('edges', edges)
-    cv2.imshow('color', img_crop)
-    cv2.imshow('whole', img)
-    cv2.imshow('mask', mask)
+    cnt_info = cnt_calculator.find_contours(img)
 
     k = 0xFF & cv2.waitKey(5)
     if k != 255:
@@ -47,20 +21,24 @@ while True:
     if k == 27:
         print 'escape'
         break
-    if k == 82:
-        new_field = cf.Field(cnt_calculator.field.x, cnt_calculator.field.y + 3, cnt_calculator.field.width, cnt_calculator.field.height - 3)
-        cnt_calculator.set_field(new_field)
+    if k == 114:
+        cnt_calculator.field_top_up()
         print 'field top up  ' + str(cnt_calculator.field.y)
-    if k == 84:
-        new_field = cf.Field(cnt_calculator.field.x, cnt_calculator.field.y + 3, cnt_calculator.field.width, cnt_calculator.field.height - 3)
-        cnt_calculator.set_field(new_field)
+    if k == 102:
+        cnt_calculator.field_top_down()
         print 'field top down ' + str(cnt_calculator.field.y)
+    if k == 117:
+        cnt_calculator.field_bottom_up()
+        print 'field bottom up ' + str(cnt_calculator.field.y)
+    if k == 106:
+        cnt_calculator.field_bottom_down()
+        print 'field bottom down ' + str(cnt_calculator.field.y)
     if k == 81:
-        threshold_val = max(0,threshold_val - 3)
-        print 'threshold down ' + str(threshold_val)
-    if k == 82:
-        threshold_val = min(255, threshold_val + 3)
-        print 'threshold up ' + str(threshold_val)
+        cnt_calculator.threshold_decrease()
+        print 'threshold down ' + str(cnt_calculator.threshold)
+    if k == 83:
+        cnt_calculator.threshold_increase()
+        print 'threshold up ' + str(cnt_calculator.threshold)
 
 cam.close()
 cv2.destroyAllWindows()

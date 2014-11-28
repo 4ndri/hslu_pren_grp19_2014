@@ -57,7 +57,7 @@ class ICamera:
     def take_picture(self):
         """
 
-        :rtype : object
+        :rtype : np.ndarray
         """
         raise NotImplementedError()
 
@@ -73,7 +73,6 @@ class ICamera:
 class Camera(ICamera):
     def __init__(self, video_src=0):
         self.video_src = video_src
-        self.cam = None
         self.cam = create_capture(video_src)
         self.height = 480
         self.width = 640
@@ -84,8 +83,7 @@ class Camera(ICamera):
     def take_picture(self):
         """
 
-
-        :return:
+        :rtype : np.numpy.array
         """
         ret, img = self.cam.read()
         return img
