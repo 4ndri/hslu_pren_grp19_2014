@@ -50,8 +50,15 @@ class CamFactory:
 class ICamera:
     __metaclass__ = ABCMeta
 
+    height = 0
+    width = 0
+
     @abstractproperty
     def take_picture(self):
+        """
+
+        :rtype : object
+        """
         raise NotImplementedError()
 
     @abstractmethod
@@ -59,7 +66,7 @@ class ICamera:
         raise NotImplementedError()
 
     @abstractmethod
-    def set_resolution(self,w,h):
+    def set_resolution(self, w, h):
         raise NotImplementedError()
 
 
