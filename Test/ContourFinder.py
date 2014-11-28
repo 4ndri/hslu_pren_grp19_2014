@@ -7,6 +7,41 @@ import cv2
 import cv2.cv as cv
 import sys
 
+
+def magic_threshold(img):
+    img = cv2.imread('noisy2.png', 0)
+    blur = cv2.GaussianBlur(img, (5, 5), 0)
+
+    # find normalized_histogram, and its cumulative distribution function
+    hist = cv2.calcHist([blur], [0], None, [256], [0, 256])
+    hist_norm = hist.ravel() / hist.max()
+    Q = hist_norm.cumsum()
+
+    bins = np.arange(256)
+
+    fn_min = np.inf
+    thresh = -1
+
+    for i in xrange(1, 256):
+        p1, p2 = np.hsplit(hist_norm, [i])  # probabilities
+        q1, q2 = Q[i], Q[255] - Q[i]  # cum sum of classes
+        b1, b2 = np.hsplit(bins, [i])  # weights
+
+        # finding means and variances
+        m1, m2 = np.sum(p1 * b1) / q1, np.sum(p2 * b2) / q2
+        v1, v2 = np.sum(((b1 - m1) ** 2) * p1) / q1, np.sum(((b2 - m2) ** 2) * p2) / q2
+
+        # calculates the minimization function
+        fn = v1 * q1 + v2 * q2
+        if fn < fn_min:
+            fn_min = fn
+            thresh = i
+
+    # find otsu's threshold value with OpenCV function
+    ret, hierarchy = cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    print thresh, ret
+
+
 def calc_ratio_compare(w, h):
     """
     :param w: int
@@ -18,14 +53,16 @@ def calc_ratio_compare(w, h):
         r = 2 - 1 / r
     return r
 
+
 def calc_area_diff(a1, a2):
     """
     :param a1: float
     :param a2: float
     :rtype : float
     """
-    area_diff = abs(math.sqrt(a1)-math.sqrt(a2))
+    area_diff = abs(math.sqrt(a1) - math.sqrt(a2))
     return area_diff
+
 
 class Rect:
     def __init__(self, width, height):
@@ -45,7 +82,7 @@ class Point:
         :return: float
         """
         w = self.x - other_point.x
-        h =  self.y - other_point.y
+        h = self.y - other_point.y
         r = math.sqrt(math.pow(w, 2) + math.pow(h, 2))
         return r
 
@@ -54,8 +91,9 @@ class Field:
     def __init__(self, x, y, width, height):
         self.x = x
         self.y = y
-        self.width= width
+        self.width = width
         self.height = height
+
 
 class ContourInfo:
     def __init__(self, cnt, field):
@@ -70,14 +108,15 @@ class ContourInfo:
         self.cnt = cnt
 
         x, y, w, h = cv2.boundingRect(cnt)
-        m_cnt = Point(x + w/2, y + h/2)
-        m_field = Point(self.field.width/2, self.field.height/2)
+        m_cnt = Point(x + w / 2, y + h / 2)
+        m_field = Point(self.field.width / 2, self.field.height / 2)
         self.center_distance = Point(abs(m_cnt.x - m_field.x), abs(m_cnt.y - m_field.y))
         self.rect = Field(x, y, w, h)
 
 
 class ContourCalc:
-    def __init__(self, cam_resolution=Rect(640, 480), field=Field(0, 0, 640, 480), approx_rect=Rect(100, 100), threshold=70):
+    def __init__(self, cam_resolution=Rect(640, 480), field=Field(0, 0, 640, 480), approx_rect=Rect(100, 100),
+                 threshold=70):
         """
 
         :rtype : ContourCalc
@@ -151,7 +190,7 @@ class ContourCalc:
         self.max_width_diff = max(self.field.width - self.approx_rect.width, self.approx_rect.width)
         self.max_height_diff = max(self.field.height - self.approx_rect.height, self.approx_rect.height)
         self.max_ratio_diff = max(calc_ratio_compare(self.field.width, 1), calc_ratio_compare(1, self.field.height))
-        self.image_center = Point(self.field.width/2, self.field.height/2)
+        self.image_center = Point(self.field.width / 2, self.field.height / 2)
         self.max_center_diff = self.image_center.distance(Point(0, 0))
 
     def set_approx_rect(self, approx_rect=Rect(100, 100)):
@@ -186,14 +225,14 @@ class ContourCalc:
         ratio_diff = abs(tmp_ratio - self.approx_ratio)
         p_ratio = float(ratio_diff) / self.max_ratio_diff
 
-        m = Point(x + w/2, y + h/2)
+        m = Point(x + w / 2, y + h / 2)
 
         center_distance = Point(abs(self.image_center.x - m.x), abs(self.image_center.y - m.y))
         center_diff = center_distance.distance(Point(0, 0))
-        p_center = float(center_diff)/self.max_center_diff
+        p_center = float(center_diff) / self.max_center_diff
 
         # p = p_area * 4 + p_width * 2 + p_height * 2 + p_ratio  + p_center * 2
-        p = p_area * 5 + p_width + p_height + p_center + float(1) / max(float(1)/sys.maxint, tmp_area)
+        p = p_area * 5 + p_width + p_height + p_center + float(1) / max(float(1) / sys.maxint, tmp_area)
         return p
 
     def find_contours(self, img, do_display=True):
@@ -206,11 +245,14 @@ class ContourCalc:
         :param img: np.numpy.array
         :rtype : ContourInfo
         """
-        img_crop = img[self.field.y:self.field.y + self.field.height, self.field.x:self.field.x+self.field.width]
+        img_crop = img[self.field.y:self.field.y + self.field.height, self.field.x:self.field.x + self.field.width]
         img_gray = cv2.cvtColor(img_crop, cv2.COLOR_BGR2GRAY)
 
         # img_gray = cv2.equalizeHist(img_gray)
-        ret, thresh = cv2.threshold(img_gray, self.threshold, 255, cv2.THRESH_BINARY_INV)
+        thresh_value, thresh = magic_threshold(img_crop)
+        #ret, thresh = cv2.threshold(img_gray, self.threshold, 255, cv2.THRESH_BINARY_INV)
+
+        # th3 = cv2.adaptiveThreshold(img_gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
         # edges = cv2.Canny(img_gray, 100, 200)
         if do_display:
             cv2.imshow('threshold before', thresh)
@@ -222,7 +264,8 @@ class ContourCalc:
 
         cnt_info = ContourInfo(cnt, self.field)
         if do_display:
-            cv2.rectangle(img, (self.field.x, self.field.y), (self.field.x + self.field.width, self.field.y + self.field.height), (0, 200, 200), 3)
+            cv2.rectangle(img, (self.field.x, self.field.y),
+                          (self.field.x + self.field.width, self.field.y + self.field.height), (0, 200, 200), 3)
 
             mask = np.zeros(img_gray.shape, np.uint8)
             cv2.drawContours(mask, [cnt], 0, 255, -1)
