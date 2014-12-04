@@ -77,7 +77,7 @@ class ContourInfo:
         self.area = cv2.contourArea(cnt)
         self.m_cnt = Point(x + w / 2, y + h / 2)
         self.m_field = Point(self.field.width / 2, self.field.height / 2)
-        self.center_distance = Point(abs(self.m_cnt.x - self.m_field.x), abs(self.m_cnt.y - self.m_field.y))
+        self.center_distance = Point(self.m_cnt.x - self.m_field.x, self.m_cnt.y - self.m_field.y)
         self.rect = Field(x, y, w, h)
 
 
@@ -227,7 +227,9 @@ class ContourCalc:
         if contours.__len__<=0:
             return None
         cnt_sort = sorted(contours, key=self.magic_sort, reverse=False)
-
+        if cnt_sort.__len__<=0:
+            return None
+        print cnt_sort.__len__
         cnt = cnt_sort[0]
 
         cnt_info = ContourInfo(cnt, self.field)
