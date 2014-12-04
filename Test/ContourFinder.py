@@ -224,12 +224,10 @@ class ContourCalc:
             cv2.imshow('threshold before', thresh)
 
         (contours, hierarchy) = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-        if contours.__len__<=0:
+        if len(contours) <= 0:
             return None
         cnt_sort = sorted(contours, key=self.magic_sort, reverse=False)
-        if cnt_sort.__len__<=0:
-            return None
-        print cnt_sort.__len__
+
         cnt = cnt_sort[0]
 
         cnt_info = ContourInfo(cnt, self.field)
