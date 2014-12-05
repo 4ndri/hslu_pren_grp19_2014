@@ -1,4 +1,5 @@
-from docutils.writers import null
+#!/usr/bin/env python
+# from docutils.writers import null
 
 __author__ = 'endru'
 from abc import ABCMeta
@@ -153,7 +154,7 @@ class PiCamera(ICamera):
         return self.width
 
     @property
-    def take_picture3(self):
+    def take_picture2(self):
         self.cam.capture(self.stream, format="jpeg", use_video_port=True)
         frame = np.fromstring(self.stream.getvalue(), dtype=np.uint8)
         self.stream.seek(0)
@@ -165,7 +166,7 @@ class PiCamera(ICamera):
         try:
             image = None
             self.stream = picamera.array.PiRGBArray(self.cam)
-            self.cam.capture(self.stream, format='bgr')
+            self.cam.capture(self.stream, format='bgr', use_video_port=True)
             # At this point the image is available as stream.array
             image = self.stream.array
             return image
@@ -177,8 +178,8 @@ class PiCamera(ICamera):
     def close(self):
         self.cam.close()
 
-    def set_resolution(self,w,h):
-        pass
+    def set_resolution(self, w, h):
+        self.cam.resolution = (w, h)
 
     def __del__(self):
         self.close()

@@ -6,16 +6,16 @@ import cv2
 import cv2.cv as cv
 import numpy as np
 import time
+from video import create_capture
 
 
-cam = camera.get_camera()
 threshold_val = 70
 cnt_calculator = cf.ContourCalc(cf.Rect(640, 480), cf.Field(0, 0, 640, 480), cf.Rect(100,120))
 
-while True:
+cam = create_capture('synth:bg=/home/endru/Documents/Development/precision_images', fallback='synth:bg=../cpp/lena.jpg:noise=0.05')
 
-    t = time.time()
-    img = cam.take_picture
+while True:
+    ret, img = cam.read()
     cnt_info = cnt_calculator.find_contours(img, False)
 
     k = 0xFF & cv2.waitKey(5)

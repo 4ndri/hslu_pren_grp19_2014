@@ -4,7 +4,7 @@ __author__ = 'endru'
 import numpy as np
 import cv2
 import cv2.cv as cv
-from video import create_capture
+import camera
 from common import clock, draw_str
 
 help_message = '''
@@ -25,20 +25,16 @@ def draw_rects(img, rects, color):
 if __name__ == '__main__':
     import sys, getopt
     print help_message
-
-    args, video_src = getopt.getopt(sys.argv[1:], '', ['cascade=', 'nested-cascade='])
-    try: video_src = video_src[0]
-    except: video_src = 0
-    args = dict(args)
+    # args, video_src = getopt.getopt(sys.argv[1:], '', ['cascade=', 'nested-cascade='])
+    cam = camera.get_camera()
     # cascade_fn = args.get('--cascade', "../cascades/lbpcascades/lbpcascade_frontalface.xml")
-    cascade_fn = args.get('--cascade', "../cascades/MindTheGapCascade.xml")
+    # cascade_fn = args.get('--cascade', "../cascades/trashcan_classifier.xml")
 
-    cascade = cv2.CascadeClassifier(cascade_fn)
+    cascade = cv2.CascadeClassifier("../cascades/trashcan_classifier.xml")
 
-    cam = create_capture(video_src, fallback='synth:bg=../cpp/lena.jpg:noise=0.05')
 
     while True:
-        ret, img = cam.read()
+        img = cam.take_picture
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         gray = cv2.equalizeHist(gray)
 
