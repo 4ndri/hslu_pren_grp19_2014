@@ -12,11 +12,11 @@ from video import create_capture
 threshold_val = 70
 cnt_calculator = cf.ContourCalc(cf.Rect(640, 480), cf.Field(0, 0, 640, 480), cf.Rect(100,120))
 
-cam = create_capture('synth:bg=/home/endru/Documents/Development/precision_images', fallback='synth:bg=../cpp/lena.jpg:noise=0.05')
+cam = create_capture('synth:bg=/home/endru/Documents/Development/precision_images/640_480_pic00003.jpg', fallback='synth:bg=../cpp/lena.jpg:noise=0.05')
 
 while True:
     ret, img = cam.read()
-    cnt_info = cnt_calculator.find_contours(img, False)
+    cnt_info = cnt_calculator.find_contours(img, True)
 
     k = 0xFF & cv2.waitKey(5)
     if k != 255:
@@ -42,12 +42,11 @@ while True:
     if k == 83:
         cnt_calculator.threshold_increase()
         print 'threshold up ' + str(cnt_calculator.threshold)
-    dt = time.time() - t
+
     if cnt_info is None:
         continue
 
     print '%s\r' % ' '*20, # clean up row
-    print 'time: %.1f ms' % (dt*1000) + '\t |\t distance: %.lf px' % cnt_info.center_distance.x + '\t |\t area: %.lf px' % cnt_info.area,
+    print 'distance: %.lf px' % cnt_info.center_distance.x + '\t |\t area: %.lf px' % cnt_info.area,
 
-cam.close()
 cv2.destroyAllWindows()
