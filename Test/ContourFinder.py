@@ -79,6 +79,7 @@ class ContourInfo:
         self.m_field = Point(self.field.width / 2, self.field.height / 2)
         self.center_distance = Point(self.m_cnt.x - self.m_field.x, self.m_cnt.y - self.m_field.y)
         self.rect = Field(x, y, w, h)
+        self.img = None
 
 
 class ContourCalc:
@@ -148,6 +149,22 @@ class ContourCalc:
 
     def field_bottom_up(self):
         new_field = Field(self.field.x, self.field.y, self.field.width, self.field.height - 3)
+        self.set_field(new_field)
+
+    def field_right_right(self):
+        new_field = Field(self.field.x, self.field.y, self.field.width + 3, self.field.height)
+        self.set_field(new_field)
+
+    def field_right_left(self):
+        new_field = Field(self.field.x, self.field.y, self.field.width - 3, self.field.height)
+        self.set_field(new_field)
+
+    def field_left_right(self):
+        new_field = Field(self.field.x + 3, self.field.y, self.field.width - 3, self.field.height)
+        self.set_field(new_field)
+
+    def field_left_left(self):
+        new_field = Field(self.field.x - 3, self.field.y, self.field.width + 3, self.field.height)
         self.set_field(new_field)
 
     def calc_values(self):
@@ -231,6 +248,7 @@ class ContourCalc:
         cnt = cnt_sort[0]
 
         cnt_info = ContourInfo(cnt, self.field)
+
         if do_display:
             cv2.rectangle(img, (self.field.x, self.field.y),
                           (self.field.x + self.field.width, self.field.y + self.field.height), (0, 200, 200), 3)
@@ -248,7 +266,7 @@ class ContourCalc:
 
             # cv2.imshow('color', img_crop)
             cv2.imshow('whole', img)
-
+            cnt_info.img = img
             # mask = np.zeros(img_gray.shape, np.uint8)
             # cv2.drawContours(mask, [cnt], 0, 255, -1)
             # cv2.imshow('mask', mask)
