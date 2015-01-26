@@ -16,7 +16,7 @@ while True:
 
     t = time.time()
     img = cam.take_picture
-    cnt_info = cnt_calculator.find_contours(img, False)
+    cnt_info = cnt_calculator.find_contours(img)
 
     k = 0xFF & cv2.waitKey(5)
     if k != 255:
