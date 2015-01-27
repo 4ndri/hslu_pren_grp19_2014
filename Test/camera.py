@@ -80,10 +80,10 @@ class Camera(ICamera):
     def __init__(self, video_src=0):
         self.video_src = video_src
         self.cam = create_capture(video_src)
-        self.height = 480
-        self.width = 640
-        self.set_resolution()
-        # time.sleep(2)
+        # self.height = 480
+        # self.width = 640
+        # self.set_resolution()
+        time.sleep(2)
 
     @property
     def get_height(self):
@@ -104,6 +104,7 @@ class Camera(ICamera):
 
     def close(self):
         self.cam.release()
+        print 'camera closed'
 
     def set_resolution(self, w=0, h=0):
         if w > 0:
@@ -116,7 +117,7 @@ class Camera(ICamera):
 
     def __del__(self):
         self.close()
-        print 'del'
+        print 'camera object del'
 
     class Factory(AbstractFactory):
         def __init__(self, video_src=0):
@@ -177,13 +178,14 @@ class PiCamera(ICamera):
 
     def close(self):
         self.cam.close()
+        print 'picamera closed'
 
     def set_resolution(self, w, h):
         self.cam.resolution = (w, h)
 
     def __del__(self):
         self.close()
-        print 'del'
+        print 'picamera object del'
 
     class Factory(AbstractFactory):
         def __init__(self):
