@@ -13,7 +13,7 @@ import time
 cam = camera.get_camera()
 try:
     threshold_val = 70
-    cnt_calculator = cf.ContourCalc(cf.Rect(640, 480), cf.Field(0, 0, 640, 480), cf.Rect(100,120))
+    cnt_calculator = cf.ContourCalc()
 
     while True:
 

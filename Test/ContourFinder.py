@@ -7,7 +7,7 @@ import cv2
 import cv2.cv as cv
 import sys
 from common import clock, draw_str
-
+import config as cfg
 def calc_ratio_compare(w, h):
     """
     :param w: int
@@ -83,12 +83,15 @@ class ContourInfo:
 
 
 class ContourCalc:
-    def __init__(self, cam_resolution=Rect(640, 480), field=Field(0, 0, 640, 480), approx_rect=Rect(100, 100),
-                 threshold=70):
+    def __init__(self, config=cfg.MyConfig()):
         """
 
         :rtype : ContourCalc
         """
+        self.config = config
+        cam_resolution = Rect(config.resolution_w, config.resolution_h)
+        field = Field(config.field_x, config.field_y, config.field_width, config.field_height)
+        approx_rect = Rect(config.approx_rect_w, config.approx_rect_h)
         self.field = field
         self.cam_resolution = cam_resolution
         self.approx_rect = approx_rect
@@ -102,7 +105,7 @@ class ContourCalc:
         self.max_center_diff = 480
         self.image_center = Point(0, 0)
         self.set_approx_rect(approx_rect)
-        self.threshold = threshold
+        self.threshold = config.threshold
 
     def set_threshold(self, threshold=70):
         """
@@ -112,6 +115,7 @@ class ContourCalc:
         threshold = max(0, threshold)
         threshold = min(255, threshold)
         self.threshold = threshold
+        self.config.set_threshold(threshold)
 
     def threshold_increase(self):
         self.set_threshold(self.threshold + 2)
@@ -133,6 +137,7 @@ class ContourCalc:
         self.field.width = max(0, self.field.width)
         self.field.height = min(self.field.height, self.cam_resolution.height - self.field.y)
         self.field.height = max(0, self.field.height)
+        self.config.set_field(self.field)
         self.set_approx_rect(self.approx_rect)
 
     def field_top_down(self):
@@ -185,6 +190,7 @@ class ContourCalc:
         approx_rect.height = min(approx_rect.height, self.field.height)
         approx_rect.width = min(approx_rect.width, self.field.width)
         self.approx_rect = approx_rect
+        self.config.set_approx_rect(self.approx_rect)
         self.calc_values()
 
     def magic_sort(self, cnt):
