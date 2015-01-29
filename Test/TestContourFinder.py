@@ -15,7 +15,7 @@ try:
     threshold_val = 70
     config=cfg.MyConfig()
     cnt_calculator = cf.ContourCalc(config)
-    #cam.set_resolution(config.resolution_w,config.resolution_h)
+    cam.set_resolution(config.resolution_w,config.resolution_h)
     while True:
 
         t = time.time()

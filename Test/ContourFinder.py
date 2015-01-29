@@ -237,7 +237,7 @@ class ContourCalc:
         """
         img_crop = img[self.field.y:self.field.y + self.field.height, self.field.x:self.field.x + self.field.width]
         img_gray = cv2.cvtColor(img_crop, cv2.COLOR_BGR2GRAY)
-        img_gray = cv2.fastNlMeansDenoising(img_gray)
+        #img_gray2 = cv2.fastNlMeansDenoising(img_gray)
         # img_gray = cv2.equalizeHist(img_gray)
         ret, thresh = cv2.threshold(img_gray, self.threshold, 255, cv2.THRESH_BINARY_INV)
 
@@ -272,7 +272,7 @@ class ContourCalc:
             cv2.drawContours(img_crop, [cnt], -1, (0, 0, 255), 3)
 
             # cv2.imshow('color', img_crop)
-            cv2.imshow('whole', img)
+            cv2.imshow('Objekterkennung', img)
             cnt_info.img = img
             # mask = np.zeros(img_gray.shape, np.uint8)
             # cv2.drawContours(mask, [cnt], 0, 255, -1)
