@@ -1,0 +1,3 @@
+scp -r ~/Documents/Dev/hslu_pren_grp19_2014 pi@192.168.0.106:/home/pi/OpenCV/Development/
+
+ssh -Y pi@192.168.0.106
