@@ -237,14 +237,15 @@ class ContourCalc:
         """
         img_crop = img[self.field.y:self.field.y + self.field.height, self.field.x:self.field.x + self.field.width]
         img_gray = cv2.cvtColor(img_crop, cv2.COLOR_BGR2GRAY)
-
+        img_gray = cv2.fastNlMeansDenoising(img_gray)
         # img_gray = cv2.equalizeHist(img_gray)
         ret, thresh = cv2.threshold(img_gray, self.threshold, 255, cv2.THRESH_BINARY_INV)
 
+
         # th3 = cv2.adaptiveThreshold(img_gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
         # edges = cv2.Canny(img_gray, 100, 200)
-        if do_display:
-            cv2.imshow('threshold before', thresh)
+        # if do_display:
+        #     cv2.imshow('threshold', thresh)
 
         (contours, hierarchy) = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         if len(contours) <= 0:

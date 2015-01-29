@@ -8,13 +8,14 @@ import cv2
 import cv2.cv as cv
 import numpy as np
 import time
-
+import config as cfg
 
 cam = camera.get_camera()
 try:
     threshold_val = 70
-    cnt_calculator = cf.ContourCalc()
-
+    config=cfg.MyConfig()
+    cnt_calculator = cf.ContourCalc(config)
+    #cam.set_resolution(config.resolution_w,config.resolution_h)
     while True:
 
         t = time.time()
