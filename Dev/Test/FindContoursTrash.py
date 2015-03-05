@@ -1,7 +1,7 @@
+from Dev.Test import camera
 
 __author__ = 'endru'
 import math
-import camera
 import cv2
 import cv2.cv as cv
 import numpy as np

@@ -1,11 +1,12 @@
+from Dev.Test import camera
+
 __author__ = 'endru'
 #!/usr/bin/env python
 
 import numpy as np
 import cv2
 import cv2.cv as cv
-import camera
-from common import clock, draw_str
+from Dev.Test.common import clock, draw_str
 
 help_message = '''
 USAGE: facedetect.py [--cascade <cascade_fn>] [--nested-cascade <cascade_fn>] [<video_source>]

@@ -1,12 +1,13 @@
+from Dev.Test import camera, ContourFinder
+
 __author__ = 'endru'
 import math
-import camera
-import ContourFinder as cf
+import Dev.Test.ContourFinder as cf
 import cv2
 import cv2.cv as cv
 import numpy as np
 import time
-from video import create_capture
+from Dev.Test.video import create_capture
 
 path = '/home/endru/Documents/Development/precision_images/640_480_contours_'
 threshold_val = 70

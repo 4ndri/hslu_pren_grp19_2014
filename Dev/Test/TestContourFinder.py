@@ -1,14 +1,14 @@
 import sys
+from Dev.Test import camera, ContourFinder, config
 
 __author__ = 'endru'
 import math
-import camera
-import ContourFinder as cf
+import Dev.Test.ContourFinder as cf
 import cv2
 import cv2.cv as cv
 import numpy as np
 import time
-import config as cfg
+import Dev.Test.config as cfg
 
 cam = camera.get_camera()
 try:

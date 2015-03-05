@@ -1,4 +1,5 @@
 import math
+from Dev.Test import config as cfg
 
 __author__ = 'endru'
 
@@ -6,8 +7,9 @@ import numpy as np
 import cv2
 import cv2.cv as cv
 import sys
-from common import clock, draw_str
-import config as cfg
+from Dev.Test.common import clock, draw_str
+
+
 def calc_ratio_compare(w, h):
     """
     :param w: int

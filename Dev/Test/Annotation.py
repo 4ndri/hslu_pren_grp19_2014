@@ -1,12 +1,13 @@
+from Dev.Test import camera
+
 __author__ = 'endru'
 
 import numpy as np
 import cv2
 import cv2.cv as cv
-from video import create_capture
-from common import clock, draw_str
-import camera
-from BasicFunctions import *
+from Dev.Test.video import create_capture
+from Dev.Test.common import clock, draw_str
+from Dev.Test.BasicFunctions import *
 import sys
 
 

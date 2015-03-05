@@ -1,5 +1,6 @@
+from Dev.Test import camera
+
 __author__ = 'endru'
-import camera
 import cv2
 import cv2.cv as cv
 

@@ -33,7 +33,8 @@ import numpy as np
 import cv2
 from time import clock
 from numpy import pi, sin, cos
-import common
+from Dev.Test import common
+
 
 class VideoSynthBase(object):
     def __init__(self, size=None, noise=0.0, bg = None, **params):

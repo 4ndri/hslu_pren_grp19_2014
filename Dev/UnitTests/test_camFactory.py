@@ -1,5 +1,5 @@
 from unittest import TestCase
-import Test.camera as camera
+import Dev.Test.camera as camera
 __author__ = 'endru'
 
 

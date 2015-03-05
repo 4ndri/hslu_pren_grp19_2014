@@ -1,6 +1,8 @@
+from Dev.Test import ContourFinder as CF
+
 __author__ = 'endru'
 import ConfigParser
-import ContourFinder as CF
+
 
 class MyConfig:
     def __init__(self):

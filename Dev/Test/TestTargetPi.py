@@ -1,6 +1,6 @@
 __author__ = 'endru'
 
-from DetectPicturePi import TargetCalculator
+from Dev.Test.DetectPicturePi import TargetCalculator
 import numpy as np
 import cv2
 import cv2.cv as cv
