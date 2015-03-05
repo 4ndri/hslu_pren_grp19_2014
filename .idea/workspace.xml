@@ -2,61 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a210c76-c31c-4a6a-a92f-54d56e48e663" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Dev/Hardware/Pi-Cam/__init__.py" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Steuerung\steuerung.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\SysConfig\OpenCVUbuntu" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\SysConfig\copyToPi" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\.idea\.name" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\.idea\Test.iml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\.idea\dictionaries\endru.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\.idea\encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\.idea\misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\.idea\modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\.idea\scopes\scope_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\.idea\vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\.idea\workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\Annotation.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\BasicFunctions.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\ContourFinder.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\DetectPicture.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\DetectPicturePi.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\FindContoursTrash.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\MindTheGap.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\Precision.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\SaveImages.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\Test.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\TestContourFinder.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\TestPiCamera.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\TestTarget.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\TestTargetPi.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\UltraSchallTest.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\camera.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\common.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\config.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\contourFinder.ini" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\ultrasonic_1.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Test\video.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Treiber\Ballbefoerderung\__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Treiber\Ballbefoerderung\ballbefoerderung.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Treiber\Balldepot\__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Treiber\Balldepot\balldepot.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Treiber\Zielerfassung\__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Treiber\Zielerfassung\zielerfassung.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Treiber\__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\UnitTests\__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\UnitTests\test_camFactory.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\UnitTests\test_camera.py" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\UnitTests\test_piCamera.py" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Hardware\DC-Motor\__init__.py" afterPath="$PROJECT_DIR$/Dev/Hardware/DC-Motor/__init__.py" />
-      <change type="MOVED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Hardware\Schrittmotor\__init__.py" afterPath="$PROJECT_DIR$/Dev/Hardware/Schrittmotor/__init__.py" />
-      <change type="MOVED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Hardware\Servo-Motor\__init__.py" afterPath="$PROJECT_DIR$/Dev/Hardware/Servo-Motor/__init__.py" />
-      <change type="MOVED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Hardware\__init__.py" afterPath="$PROJECT_DIR$/Dev/Hardware/__init__.py" />
-      <change type="MOVED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Kommunikation\__init__.py" afterPath="$PROJECT_DIR$/Dev/Kommunikation/__init__.py" />
-      <change type="MOVED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Kommunikation\kommunikation.py" afterPath="$PROJECT_DIR$/Dev/Kommunikation/kommunikation.py" />
-      <change type="MOVED" beforePath="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Steuerung\__init__.py" afterPath="$PROJECT_DIR$/Dev/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/hslu_pren_grp19_2014.iml" afterPath="$PROJECT_DIR$/.idea/hslu_pren_grp19_2014.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hslu_pren_grp19_2014.iws" />
@@ -81,46 +26,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="camera.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/Test/camera.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="3519">
-              <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="steuerung.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/Steuerung/steuerung.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="119">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/Treiber/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="119">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/Steuerung/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="119">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -131,18 +36,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="906">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ballbefoerderung.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/Treiber/Ballbefoerderung/ballbefoerderung.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -151,31 +46,83 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="balldepot.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/Treiber/Balldepot/balldepot.py">
+      <file leaf-file-name="camera.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dev/Hardware/Pi-Cam/camera.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.68" vertical-offset="0" max-vertical-offset="119">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3519">
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/Hardware/__init__.py">
+      <file leaf-file-name="ContourFinder.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dev/Test/ContourFinder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="119">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4947">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContourFinder.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dev/Treiber/Zielerfassung/ContourFinder.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="80" max-vertical-offset="4930">
+              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FindContoursTrash.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Dev/Test/FindContoursTrash.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2091">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="zielerfassung.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/Treiber/Zielerfassung/zielerfassung.py">
+      <file leaf-file-name="video.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dev/Hardware/Pi-Cam/video.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="493">
-              <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3519">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contourFinder.ini" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dev/Test/contourFinder.ini">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="323">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dev/Treiber/Zielerfassung/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dev/Test/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -278,6 +225,46 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Treiber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hslu_pren_grp19_2014" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hslu_pren_grp19_2014" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Treiber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zielerfassung" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hslu_pren_grp19_2014" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hslu_pren_grp19_2014" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Hardware" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -299,10 +286,13 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Dev\Treiber\Zielerfassung" />
+      <recent name="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Dev\Hardware\Pi-Cam" />
       <recent name="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Kommunikation" />
       <recent name="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Steuerung" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Dev\Treiber\Zielerfassung" />
       <recent name="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Dev" />
       <recent name="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Treiber" />
     </key>
@@ -632,6 +622,72 @@
     <entry file="file://$PROJECT_DIR$/Dev/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="906">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Test/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Test/contourFinder.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="906">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Test/ContourFinder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4947">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Hardware/Pi-Cam/video.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3519">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Treiber/Zielerfassung/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Hardware/Pi-Cam/camera.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3519">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Treiber/Zielerfassung/ContourFinder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="80" max-vertical-offset="4930">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Test/FindContoursTrash.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2091">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
