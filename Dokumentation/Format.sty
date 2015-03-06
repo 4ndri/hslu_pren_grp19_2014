@@ -1,0 +1,194 @@
+
+
+% \rm \sf \tt \bf \it \sl \sc 
+%\usepackage[bookmarksopen]{hyperref}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{afterpage}
+\usepackage{caption}
+%\usepackage{float}%lädt das Paket zum erzwingen der Grafikposition 
+\usepackage[T1]{fontenc}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\usepackage{floatrow}%centering figures
+\newcommand{\tab}[1]{\hspace{0.5\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+%\addtokomafont{section}{\rmfamily\scshape\large} 
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\addto\captionsngerman{%
+\renewcommand*{\figurename}{Abb.}%
+\renewcommand*{\tablename}{Tab.}%
+}
+\usepackage{csquotes}
+\usepackage[style=apa]{biblatex}
+\DeclareLanguageMapping{german}{german-apa}
+\setlength{\bibitemsep}{0.5\baselineskip} 
+\usepackage[pdftex=true,
+						plainpages=false,
+						backref=none,
+						colorlinks=true,
+						breaklinks=true,
+						hyperindex=false,
+						pdftitle={PREN1 Team 19},
+						pdfauthor={},
+						pdfsubject={PREN1 Team 19},
+						pdfkeywords={},
+						urlcolor=black,
+						linkcolor=black,
+						citecolor=black,
+						pdfpagemode=UseOutlines]{hyperref}
+\usepackage[pdftex]{graphicx}
+\usepackage[usenames,dvipsnames]{color}
+%\usepackage{ngerman}
+%\selectlanguage{ngerman}
+\usepackage{mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{wrapfig}
+\usepackage{subfigure}
+\usepackage{verbatim}
+\usepackage{listings}  %ist für die Anzeige von Programmcode
+\usepackage{pdfpages}  %um PDF Dateien als Seiten einzufügen
+\usepackage{titlesec}
+%\usepackage[font={footnotesize,sf,}, justification=RaggedRight, singlelinecheck=false]{caption} %macht die Bild und Tabellenbeschreibung linksbündig
+
+\titleformat{\section}[hang]{\bf\Large\sffamily}{\thesection\quad}{0pt}{}
+\titleformat{\subsection}[hang]{\bf\large\sffamily}{\thesubsection\quad}{0pt}{}
+\titleformat{\subsubsection}[hang]{\bf\normalsize\sffamily}{\thesubsubsection\quad}{0pt}{}
+
+
+\newcommand{\incADreiMode}{A3}  % [A3 | anything ]
+
+\newcommand{\incADrei}[1]{
+  \ifthenelse%
+  {\equal{\incADreiMode}{A3}}%
+  {\newpage%
+    \pdfpagewidth 420mm%
+    \pdfpageheight 297mm%
+    \includepdf[pages={-},fitpaper=true]{#1}%
+    \newpage%
+    \pdfpagewidth 210mm%
+    \pdfpageheight 297mm}%
+  {\includepdf[pages={-},landscape=true,turn=false]{#1}%
+  }%
+}
+
+
+
+\usepackage{lscape}
+\usepackage{pdflscape}
+\usepackage{tabularx}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % linksbündig mit Breitenangabe
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % zentriert mit Breitenangabe
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}} % rechtsbündig mit Breitenangabe
+\expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks\do\a  %Hier wird die URL-Trennung neu definiert!
+\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n
+\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z\do\&}
+
+%Bilder an aktueller Stelle einfuegen
+%\usepackage{capt-of}
+
+\oddsidemargin=0mm
+\evensidemargin=0mm
+\textwidth=159.2mm
+
+\topmargin =		-5.4mm
+\headheight =	15mm
+\headsep =		10mm		%15
+\topskip = 		5mm
+\textheight =	214mm
+\footskip = 	20mm
+%\footheight =	15mm
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RO]{\sffamily \bf \flushright \sffamily Hochschule Luzern\\  \small Technik \& Architektur}
+\fancyhead[LO]{\footnotesize \sffamily {PREN 1 Projektdokumentation HS 2014\\Autonomer Ballwerfer}}
+\fancyfoot[RO]{\sffamily \thepage}
+\fancyfoot[LO]{\small {\sffamily Team 19}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\lstset{  %ist für die Anzeige von Programmcode
+language=C,
+keywordstyle=\color{blue},
+commentstyle=\color{MidnightBlue},
+stringstyle=\color{red},
+basicstyle=\sffamily\scriptsize,
+emph={double,bool,int,unsigned,char,true,false,void,short,float},
+emphstyle=\color{BurntOrange},
+emph={[2]\using,\#include,\#define,\#ifdef,\#endif}, 
+%emphstyle={[2]\color{ForestGreen}},
+%emph={[3],#,\#define,#ifdef,#endif}, 
+%emphstyle={[3]\color{ForestGreen}},basicstyle=\sffamily\footsize,       
+numbers=left,                   % where to put the line-numbers
+numberstyle=\tiny,      		% the size of the fonts that are used for the line-numbers
+%stepnumber=2,                  % the step between two line-numbers. If it's 1 each line 
+								% will be numbered
+numbersep=5pt,                  % how far the line-numbers are from the code
+backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=single,	                % adds a frame around the code
+tabsize=2,	                	% sets default tabsize to 2 spaces
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+title=\lstname,                 % show the filename of files included with \lstinputlisting
+                                % also try caption instead of title
+captionpos=b
+}
+\lstset{literate=%
+{Ö}{{\"O}}1
+{Ä}{{\"A}}1
+{Ü}{{\"U}}1
+{ß}{{\ss}}2
+{ü}{{\"u}}1
+{ä}{{\"a}}1
+{ö}{{\"o}}1
+{-}{{-}}1
+}
+
+\setlength\parindent{0pt} %Es soll nie einen Automatischen Einzug machen!!
+
+\usepackage{titletoc}
+ 
+\titlecontents{section}[1.5em]{\addvspace{1pc}\bfseries}{\contentslabel{1.5em}}
+{\hspace*{-1.5em}}{\titlerule*[0.3pc]{.}\contentspage}
+
+\titlecontents{subsection}[6.7em]{\vspace{0.1cm}}{\contentslabel{2.95em}}{}
+{\titlerule*[0.3pc]{.}\contentspage}
+
+\titlecontents{subsubsection}[10.6em]{\vspace{0.1cm}}{\contentslabel{3.8em}}{}
+{\titlerule*[0.3pc]{.}\contentspage}
+
+\titlecontents{table}[0em]{}{\tablename \vspace{0.2cm} \contentslabel{0.2em} : }
+{\vspace{0.8cm}}{ \titlerule*[0.3pc]{.}\contentspage}
+
+\titlecontents{figure}[0em]{}{\figurename \vspace{0.2cm} \contentslabel{0.2em} : }
+{\vspace{0.8cm}}{ \titlerule*[0.3pc]{.}\contentspage}
+
+%Lade das Packet tocloft auf komische weise damit es keinen Konflikt mit subfigure gibt!!!
+%\makeatletter
+%\providecommand{\IfElsePackageLoaded}[3]{\@ifpackageloaded{#1}{#2}{#3}}
+%%
+%\makeatother
+
+% Laden mit Option subfigure in Abhängigkeit vom Paket subfigure und subfig
+%\IfElsePackageLoaded{subfig}
+%	% IF subfig
+%	{\usepackage[subfigure]{tocloft}}{	
+%	% ELSE
+%	\IfEl\textit{•}sePackageLoaded{subfigure}
+%		% IF subfigure 
+%		{\usepackage[subfigure]{tocloft}}
+%	   % Else (No subfig nor subfigure)
+%		{\usepackage{tocloft}}
+%	}
+%\renewcommand{\cfttabpresnum}{Tab. }
+%\renewcommand{\cftfigpresnum}{Abb. }
+%\settowidth{\cfttabnumwidth}{Abb. 10\quad}
+%\settowidth{\cftfignumwidth}{Abb. 10\quad}
