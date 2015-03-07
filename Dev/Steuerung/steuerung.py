@@ -2,7 +2,7 @@ __author__ = 'Andri'
 from abc import ABCMeta
 from abc import abstractproperty
 from abc import abstractmethod
-import Dev.Treiber.Zielerfassung as ZF
+import Dev.Treiber.Zielerfassung.zielerfassung as ZF
 
 
 class ISteuerung:
@@ -16,7 +16,7 @@ class ISteuerung:
     def init(self):
         raise NotImplementedError()
 
-    @abstractmethod
+    @abstractproperty
     def get_zielerfassung(self):
         raise NotImplementedError()
 
@@ -24,9 +24,15 @@ class ISteuerung:
 class Steuerung(ISteuerung):
 
     def __init__(self):
-        """
+        self.init()
 
-        :rtype : Steuerung
-        """
+
+    def init(self):
         self.zielerfassung = ZF.Zielerfassung()
 
+
+    def get_zielerfassung(self):
+        return None
+
+    def start(self):
+        raise NotImplementedError()
