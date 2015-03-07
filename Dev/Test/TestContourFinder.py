@@ -1,10 +1,10 @@
-import sys
-from Dev.Test import camera, ContourFinder, config
-
 __author__ = 'endru'
+
+import sys
 import math
 import Dev.Test.ContourFinder as cf
 import cv2
+import Dev.Test.camera as camera
 import cv2.cv as cv
 import numpy as np
 import time
