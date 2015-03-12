@@ -2,9 +2,56 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a210c76-c31c-4a6a-a92f-54d56e48e663" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Steuerung/steuerung.py" afterPath="$PROJECT_DIR$/Dev/Steuerung/steuerung.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Test/Annotation.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Test/BasicFunctions.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Test/ContourFinder.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Treiber/Zielerfassung/ContourFinder.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Test/DetectPicture.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Test/DetectPicturePi.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Test/FindContoursTrash.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Test/MindTheGap.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Test/Precision.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Test/SaveImages.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Test/Test.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Test/TestContourFinder.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Test/TestPiCamera.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Test/TestTarget.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Test/TestTargetPi.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Test/UltraSchallTest.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Hardware/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Hardware/Camera/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Hardware/DC-Motor/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Hardware/Schrittmotor/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Hardware/Servo-Motor/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Kommunikation/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Steuerung/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Test/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Treiber/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Treiber/Ballbefoerderung/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Treiber/Balldepot/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Treiber/Zielerfassung/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/UnitTests/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Treiber/Ballbefoerderung/ballbefoerderung.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Treiber/Balldepot/balldepot.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Hardware/Camera/camera.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Test/camera.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Hardware/Camera/common.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Test/common.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Test/config.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Treiber/Zielerfassung/config.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/contourFinder.ini" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Kommunikation/kommunikation.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Kommunikation/setupServer.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Steuerung/steuerung.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/UnitTests/test_camFactory.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/UnitTests/test_camera.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/UnitTests/test_piCamera.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Test/ultrasonic_1.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Hardware/Camera/video.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Test/video.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib.linux-x86_64-2.7/Dev/Treiber/Zielerfassung/zielerfassung.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/zielerfassung.py" afterPath="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/zielerfassung.py" />
     </list>
     <ignored path="hslu_pren_grp19_2014.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,7 +78,7 @@
       <file leaf-file-name="steuerung.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/Steuerung/steuerung.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
+            <state vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="660">
               <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
               <folding>
                 <element signature="e#21#44#0" expanded="true" />
@@ -43,8 +90,8 @@
       <file leaf-file-name="camera.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/Hardware/Camera/camera.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1599" max-vertical-offset="3225">
-              <caret line="198" column="11" selection-start-line="198" selection-start-column="4" selection-end-line="198" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="403" max-vertical-offset="3225">
+              <caret line="48" column="41" selection-start-line="48" selection-start-column="41" selection-end-line="48" selection-end-column="41" />
               <folding>
                 <element signature="e#80#103#0" expanded="true" />
               </folding>
@@ -52,11 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="zielerfassung.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="zielerfassung.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/Treiber/Zielerfassung/zielerfassung.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5520505" vertical-offset="0" max-vertical-offset="960">
-              <caret line="35" column="38" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="960">
+              <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
               <folding>
                 <element signature="e#22#45#0" expanded="true" />
               </folding>
@@ -64,14 +111,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setupServer.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="setupServer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/setupServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.110410094" vertical-offset="0" max-vertical-offset="951">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="26" />
               <folding>
                 <element signature="e#21#44#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="225">
+              <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="65" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -107,7 +164,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1985" />
+    <option name="x" value="65" />
     <option name="y" value="24" />
     <option name="width" value="1855" />
     <option name="height" value="1056" />
@@ -135,6 +192,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -307,7 +365,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -571,10 +628,10 @@
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.ContourFinder" />
       <item index="1" class="java.lang.String" itemvalue="Python.TestContourFinder" />
-      <item index="2" class="java.lang.String" itemvalue="Python.setupServer" />
-      <item index="3" class="java.lang.String" itemvalue="Python.camera" />
-      <item index="4" class="java.lang.String" itemvalue="Python.zielerfassung" />
-      <item index="5" class="java.lang.String" itemvalue="Python.steuerung" />
+      <item index="2" class="java.lang.String" itemvalue="Python.camera" />
+      <item index="3" class="java.lang.String" itemvalue="Python.zielerfassung" />
+      <item index="4" class="java.lang.String" itemvalue="Python.steuerung" />
+      <item index="5" class="java.lang.String" itemvalue="Python.setupServer" />
     </list>
     <recent_temporary>
       <list size="1">
@@ -605,33 +662,39 @@
       <option name="project" value="LOCAL" />
       <updated>1425738260364</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="implementierung interfaces, webserver">
+      <created>1425739233243</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1425739233244</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1985" y="24" width="1855" height="1056" extended-state="6" />
+    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925585" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39959225" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925585" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925585" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39959225" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925585" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -658,11 +721,50 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Dev/Steuerung/steuerung.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="660">
+          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+          <folding>
+            <element signature="e#21#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Hardware/Camera/camera.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3225">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#80#103#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Treiber/Zielerfassung/zielerfassung.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="960">
+          <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+          <folding>
+            <element signature="e#22#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/setupServer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="465">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="e#21#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Dev/Test/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1335">
           <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -670,7 +772,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1035" max-vertical-offset="3105">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -678,9 +779,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4365">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -688,9 +786,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="951">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#21#39#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -698,7 +793,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="628">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -706,7 +800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="628">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -714,7 +807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20504732" vertical-offset="0" max-vertical-offset="951">
           <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -722,7 +814,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20504732" vertical-offset="0" max-vertical-offset="951">
           <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -730,27 +821,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8359621" vertical-offset="0" max-vertical-offset="975">
           <caret line="53" column="73" selection-start-line="53" selection-start-column="73" selection-end-line="53" selection-end-column="99" />
-          <folding>
-            <element signature="e#22#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.097087376" vertical-offset="0" max-vertical-offset="927">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/setupServer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="e#21#44#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -764,22 +834,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Treiber/Zielerfassung/zielerfassung.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="960">
+          <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+          <folding>
+            <element signature="e#22#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Dev/Hardware/Camera/camera.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1914" max-vertical-offset="3225">
-          <caret line="198" column="11" selection-start-line="198" selection-start-column="4" selection-end-line="198" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="403" max-vertical-offset="3225">
+          <caret line="48" column="41" selection-start-line="48" selection-start-column="41" selection-end-line="48" selection-end-column="41" />
           <folding>
             <element signature="e#80#103#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/Treiber/Zielerfassung/zielerfassung.py">
+    <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5520505" vertical-offset="0" max-vertical-offset="960">
-          <caret line="35" column="38" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+        <state vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="225">
+          <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/setupServer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.110410094" vertical-offset="0" max-vertical-offset="951">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="26" />
           <folding>
-            <element signature="e#22#45#0" expanded="true" />
+            <element signature="e#21#44#0" expanded="true" />
           </folding>
         </state>
       </provider>
