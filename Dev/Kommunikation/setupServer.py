@@ -14,9 +14,12 @@ def index(name=None):
 
 @app.route("/get_position")
 def get_position():
-
   return "Hello World!"
 
+@app.route("/init_control")
+def init_control():
+    control = ctrl.Steuerung()
+    return "Hello World!"
 
 @app.route("/hello")
 def hello():

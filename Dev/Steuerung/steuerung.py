@@ -13,11 +13,19 @@ class ISteuerung:
         raise NotImplementedError()
 
     @abstractmethod
+    def reset(self):
+        raise NotImplementedError()
+
+    @abstractmethod
     def init(self):
         raise NotImplementedError()
 
     @abstractproperty
     def get_zielerfassung(self):
+        raise NotImplementedError()
+
+    @abstractproperty
+    def get_ausrichtung(self):
         raise NotImplementedError()
 
 
