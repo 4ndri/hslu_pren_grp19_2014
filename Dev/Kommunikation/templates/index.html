@@ -1,11 +1,62 @@
 <!DOCTYPE html>
 <html>
+
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>PREN2 Gruppe 19</title>
+	
+	<!-- ********** JAVA-Script Einbindung ********** -->
+	<script type="text/javascript" src="stoppuhr.js"></script>
 </head>
-<body>
-<input type="button" value="hello" onclick="location.href='/hello'"/>
 
+<body>
+    <div align="center">
+      <form name="control">
+		<br /><br />
+		<p style="font-family:'Arial'"> <b> PREN2 - Gruppe 19 </b></p> <br />
+			<input type="text" name="sTime" size=13 readonly="true" value="0:00:00" />
+        <br /> <br />
+			<input type="button" value="Start" onclick="StartTimer()" />
+				<!-- Abstand zwischen Buttons vergrössern -->
+			<input type="button" value="Stopp" onclick="StopTimer()" />
+      </form>
+    </div>
+  </body>
+
+<!-- <body>
+	<table border="0">
+			<tr>
+				<td></td>
+				<td>
+					<p>Stopp-Uhr</p>
+				</td>
+				<td>
+					<p>
+						<input type="text" name="sTime" size="7" value="0:00:00">
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<p>Start:</p>
+				</td>
+				<td>
+					<p>
+						<input type="button" value="Starten" onClick="StartTimer()"></p>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<p>Stopp:</p>
+				</td>
+				<td>
+					<p>
+						<input type="button" value="Stopp" onClick="StopTimer()"></p>
+				</td>
+			</tr>
+		</table>
 </body>
+ -->
 </html>
