@@ -5,6 +5,7 @@ class ConfigHandler:
     def __init__(self, file_path):
         self.config = ConfigParser.ConfigParser()
         self.file_name = file_path
+        self.config.read(self.file_name)
 
     def set_number(self,section, option, val):
         self.set_option(section, option, val)
@@ -47,6 +48,9 @@ class ConfigHandler:
             self.config.set(section, option, default_val)
             self.writeConfig()
             return default_val
+
+    def set_float(self,section, option, val):
+        self.set_option(section, option, val)
 
     def set_option(self,section, option, val):
         if not self.config.has_section(section):

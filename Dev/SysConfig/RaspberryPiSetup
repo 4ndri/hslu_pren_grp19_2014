@@ -1,0 +1,27 @@
+# OpenCV
+sudo apt-get install libcv-dev
+sudo apt-get install python-opencv
+sudo apt-get install libopencv-dev
+sudo apt-get install libcv2.3
+
+
+# PiCamera
+sudo apt-get install python-picamera
+#for python 3: sudo apt-get install python3-picamera
+
+
+
+#PWM Driver (I2C)
+sudo apt-get install python-smbus
+sudo apt-get install i2c-tools
+
+sudo nano /etc/modules
+#Add following lines
+i2c-dev
+i2c-bcm2708
+
+sudo nano /etc/modprobe.d/raspi-blacklist.conf
+#following line should be missing or commented with#
+#blacklist i2c-bcm2708
+
+sudo i2cdetect -y 1

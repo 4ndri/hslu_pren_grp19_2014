@@ -11,11 +11,16 @@ import Dev.Treiber.Ausrichtung.ausrichtung as AR
 class Steuerung:
 
     def __init__(self):
+        """
+
+        :rtype : Steuerung
+        """
         self.init()
 
     def init(self):
-        self.zielerfassung = ZF.Zielerfassung()
-        self.ausrichtung=AR.
+        #self.zielerfassung = ZF.Zielerfassung()
+        #self.ausrichtung=AR.Ausrichtung()
+        self.balldepot= BD.Balldepot()
 
     def start(self):
         raise NotImplementedError()
@@ -32,9 +37,9 @@ class Steuerung:
         raise NotImplementedError()
 
     @property
-    def get_ballbeförderung(self):
+    def get_ballbefoerderung(self):
         raise NotImplementedError()
 
     @property
     def get_balldepot(self):
-        raise NotImplementedError()
+        return self.balldepot

@@ -5,7 +5,7 @@ import Dev.Steuerung.steuerung as ctrl
 
 
 app = Flask(__name__)
-control = ctrl.Steuerung()
+# control = ctrl.Steuerung()
 
 
 @app.route("/")
@@ -19,7 +19,7 @@ def get_position():
 @app.route("/init_control")
 def init_control():
     control = ctrl.Steuerung()
-    return "Hello World!"
+    return render_template('index.html', name=name)
 
 @app.route("/hello")
 def hello():
