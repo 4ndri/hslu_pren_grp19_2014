@@ -13,8 +13,14 @@ class ContinuousServo:
 
     def turnRight(self, turningTime):
         self.pwm.setPWM(self.channel, 0, self.servo_min)
+        print "Servo on Channel " + str(self.channel)  + " was set to " + str(self.servo_min)
         time.sleep(turningTime)
+        self.pwm.setPWM(self.channel, 0, 0)
+        print "Servo on Channel " + str(self.channel)  + " was set to 0"
 
     def turnLeft(self, turningTime):
         self.pwm.setPWM(self.channel, 0, self.servo_max)
+        print "Servo on Channel " + str(self.channel) + " was set to " + str(self.servo_max)
         time.sleep(turningTime)
+        self.pwm.setPWM(self.channel, 0, 0)
+        print "Servo on Channel " + str(self.channel) + " was set to 0"

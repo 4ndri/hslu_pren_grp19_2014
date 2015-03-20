@@ -4,21 +4,32 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>PREN2 Gruppe 19</title>
-	
-	<!-- ********** JAVA-Script Einbindung ********** -->
-	<script type="text/javascript" src="stoppuhr.js"></script>
+
+    <!-- ********** JAVA-Script Einbindung ********** -->
+    <script type="text/javascript" src="templates/stoppuhr.js"></script>
 </head>
 
 <body>
-    <div align="center">
-      <form name="control">
-		<br /><br />
-		<p style="font-family:'Arial'"> <b> PREN2 - Gruppe 19 </b></p> <br />
-			<input type="text" style="text-align: center;" name="sTime" size=13 readonly="true" value="0:00:00" />
-        <br /> <br />
-			<input type="button" value="Start" onclick="StartTimer()" />
-			<input type="button" value="Stopp" onclick="StopTimer()" />
-      </form>
+<div align="center">
+    <form name="control">
+        <br/><br/>
+
+        <p style="font-family:'Arial'"><b> PREN2 - Gruppe 19 </b></p> <br/>
+        <input type="text" style="text-align: center;" name="sTime" size=13 readonly="true" value="0:00:00"/>
+        <br/> <br/>
+        <input type="button" value="Start" onclick="StartTimer()"/>
+        <input type="button" value="Stopp" onclick="StopTimer()"/>
+        <input type="button" value="Init Steuerung" onclick="location.href='/init_control';"/>
+        <input type="button" value="Test Balldepot" onclick="location.href='/test_balldepot';"/>
+    </form>
+    <div>
+        <div>Messages</div>
+        {% if data %}
+        <div>
+            {{data.msg}}
+        </div>
+        {% endif %}
     </div>
-  </body>
+</div>
+</body>
 </html>

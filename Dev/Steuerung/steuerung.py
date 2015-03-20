@@ -18,9 +18,10 @@ class Steuerung:
         self.init()
 
     def init(self):
+        print "Steuerung: init"
+        self.balldepot= BD.Balldepot()
         #self.zielerfassung = ZF.Zielerfassung()
         #self.ausrichtung=AR.Ausrichtung()
-        self.balldepot= BD.Balldepot()
 
     def start(self):
         raise NotImplementedError()
@@ -42,4 +43,9 @@ class Steuerung:
 
     @property
     def get_balldepot(self):
+        """
+
+        :rtype : BD.Balldepot
+        """
+        print "Steuerung: get_balldepot"
         return self.balldepot

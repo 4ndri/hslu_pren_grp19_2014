@@ -8,9 +8,15 @@ class Balldepot:
         self.nbOfBalls = 5
         self.servo = Servo.ContinuousServo(0, 150, 600)
         self.config = CFG.BDConfig()
+        print "Balldepot inited"
 
     @property
     def load(self):
+        """
+
+        :rtype : int
+        """
+        print "Balldepot: load"
         self.servo.turnRight(self.config.timeForBall)
         self.nbOfBalls -= 1
         return self.nbOfBalls
