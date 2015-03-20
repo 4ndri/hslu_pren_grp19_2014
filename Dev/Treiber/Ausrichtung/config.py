@@ -1,23 +1,12 @@
-from Dev.Test import ContourFinder as CF
-
 __author__ = 'endru'
-import ConfigParser
+import Dev.Config.ConfigHandler
 
-
-class ZFConfig:
+class ARConfig:
     def __init__(self):
-        self.config = ConfigParser.ConfigParser()
-        self.file_name="contourFinder.ini"
+        self.config = Con
+        self.file_name="ausrichtung.ini"
         self.config.read(self.file_name)
-        self.resolution_w = self.get_number("Camera", "resolution_w", 640)
-        self.resolution_h = self.get_number("Camera", "resolution_h", 480)
-        self.field_x = self.get_number("Approx", "field_x", 0)
-        self.field_y = self.get_number("Approx", "field_y", 0)
-        self.field_width= self.get_number("Approx", "field_width", 640)
-        self.field_height=self.get_number("Approx", "field_height", 480)
-        self.approx_rect_w=self.get_number("Approx", "approx_rect_w", 100)
-        self.approx_rect_h=self.get_number("Approx", "approx_rect_h", 120)
-        self.threshold = self.get_number("Approx", "threshold", 65)
+        self.angle2Step = self.get_number("Ausrichtung", "angle2Step", 4)
 
     def set_resolution(self, resolution_rect):
         """
