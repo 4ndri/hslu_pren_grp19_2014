@@ -20,7 +20,7 @@ class Steuerung:
     def init(self):
         print "Steuerung: init"
         self.balldepot= BD.Balldepot()
-        #self.zielerfassung = ZF.Zielerfassung()
+        self.zielerfassung = ZF.Zielerfassung()
         #self.ausrichtung=AR.Ausrichtung()
 
     def start(self):

@@ -14,8 +14,9 @@ def index(name=None):
     return render_template('index.html', name=name)
 
 
-@app.route("/get_position")
+@app.route("/detect)
 def get_position():
+    control.get_zielerfassung.detect
     return "Hello World!"
 
 
@@ -31,6 +32,7 @@ def test_balldepot():
     print "number of Balls: " + str(balls)
     data = {'msg': balls}
     return render_template('index.html', data=data)
+
 
 
 if __name__ == "__main__":

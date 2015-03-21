@@ -12,7 +12,7 @@ class IZielerfassung:
     __metaclass__ = ABCMeta
 
     @abstractproperty
-    def get_position(self):
+    def detect(self):
         raise NotImplementedError()
 
     @abstractmethod
@@ -39,7 +39,7 @@ class Zielerfassung(IZielerfassung):
         self.cam.set_resolution(self.config.resolution_w,self.config.resolution_h)
 
     @property
-    def get_position(self):
+    def detect(self):
         img = self.cam.take_picture
         cnt_info = self.cnt_calculator.find_contours(img)
         position = cnt_info.center_distance.x
