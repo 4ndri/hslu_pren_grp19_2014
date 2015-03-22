@@ -1,7 +1,4 @@
 __author__ = 'Andri'
-from abc import ABCMeta
-from abc import abstractproperty
-from abc import abstractmethod
 import Dev.Treiber.Zielerfassung.zielerfassung as ZF
 import Dev.Treiber.Ballbefoerderung.ballbefoerderung as BF
 import Dev.Treiber.Balldepot.balldepot as BD

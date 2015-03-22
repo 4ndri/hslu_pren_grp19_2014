@@ -38,10 +38,11 @@ class Zielerfassung(IZielerfassung):
         self.cntCalc = CF.ContourCalc(self.config)
         self.cam.set_resolution(self.config.resolution_w,self.config.resolution_h)
 
+
     @property
     def detect(self):
         img = self.cam.take_picture
-        cnt_info = self.cnt_calculator.find_contours(img)
+        cnt_info = self.cntCalc.find_contours(img)
         position = cnt_info.center_distance.x
         return position
 

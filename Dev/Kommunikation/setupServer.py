@@ -14,7 +14,7 @@ def index(name=None):
     return render_template('index.html', name=name)
 
 
-@app.route("/detect)
+@app.route("/detect")
 def get_position():
     control.get_zielerfassung.detect
     return "Hello World!"
