@@ -233,9 +233,10 @@ class PiCamera2(ICamera):
             image = None
             with picamera.PiCamera() as camera:
                 self.stream = picamera.array.PiRGBArray(camera)
-                self.cam.capture(self.stream, format='bgr', use_video_port=True)
+                camera.capture(self.stream, format='bgr', use_video_port=True)
                 # At this point the image is available as stream.array
                 image = self.stream.array
+                print "picture taken"
             return image
         finally:
             self.stream.truncate()

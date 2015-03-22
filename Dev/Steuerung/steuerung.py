@@ -28,7 +28,7 @@ class Steuerung:
 
     @property
     def get_zielerfassung(self):
-        raise NotImplementedError()
+        return self.zielerfassung
 
     @property
     def get_ausrichtung(self):

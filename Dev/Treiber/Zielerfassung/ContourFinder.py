@@ -227,7 +227,7 @@ class ContourCalc:
         p = p_area * 5 + p_width + p_height + p_center + float(1) / max(float(1) / sys.maxint, tmp_area)
         return p
 
-    def find_contours(self, img, do_display=True):
+    def find_contours(self, img, save_image=False, do_display=False):
 
         """
 
@@ -257,25 +257,24 @@ class ContourCalc:
         cnt = cnt_sort[0]
 
         cnt_info = ContourInfo(cnt, self.field)
-
-        if do_display:
+        cnt_info.img = img
+        if save_image or do_display:
             cv2.rectangle(img, (self.field.x, self.field.y),
                           (self.field.x + self.field.width, self.field.y + self.field.height), (0, 200, 200), 3)
             cv2.rectangle(img_crop, (cnt_info.rect.x, cnt_info.rect.y),
                           (cnt_info.rect.x + cnt_info.rect.width, cnt_info.rect.y + cnt_info.rect.height),
                           (255, 255, 0), 3)
             cv2.line(img_crop, (cnt_info.m_field.x, cnt_info.m_cnt.y), (cnt_info.m_cnt.x, cnt_info.m_cnt.y), (255, 0, 255), 3)
-
             draw_str(img, (20, 20), 'threshold: %.1f' % self.threshold)
             draw_str(img, (20, 40), 'distance x: %.1f px' % cnt_info.center_distance.x)
             draw_str(img, (20, 60), 'area: %.1f px' % cnt_info.area)
-
             cv2.drawContours(img_crop, contours, -1, (100, 200, 0), 1)
             cv2.drawContours(img_crop, [cnt], -1, (0, 0, 255), 3)
 
+
+        if do_display:
             # cv2.imshow('color', img_crop)
             cv2.imshow('Objekterkennung', img)
-            cnt_info.img = img
             # mask = np.zeros(img_gray.shape, np.uint8)
             # cv2.drawContours(mask, [cnt], 0, 255, -1)
             # cv2.imshow('mask', mask)

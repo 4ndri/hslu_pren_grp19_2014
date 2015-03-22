@@ -2,9 +2,10 @@ __author__ = 'endru'
 from flask import Flask
 from flask import render_template
 import Dev.Steuerung.steuerung as ctrl
+import cv2
+import os
 
-
-app = Flask(__name__)
+app = Flask(__name__,static_url_path='')
 control = ctrl.Steuerung()
 # control = None
 
@@ -20,11 +21,17 @@ def detect():
     data = {'msg': pos}
     return render_template('index.html', data=data)
 
+@app.route("/images/img")
+def return_img():
+    return app.send_static_file('image.jpg')
+
 @app.route("/get_picture")
 def get_picture():
-    pos = control.get_zielerfassung.detect
-    data = {'msg': pos}
-    return render_template('index.html', data=data)
+    cnt_info = control.get_zielerfassung.get_image
+    dirPath = os.path.dirname(os.path.abspath(__file__))
+    cv2.imwrite(dirPath + "/static/images/image.jpg", cnt_info.img)
+    data = {'msg': "success"}
+    return render_template('showpicture.html', data=data)
 
 @app.route("/init_control")
 def init_control():
