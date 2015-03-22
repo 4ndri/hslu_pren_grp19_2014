@@ -15,10 +15,16 @@ def index(name=None):
 
 
 @app.route("/detect")
-def get_position():
-    control.get_zielerfassung.detect
-    return "Hello World!"
+def detect():
+    pos = control.get_zielerfassung.detect
+    data = {'msg': pos}
+    return render_template('index.html', data=data)
 
+@app.route("/get_picture")
+def get_picture():
+    pos = control.get_zielerfassung.detect
+    data = {'msg': pos}
+    return render_template('index.html', data=data)
 
 @app.route("/init_control")
 def init_control():

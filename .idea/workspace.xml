@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a210c76-c31c-4a6a-a92f-54d56e48e663" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/UnitTests/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/run_zielerfassung.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/UnitTests/test_zielerfassung.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Hardware/Camera/camera.py" afterPath="$PROJECT_DIR$/Dev/Hardware/Camera/camera.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Kommunikation/setupServer.py" afterPath="$PROJECT_DIR$/Dev/Kommunikation/setupServer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Steuerung/steuerung.py" afterPath="$PROJECT_DIR$/Dev/Steuerung/steuerung.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/zielerfassung.py" afterPath="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/zielerfassung.py" />
     </list>
     <ignored path="hslu_pren_grp19_2014.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,14 +54,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="zielerfassung.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="zielerfassung.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/Treiber/Zielerfassung/zielerfassung.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.88550985" vertical-offset="390" max-vertical-offset="975">
+            <state vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="975">
               <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
               <folding>
                 <element signature="e#22#45#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setupServer.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/setupServer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.490161" vertical-offset="86" max-vertical-offset="720">
+              <caret line="26" column="51" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -160,12 +164,12 @@
         <option value="$PROJECT_DIR$/Dev/Kommunikation/templates/index.html" />
         <option value="$PROJECT_DIR$/Dev/Hardware/Servo/servoContinuous.py" />
         <option value="$PROJECT_DIR$/Dev/Treiber/Balldepot/balldepot.py" />
-        <option value="$PROJECT_DIR$/Dev/Kommunikation/setupServer.py" />
         <option value="$PROJECT_DIR$/Dev/Steuerung/steuerung.py" />
         <option value="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/test_zielerfassung.py" />
         <option value="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/run_zielerfassung.py" />
         <option value="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/zielerfassung.py" />
         <option value="$PROJECT_DIR$/Dev/Hardware/Camera/camera.py" />
+        <option value="$PROJECT_DIR$/Dev/Kommunikation/setupServer.py" />
       </list>
     </option>
   </component>
@@ -953,7 +957,13 @@
       <option name="project" value="LOCAL" />
       <updated>1426944630357</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Config Files, Balldepot">
+      <created>1427058598831</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1427058598831</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -967,17 +977,17 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18348624" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925585" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925585" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1073,9 +1083,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="465">
           <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
-          <folding>
-            <element signature="e#21#44#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1124,9 +1132,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="465">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="e#21#44#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1351,16 +1357,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/setupServer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18783543" vertical-offset="0" max-vertical-offset="660">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="e#21#44#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dev/Steuerung/steuerung.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
@@ -1417,11 +1413,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Dev/Treiber/Zielerfassung/zielerfassung.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.88550985" vertical-offset="390" max-vertical-offset="975">
+        <state vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="975">
           <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding>
             <element signature="e#22#45#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/setupServer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.490161" vertical-offset="86" max-vertical-offset="720">
+          <caret line="26" column="51" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
