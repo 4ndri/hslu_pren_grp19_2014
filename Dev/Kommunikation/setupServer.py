@@ -14,6 +14,13 @@ control = ctrl.Steuerung()
 def index(name=None):
     return render_template('index.html', name=name)
 
+@app.route("/config")
+def config():
+    return render_template('config.html')
+
+@app.route("/testing")
+def testing():
+    return render_template('testing.html')
 
 @app.route("/detect")
 def detect():
@@ -23,7 +30,7 @@ def detect():
 
 @app.route("/images/img")
 def return_img():
-    return app.send_static_file('image.jpg')
+    return app.send_static_file('/images/image.jpg')
 
 @app.route("/get_picture")
 def get_picture():

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PREN2 Gruppe 19</title>
+
+    <!-- ********** JAVA-Script Einbindung ********** -->
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/pren19.css" rel="stylesheet">
+    <script type="text/javascript" src="/js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/stoppuhr.js"></script>
+    <script type="text/javascript" src="/js/pren19.js"></script>
+</head>
+
+<body>
+<div align="center">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">PREN 19</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="/config">Config</a></li>
+                    <li><a href="/testing">Testing</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <form name="control">
+        <br/><br/>
+
+        <p style="font-family:'Arial'"><b> PREN2 - Gruppe 19 </b></p> <br/>
+        <input type="text" style="text-align: center;" name="sTime" size=13 readonly="true" value="0:00:00"/>
+        <br/> <br/>
+        <input type="button" value="Start" onclick="StartTimer()"/>
+        <input type="button" value="Stopp" onclick="StopTimer()"/>
+        <input type="button" value="Init Steuerung" onclick="location.href='/init_control';"/>
+
+    </form>
+    <div>
+        {% block body %}{% endblock %}
+        <div id="PREN_AsyncMsg"></div>
+        <div id="PREN_Error"></div>
+    </div>
+</div>
+</body>
+</html>

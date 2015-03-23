@@ -1,37 +1,7 @@
-<!DOCTYPE html>
-<html>
-
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>PREN2 Gruppe 19</title>
-
-    <!-- ********** JAVA-Script Einbindung ********** -->
-    <script type="text/javascript" src="/js/stoppuhr.js"></script>
-</head>
-
-<body>
-<div align="center">
-    <form name="control">
-        <br/><br/>
-
-        <p style="font-family:'Arial'"><b> PREN2 - Gruppe 19 </b></p> <br/>
-        <input type="text" style="text-align: center;" name="sTime" size=13 readonly="true" value="0:00:00"/>
-        <br/> <br/>
-        <input type="button" value="Start" onclick="StartTimer()"/>
-        <input type="button" value="Stopp" onclick="StopTimer()"/>
-        <input type="button" value="Init Steuerung" onclick="location.href='/init_control';"/>
-        <input type="button" value="Test Balldepot" onclick="location.href='/test_balldepot';"/>
-        <input type="button" value="Test Zielerfassung" onclick="location.href='/detect';"/>
-        <input type="button" value="Show Picture" onclick="location.href='/get_picture';"/>
-    </form>
-    <div>
-        <div>Messages</div>
-        {% if data %}
-        <div>
-            {{data.msg}}
-        </div>
-        {% endif %}
-    </div>
+{% extends "layout.html" %}
+<div>Messages</div>
+{% if data %}
+<div>
+    {{data.msg}}
 </div>
-</body>
-</html>
+{% endif %}
