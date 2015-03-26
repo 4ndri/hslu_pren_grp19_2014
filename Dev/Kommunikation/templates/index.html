@@ -1,7 +1,9 @@
 {% extends "layout.html" %}
+{% block body %}
 <div>Messages</div>
 {% if data %}
 <div>
     {{data.msg}}
 </div>
 {% endif %}
+{% endblock %}

@@ -1,11 +1,11 @@
 __author__ = 'endru'
 from flask import Flask
-from flask import render_template
+from flask import render_template, request
 import Dev.Steuerung.steuerung as ctrl
 import cv2
 import os
 
-app = Flask(__name__,static_url_path='')
+app = Flask(__name__, static_url_path='')
 control = ctrl.Steuerung()
 # control = None
 
@@ -14,13 +14,16 @@ control = ctrl.Steuerung()
 def index(name=None):
     return render_template('index.html', name=name)
 
+
 @app.route("/config")
 def config():
     return render_template('config.html')
 
+
 @app.route("/testing")
 def testing():
     return render_template('testing.html')
+
 
 @app.route("/detect")
 def detect():
@@ -28,9 +31,11 @@ def detect():
     data = {'msg': pos}
     return render_template('index.html', data=data)
 
+
 @app.route("/images/img")
 def return_img():
     return app.send_static_file('/images/image.jpg')
+
 
 @app.route("/get_picture")
 def get_picture():
@@ -39,6 +44,7 @@ def get_picture():
     cv2.imwrite(dirPath + "/static/images/image.jpg", cnt_info.img)
     data = {'msg': "success"}
     return render_template('showpicture.html', data=data)
+
 
 @app.route("/init_control")
 def init_control():
@@ -51,8 +57,26 @@ def test_balldepot():
     balls = control.get_balldepot.load
     print "number of Balls: " + str(balls)
     data = {'msg': balls}
-    return render_template('index.html', data=data)
+    return str(data)
 
+
+@app.route("/save_config_zielerfassung", methods=['POST'])
+def save_cam_config():
+    zf = control.get_zielerfassung
+    zf.config.resolution_w = get_int_from_request('resolution_w')
+    zf.config.resolution_h = get_int_from_request('resolution_h')
+    zf.config.field_x = get_int_from_request('field_x')
+    zf.config.field_y = get_int_from_request('field_y')
+    zf.config.field_width = get_int_from_request('field_width')
+    zf.config.field_height = get_int_from_request('field_height')
+    zf.config.field_y = get_int_from_request('field_y')
+
+
+    return "saved"
+
+
+def get_int_from_request(name):
+    return int(float(request.form[name]))
 
 
 if __name__ == "__main__":

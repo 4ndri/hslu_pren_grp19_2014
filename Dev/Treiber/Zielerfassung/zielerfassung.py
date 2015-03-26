@@ -47,10 +47,10 @@ class Zielerfassung(IZielerfassung):
         return position
 
     def get_threshold(self):
-        raise NotImplementedError()
+        return self.config.threshold
 
     def set_threshold(self, threshold):
-        raise NotImplementedError()
+        self.config.set_threshold(threshold)
 
     @property
     def get_image(self):

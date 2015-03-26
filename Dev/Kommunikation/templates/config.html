@@ -1,6 +1,31 @@
 {% extends "layout.html" %}
 {% block body %}
-<form action="/save_config" method=post class="saveConfig">
+<h1>Camera</h1>
+<form action="/save_config_zielerfassung" method=post class="saveConfig">
+    <label for="resolution_w">Auflösung Breite</label>
+    <input type="number" name="resolution_w" />
+    <label for="resolution_h">Auflösung Höhe</label>
+    <input type="number" name="resolution_h" />
+    <label for="field_x">Feld X-Koordinate (Linkes Eck)</label>
+    <input type="number" name="field_x" />
+    <label for="field_y">Feld Y-Koordinate (Linkes Eck)</label>
+    <input type="number" name="field_y" />
+    <label for="field_width">Feld Breite</label>
+    <input type="number" name="field_width" />
+    <label for="field_height">Feld Höhe</label>
+    <input type="number" name="field_height" />
+
+    <label for="approx_rect_w">Feld Höhe</label>
+    <input type="number" name="approx_rect_w" />
+    <label for="approx_rect_h">Feld Höhe</label>
+    <input type="number" name="approx_rect_h" />
+
+    <label for="threshold">Feld Höhe</label>
+    <input type="number" name="threshold" />
+</form>
+
+<h1>Balldepot</h1>
+<form action="/save_bd_config" method=post class="saveConfig">
     <label for=""></label>
 </form>
 {% endblock %}

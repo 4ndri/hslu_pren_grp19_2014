@@ -1,5 +1,5 @@
 import math
-from Dev.Test import config as cfg
+import Dev.Treiber.Zielerfassung.config as cfg
 
 __author__ = 'endru'
 
@@ -7,7 +7,6 @@ import numpy as np
 import cv2
 import cv2.cv as cv
 import sys
-from Dev.Test.common import clock, draw_str
 
 
 def calc_ratio_compare(w, h):
@@ -265,9 +264,9 @@ class ContourCalc:
                           (cnt_info.rect.x + cnt_info.rect.width, cnt_info.rect.y + cnt_info.rect.height),
                           (255, 255, 0), 3)
             cv2.line(img_crop, (cnt_info.m_field.x, cnt_info.m_cnt.y), (cnt_info.m_cnt.x, cnt_info.m_cnt.y), (255, 0, 255), 3)
-            draw_str(img, (20, 20), 'threshold: %.1f' % self.threshold)
-            draw_str(img, (20, 40), 'distance x: %.1f px' % cnt_info.center_distance.x)
-            draw_str(img, (20, 60), 'area: %.1f px' % cnt_info.area)
+            self.draw_str(img, (20, 20), 'threshold: %.1f' % self.threshold)
+            self.draw_str(img, (20, 40), 'distance x: %.1f px' % cnt_info.center_distance.x)
+            self.draw_str(img, (20, 60), 'area: %.1f px' % cnt_info.area)
             cv2.drawContours(img_crop, contours, -1, (100, 200, 0), 1)
             cv2.drawContours(img_crop, [cnt], -1, (0, 0, 255), 3)
 
@@ -281,4 +280,7 @@ class ContourCalc:
 
         return cnt_info
 
+    def draw_str(self, dst, (x, y), s):
+        cv2.putText(dst, s, (x+1, y+1), cv2.FONT_HERSHEY_PLAIN, 1.0, (0, 0, 0), thickness = 2, lineType=cv2.CV_AA)
+        cv2.putText(dst, s, (x, y), cv2.FONT_HERSHEY_PLAIN, 1.0, (255, 255, 255), lineType=cv2.CV_AA)
 

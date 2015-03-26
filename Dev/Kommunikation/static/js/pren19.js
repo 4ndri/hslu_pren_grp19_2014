@@ -21,3 +21,11 @@ function getPicture(){
         $('#PREN_Error').html(err);
     });
 }
+
+function runBalldepot(){
+    runAction('/test_balldepot').done(function(data){
+        $('#PREN_AsyncMsg').html(data);
+    }).fail(function(err){
+        $('#PREN_Error').html(err);
+    });
+}
