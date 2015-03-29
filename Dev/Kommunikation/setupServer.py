@@ -1,6 +1,6 @@
 __author__ = 'endru'
 from flask import Flask
-from flask import render_template, request
+from flask import render_template, request, redirect
 import Dev.Steuerung.steuerung as ctrl
 import cv2
 import os
@@ -17,8 +17,18 @@ def index(name=None):
 
 @app.route("/config")
 def config():
-    return render_template('config.html')
-
+    zfconfig = []
+    noAttr = ["config", "dirPath", "file_name"]
+    for attr, value in control.get_zielerfassung.config.__dict__.iteritems():
+        if not any(attr in s for s in noAttr):
+            zfconfig.append({'attr': attr, 'value': value})
+    bdconfig = []
+    for attr, value in control.get_balldepot.config.__dict__.iteritems():
+        if not any(attr in s for s in noAttr):
+            bdconfig.append({'attr': attr, 'value': value})
+    configData = {'zfconfig': zfconfig,
+                  'bdconfig': bdconfig}
+    return render_template('config.html', configData=configData)
 
 @app.route("/testing")
 def testing():
@@ -63,16 +73,29 @@ def test_balldepot():
 @app.route("/save_config_zielerfassung", methods=['POST'])
 def save_cam_config():
     zf = control.get_zielerfassung
-    zf.config.resolution_w = get_int_from_request('resolution_w')
-    zf.config.resolution_h = get_int_from_request('resolution_h')
+    zf.config.approx_rect_h = get_int_from_request('approx_rect_h')
+    zf.config.approx_rect_w = get_int_from_request('approx_rect_w')
     zf.config.field_x = get_int_from_request('field_x')
     zf.config.field_y = get_int_from_request('field_y')
-    zf.config.field_width = get_int_from_request('field_width')
     zf.config.field_height = get_int_from_request('field_height')
-    zf.config.field_y = get_int_from_request('field_y')
+    zf.config.field_width = get_int_from_request('field_width')
+    zf.config.resolution_h = get_int_from_request('resolution_h')
+    zf.config.resolution_w = get_int_from_request('resolution_w')
+    zf.config.threshold = get_int_from_request('threshold')
+    zf.config.save_config()
+    return config()
 
 
-    return "saved"
+@app.route("/save_config_balldepot", methods=['POST'])
+def save_config_balldepot():
+    bd = control.get_balldepot
+    bd.config.servo_max = get_int_from_request('servo_max')
+    bd.config.servo_min = get_int_from_request('servo_min')
+    bd.config.timeForBall = float(request.form['timeForBall'])
+    bd.config.channel = get_int_from_request('channel')
+    bd.config.freq = get_int_from_request('freq')
+    bd.save_config()
+    return config()
 
 
 def get_int_from_request(name):

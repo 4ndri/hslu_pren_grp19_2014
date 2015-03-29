@@ -241,8 +241,6 @@ class PiCamera2(ICamera):
         finally:
             self.stream.truncate()
 
-
-
     def close(self):
         #self.cam.close()
         print 'picamera closed'
@@ -262,6 +260,64 @@ class PiCamera2(ICamera):
         @property
         def create(self):
             return PiCamera2()
+
+class ThreadPiCam(ICamera):
+    class PiCameraException(Exception):
+        msg="PiCameraException: "
+        def __init__(self, value):
+            self.value = value
+
+        def __str__(self):
+            return self.msg + self.value
+
+    def __init__(self):
+        if pi_cam_available:
+            self.stream = io.BytesIO()
+        else:
+            raise PiCamera.PiCameraException("initialization failed")
+
+    @property
+    def get_height(self):
+        return self.height
+
+    @property
+    def get_width(self):
+        return self.width
+
+    @property
+    def take_picture(self):
+        try:
+            image = None
+            with picamera.PiCamera() as camera:
+                self.stream = picamera.array.PiRGBArray(camera)
+                camera.capture(self.stream, format='bgr', use_video_port=True)
+                # At this point the image is available as stream.array
+                image = self.stream.array
+                print "picture taken"
+            return image
+        finally:
+            self.stream.truncate()
+
+    def close(self):
+        #self.cam.close()
+        print 'picamera closed'
+
+    def set_resolution(self, w, h):
+        with picamera.PiCamera() as camera:
+            camera.resolution = (w, h)
+
+    def __del__(self):
+        self.close()
+        print 'picamera object del'
+
+    class Factory(AbstractFactory):
+        def __init__(self):
+            pass
+
+        @property
+        def create(self):
+            return ThreadPiCam()
+
 
 def get_camera():
     """

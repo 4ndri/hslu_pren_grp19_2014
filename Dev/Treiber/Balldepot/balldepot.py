@@ -6,8 +6,8 @@ import Dev.Hardware.Servo.servoContinuous as Servo
 class Balldepot:
     def __init__(self):
         self.nbOfBalls = 5
-        self.servo = Servo.ContinuousServo(0, 150, 600)
         self.config = CFG.BDConfig()
+        self.servo = Servo.ContinuousServo(self.config.channel, self.config.servo_min, self.config.servo_max, self.config.freq)
         print "Balldepot inited"
 
     @property
@@ -24,3 +24,7 @@ class Balldepot:
     @property
     def get_config(self):
         return self.config
+
+    def save_config(self):
+        self.config.save_config()
+        self.servo = Servo.ContinuousServo(self.config.channel, self.config.servo_max, self.config.servo_max, self.config.freq)

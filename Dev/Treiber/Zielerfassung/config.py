@@ -1,17 +1,15 @@
+__author__ = 'endru'
+
 import os
 import Dev.Config.ConfigHandler as CFG
 import Dev.Treiber.Zielerfassung.ContourFinder as CF
-
-__author__ = 'endru'
-import ConfigParser
-
 
 class ZFConfig:
     def __init__(self):
         self.dirPath = os.path.dirname(os.path.abspath(__file__))
         self.file_name = "contourFinder.ini"
         self.config = CFG.ConfigHandler(self.dirPath + "/" + self.file_name)
-
+        print self.dirPath + "/" + self.file_name
         self.resolution_w = self.config.get_number("Camera", "resolution_w", 640)
         self.resolution_h = self.config.get_number("Camera", "resolution_h", 480)
         self.field_x = self.config.get_number("Approx", "field_x", 0)
@@ -43,7 +41,7 @@ class ZFConfig:
         self.field_height = field.height
         self.save_field()
 
-    def set_field(self, field_x, field_y, field_w, field_h):
+    def set_field_xywh(self, field_x, field_y, field_w, field_h):
         self.field_x = field_x
         self.field_y = field_y
         self.field_width = field_w
@@ -65,7 +63,7 @@ class ZFConfig:
         self.approx_rect_w = approx_rect.width
         self.save_approx_rect()
 
-    def set_approx_rect(self, approx_rect_w, approx_rect_h):
+    def set_approx_rect_wh(self, approx_rect_w, approx_rect_h):
         self.approx_rect_h = approx_rect_h
         self.approx_rect_w = approx_rect_w
         self.save_approx_rect()
@@ -89,3 +87,4 @@ class ZFConfig:
         self.save_approx_rect()
         self.save_field()
         self.save_threshold()
+        print 'config saved'

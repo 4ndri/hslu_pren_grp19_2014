@@ -1,5 +1,4 @@
 import math
-import Dev.Treiber.Zielerfassung.config as cfg
 
 __author__ = 'endru'
 
@@ -84,7 +83,7 @@ class ContourInfo:
 
 
 class ContourCalc:
-    def __init__(self, config=cfg.MyConfig()):
+    def __init__(self, config):
         """
 
         :rtype : ContourCalc
@@ -105,7 +104,7 @@ class ContourCalc:
         self.max_ratio_diff = 0
         self.max_center_diff = 480
         self.image_center = Point(0, 0)
-        self.set_approx_rect(approx_rect)
+        self.set_approx_rect(self.approx_rect)
         self.threshold = config.threshold
 
     def set_threshold(self, threshold=70):
