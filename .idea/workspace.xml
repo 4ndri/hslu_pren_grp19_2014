@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3a210c76-c31c-4a6a-a92f-54d56e48e663" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Dev/Hardware/Stepper/Stepper.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Dev/Hardware/Stepper/stepper.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/ContourFinder.py" afterPath="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/ContourFinder.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Treiber/Balldepot/balldepot.py" afterPath="$PROJECT_DIR$/Dev/Treiber/Balldepot/balldepot.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Hardware/Camera/camera.py" afterPath="$PROJECT_DIR$/Dev/Hardware/Camera/camera.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Kommunikation/templates/config.html" afterPath="$PROJECT_DIR$/Dev/Kommunikation/templates/config.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Treiber/Balldepot/config.py" afterPath="$PROJECT_DIR$/Dev/Treiber/Balldepot/config.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/config.py" afterPath="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/config.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Hardware/Servo/servoContinuous.py" afterPath="$PROJECT_DIR$/Dev/Hardware/Servo/servoContinuous.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Kommunikation/setupServer.py" afterPath="$PROJECT_DIR$/Dev/Kommunikation/setupServer.py" />
+    <list default="true" id="3a210c76-c31c-4a6a-a92f-54d56e48e663" name="Default" comment="PWM changes">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/SysConfig/RaspberryPiSetup" afterPath="$PROJECT_DIR$/Dev/SysConfig/RaspberryPiSetup" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hslu_pren_grp19_2014.iws" />
@@ -53,11 +44,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Servo_Example.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Servo_Example.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/Hardware/Servo/Servo_Example.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6151419" vertical-offset="0" max-vertical-offset="951">
-              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
+              <caret line="32" column="53" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RaspberryPiSetup" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Dev/SysConfig/RaspberryPiSetup">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.25236592" vertical-offset="0" max-vertical-offset="951">
+              <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -167,7 +168,6 @@
         <option value="$PROJECT_DIR$/Dev/Hardware/Stepper/stepper.py" />
         <option value="$PROJECT_DIR$/Dev/Hardware/Servo/servo.py" />
         <option value="$PROJECT_DIR$/Dev/SysConfig/ResizeSDCard" />
-        <option value="$PROJECT_DIR$/Dev/SysConfig/RaspberryPiSetup" />
         <option value="$PROJECT_DIR$/Dev/SysConfig/copyToPi" />
         <option value="$PROJECT_DIR$/Dev/Hardware/Servo/Adafruit_PWM_Servo_Driver.py" />
         <option value="$PROJECT_DIR$/Dev/Treiber/Ballbefoerderung/ballbefoerderung.py" />
@@ -195,6 +195,7 @@
         <option value="$PROJECT_DIR$/Dev/Kommunikation/setupServer.py" />
         <option value="$PROJECT_DIR$/Dev/Hardware/Servo/servoContinuous.py" />
         <option value="$PROJECT_DIR$/Dev/Treiber/Balldepot/balldepot.py" />
+        <option value="$PROJECT_DIR$/Dev/SysConfig/RaspberryPiSetup" />
       </list>
     </option>
   </component>
@@ -1056,20 +1057,27 @@
       <option name="project" value="LOCAL" />
       <updated>1427365683475</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="PWM changes">
+      <created>1427661405074</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1427661405074</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1079,7 +1087,6 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925585" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39959225" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925585" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1107,7 +1114,8 @@
     <MESSAGE value="Config Files, Balldepot" />
     <MESSAGE value="Flask rendering" />
     <MESSAGE value="ZF Config" />
-    <option name="LAST_COMMIT_MESSAGE" value="ZF Config" />
+    <MESSAGE value="PWM changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="PWM changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1348,13 +1356,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/SysConfig/RaspberryPiSetup">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
-          <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dev/Test/ContourFinder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.041009463" vertical-offset="3414" max-vertical-offset="4365">
@@ -1508,8 +1509,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Dev/Hardware/Servo/Servo_Example.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6151419" vertical-offset="0" max-vertical-offset="951">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
+          <caret line="32" column="53" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/SysConfig/RaspberryPiSetup">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25236592" vertical-offset="0" max-vertical-offset="951">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
           <folding />
         </state>
       </provider>

@@ -1,3 +1,6 @@
+# PWM Kernel Module
+curl -SLs https://apt.adafruit.com/bootstrap | bash
+
 # OpenCV
 sudo apt-get install libcv-dev
 sudo apt-get install python-opencv
