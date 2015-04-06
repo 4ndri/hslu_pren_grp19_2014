@@ -86,15 +86,16 @@ class ContourCalc:
     def __init__(self, config):
         """
 
+
+        :type config: ZFConfig
         :rtype : ContourCalc
         """
         self.config = config
         cam_resolution = Rect(config.resolution_w, config.resolution_h)
         field = Field(config.field_x, config.field_y, config.field_width, config.field_height)
-        approx_rect = Rect(config.approx_rect_w, config.approx_rect_h)
+        self.approx_rect = Rect(config.approx_rect_w, config.approx_rect_h)
         self.field = field
         self.cam_resolution = cam_resolution
-        self.approx_rect = approx_rect
         self.approx_area = 0
         self.approx_ratio = calc_ratio_compare(self.approx_rect.width, self.approx_rect.height)
         self.field_area = 0

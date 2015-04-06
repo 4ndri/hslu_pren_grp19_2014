@@ -28,3 +28,42 @@ sudo nano /etc/modprobe.d/raspi-blacklist.conf
 #blacklist i2c-bcm2708
 
 sudo i2cdetect -y 1
+
+
+# network
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+
+# folgenden Inhalt reinkopieren
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+    ssid="NETWORK NAME"
+    psk="PASSWORD"
+    id_str="pren19"
+}
+
+network={
+    ssid="other"
+    psk="PASSWORD"
+    id_str="other"
+}
+
+sudo nano /etc/network/interfaces
+
+# folgenden Inhalt reinkopieren
+auto lo
+
+iface lo inet loopback
+iface eth0 inet dhcp
+
+allow-hotplug wlan0
+iface wlan0 inet manual
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+iface default inet dhcp
+
+
+
+#flask
+sudo apt-get install python-pip
+sudo pip install flask
