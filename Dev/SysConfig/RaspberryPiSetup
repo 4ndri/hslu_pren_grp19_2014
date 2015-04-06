@@ -1,5 +1,9 @@
-# PWM Kernel Module
+# PWM Kernel Module (funktioniert noch nicht)
 curl -SLs https://apt.adafruit.com/bootstrap | bash
+#alternative
+#rpi hardware pwm
+sudo apt-get install python-dev python-pip
+
 
 # OpenCV
 sudo apt-get install libcv-dev
@@ -28,6 +32,8 @@ sudo nano /etc/modprobe.d/raspi-blacklist.conf
 #blacklist i2c-bcm2708
 
 sudo i2cdetect -y 1
+
+
 
 
 # network

@@ -7,13 +7,13 @@ class PWM:
         self.pwm_path = "/sys/class/rpi-pwm/pwm0/"
         pass
 
-    def set(self, property, value):
+    def set(self, prop, value):
         try:
-            f = open(self.pwm_path + property, 'w')
+            f = open(self.pwm_path + prop, 'w')
             f.write(value)
             f.close()
         except:
-            print("Error writing to: " + property + " value: " + value)
+            print("Error writing to: " + prop + " value: " + value)
 
     def activate(self):
         self.set("active", "1")
@@ -28,13 +28,13 @@ class PWM:
             self.set("delayed", "1")
 
     def servo_max(self, servo_max):
-        set("servo_max", str(servo_max))
+        self.set("servo_max", str(servo_max))
 
     def pulse_length(self, pulse_length):
-        set("servo", str(pulse_length))
+        self.set("servo", str(pulse_length))
 
     def set_frequency(self, freq):
-        set("frequency", str(freq))
+        self.set("frequency", str(freq))
 
     def set_mode(self, mode):
-        set("mode", str(mode))
+        self.set("mode", str(mode))
