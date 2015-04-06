@@ -1,9 +1,9 @@
-# PWM Kernel Module (funktioniert noch nicht)
+# PWM Kernel Module (funktioniert noch nicht) auf pc ausführen, rpi muss mit kabel an netzwerk/internet angeschlossen sein
 curl -SLs https://apt.adafruit.com/bootstrap | bash
 #alternative
 #rpi hardware pwm
 sudo apt-get install python-dev python-pip
-
+sudo pip install wiringpi2
 
 # OpenCV
 sudo apt-get install libcv-dev
