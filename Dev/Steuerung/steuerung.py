@@ -18,6 +18,7 @@ class Steuerung:
         print "Steuerung: init"
         self.balldepot= BD.Balldepot()
         self.zielerfassung = ZF.Zielerfassung()
+        self.ballbefoerderung=BF.Ballbefoerderung()
         #self.ausrichtung=AR.Ausrichtung()
 
     def start(self):
@@ -36,7 +37,7 @@ class Steuerung:
 
     @property
     def get_ballbefoerderung(self):
-        raise NotImplementedError()
+        return self.ballbefoerderung
 
     @property
     def get_balldepot(self):

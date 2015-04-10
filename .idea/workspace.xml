@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a210c76-c31c-4a6a-a92f-54d56e48e663" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Dev/Hardware/DCMotor/BoardDC.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Dev/Treiber/Ballbefoerderung/config.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Hardware/DCMotor/BoardDC.py" afterPath="$PROJECT_DIR$/Dev/Hardware/DCMotor/BoardDC.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Treiber/Ballbefoerderung/ballbefoerderung.py" afterPath="$PROJECT_DIR$/Dev/Treiber/Ballbefoerderung/ballbefoerderung.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Kommunikation/templates/config.html" afterPath="$PROJECT_DIR$/Dev/Kommunikation/templates/config.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Kommunikation/setupServer.py" afterPath="$PROJECT_DIR$/Dev/Kommunikation/setupServer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Steuerung/steuerung.py" afterPath="$PROJECT_DIR$/Dev/Steuerung/steuerung.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hslu_pren_grp19_2014.iws" />
@@ -32,23 +37,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="WiringPiServo.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/Hardware/Servo/WiringPiServo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-              <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-              <folding>
-                <element signature="e#22#50#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BoardDC.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BoardDC.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/Hardware/DCMotor/BoardDC.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25236592" vertical-offset="0" max-vertical-offset="951">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+              <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
               <folding>
                 <element signature="e#21#32#0" expanded="true" />
               </folding>
@@ -56,59 +49,45 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="servoContinuous.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/Hardware/Servo/servoContinuous.py">
+      <file leaf-file-name="ballbefoerderung.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Dev/Treiber/Ballbefoerderung/ballbefoerderung.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="27" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.4731861" vertical-offset="0" max-vertical-offset="951">
+              <caret line="30" column="108" selection-start-line="30" selection-start-column="108" selection-end-line="30" selection-end-column="108" />
               <folding>
-                <element signature="e#22#33#0" expanded="true" />
+                <element signature="e#21#70#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="balldepot.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/Treiber/Balldepot/balldepot.py">
+      <file leaf-file-name="setupServer.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/setupServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="645">
-              <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="834" max-vertical-offset="1785">
+              <caret line="108" column="49" selection-start-line="108" selection-start-column="49" selection-end-line="108" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="steuerung.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dev/Steuerung/steuerung.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
+              <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
               <folding>
-                <element signature="e#21#63#0" expanded="true" />
+                <element signature="e#21#73#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/Treiber/Balldepot/config.py">
+      <file leaf-file-name="config.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/templates/config.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="705">
-              <caret line="40" column="62" selection-start-line="40" selection-start-column="62" selection-end-line="40" selection-end-column="62" />
-              <folding>
-                <element signature="e#21#58#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PWMKernelServo.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/Hardware/Servo/PWMKernelServo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="600">
-              <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
-              <folding>
-                <element signature="e#22#33#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="copyToPi" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/SysConfig/copyToPi">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="120">
-              <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+            <state vertical-scroll-proportion="-24.375" vertical-offset="0" max-vertical-offset="900">
+              <caret line="39" column="32" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -146,7 +125,6 @@
         <option value="$PROJECT_DIR$/Dev/SysConfig/ResizeSDCard" />
         <option value="$PROJECT_DIR$/Dev/SysConfig/copyToPi" />
         <option value="$PROJECT_DIR$/Dev/Hardware/Servo/Adafruit_PWM_Servo_Driver.py" />
-        <option value="$PROJECT_DIR$/Dev/Treiber/Ballbefoerderung/ballbefoerderung.py" />
         <option value="$PROJECT_DIR$/Dev/Hardware/Servo/Servo_Example.py" />
         <option value="$PROJECT_DIR$/Dev/Hardware/PWM/PWM.py" />
         <option value="$PROJECT_DIR$/Dev/Hardware/PWM/PWM_Servo_Driver.py" />
@@ -154,7 +132,6 @@
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/test_zielerfassung.py" />
         <option value="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/run_zielerfassung.py" />
-        <option value="$PROJECT_DIR$/Dev/Steuerung/steuerung.py" />
         <option value="$PROJECT_DIR$/Dev/Kommunikation/templates/showpicture.html" />
         <option value="$PROJECT_DIR$/Dev/Kommunikation/static/js/pren19.js" />
         <option value="$PROJECT_DIR$/Dev/Kommunikation/templates/index.html" />
@@ -165,9 +142,7 @@
         <option value="$PROJECT_DIR$/Dev/Hardware/Camera/camera.py" />
         <option value="$PROJECT_DIR$/Dev/Hardware/Stepper/Stepper.py" />
         <option value="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/config.py" />
-        <option value="$PROJECT_DIR$/Dev/Kommunikation/templates/config.html" />
         <option value="$PROJECT_DIR$/Dev/Treiber/Balldepot/config.py" />
-        <option value="$PROJECT_DIR$/Dev/Kommunikation/setupServer.py" />
         <option value="$PROJECT_DIR$/Dev/Hardware/Servo/servoContinuous.py" />
         <option value="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/ContourFinder.py" />
         <option value="$PROJECT_DIR$/Dev/Hardware/Servo/PWMKernelServo.py" />
@@ -175,7 +150,12 @@
         <option value="$PROJECT_DIR$/Dev/SysConfig/RaspberryPiSetup" />
         <option value="$PROJECT_DIR$/Dev/Treiber/Balldepot/balldepot.py" />
         <option value="$PROJECT_DIR$/Dev/Hardware/Servo/WiringPiServo.py" />
+        <option value="$PROJECT_DIR$/Dev/Treiber/Ballbefoerderung/config.py" />
         <option value="$PROJECT_DIR$/Dev/Hardware/DCMotor/BoardDC.py" />
+        <option value="$PROJECT_DIR$/Dev/Treiber/Ballbefoerderung/ballbefoerderung.py" />
+        <option value="$PROJECT_DIR$/Dev/Kommunikation/templates/config.html" />
+        <option value="$PROJECT_DIR$/Dev/Steuerung/steuerung.py" />
+        <option value="$PROJECT_DIR$/Dev/Kommunikation/setupServer.py" />
       </list>
     </option>
   </component>
@@ -227,6 +207,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -313,7 +294,69 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Treiber" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ballbefoerderung" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hslu_pren_grp19_2014" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hslu_pren_grp19_2014" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="SysConfig" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hslu_pren_grp19_2014" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hslu_pren_grp19_2014" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Kommunikation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hslu_pren_grp19_2014" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hslu_pren_grp19_2014" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Kommunikation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -425,12 +468,11 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="FullScreen" value="false" />
-    <property name="options.lastSelected" value="editor.preferences.appearance" />
+    <property name="options.lastSelected" value="preferences.keymap" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -445,11 +487,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Dev/Treiber/Ballbefoerderung" />
       <recent name="$PROJECT_DIR$/Dev/Hardware/Stepper" />
       <recent name="$PROJECT_DIR$/Dev/Kommunikation/static/js" />
       <recent name="$PROJECT_DIR$/Dev/Treiber/Balldepot" />
       <recent name="$PROJECT_DIR$/Dev/Treiber/Ausrichtung" />
-      <recent name="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Dev\Treiber\Zielerfassung" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/UnitTests" />
@@ -988,7 +1030,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1055,13 +1097,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Dev/Hardware/Camera/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="628">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dev/UnitTests/test_camera.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.29182878" vertical-offset="0" max-vertical-offset="771">
@@ -1104,24 +1139,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/kommunikation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="628">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dev/Hardware/PWM/I2C.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="2490">
           <caret line="51" column="13" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/Treiber/Ballbefoerderung/ballbefoerderung.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0477707" vertical-offset="0" max-vertical-offset="628">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1285,31 +1306,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/templates/config.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="645">
-          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dev/Hardware/Servo/Servo_Example.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
           <caret line="32" column="53" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/setupServer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1665">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/Steuerung/steuerung.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -1376,7 +1376,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
           <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
           <folding>
-            <element signature="e#22#33#0" expanded="true" />
+            <element signature="e#22#33#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1395,16 +1395,6 @@
           <caret line="40" column="62" selection-start-line="40" selection-start-column="62" selection-end-line="40" selection-end-column="62" />
           <folding>
             <element signature="e#21#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/Treiber/Balldepot/balldepot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
-          <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
-          <folding>
-            <element signature="e#21#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1429,12 +1419,76 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Treiber/Balldepot/balldepot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
+          <caret line="37" column="12" selection-start-line="0" selection-start-column="0" selection-end-line="37" selection-end-column="127" />
+          <folding>
+            <element signature="e#21#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Dev/Hardware/DCMotor/BoardDC.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25236592" vertical-offset="0" max-vertical-offset="951">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+          <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
           <folding>
             <element signature="e#21#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/kommunikation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Treiber/Ballbefoerderung/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13590033" vertical-offset="0" max-vertical-offset="883">
+          <caret line="8" column="47" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+          <folding>
+            <element signature="e#21#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/templates/config.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-24.375" vertical-offset="0" max-vertical-offset="900">
+          <caret line="39" column="32" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Steuerung/steuerung.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
+          <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
+          <folding>
+            <element signature="e#21#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/setupServer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="834" max-vertical-offset="1785">
+          <caret line="108" column="49" selection-start-line="108" selection-start-column="49" selection-end-line="108" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Treiber/Ballbefoerderung/ballbefoerderung.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4731861" vertical-offset="0" max-vertical-offset="951">
+          <caret line="30" column="108" selection-start-line="30" selection-start-column="108" selection-end-line="30" selection-end-column="108" />
+          <folding>
+            <element signature="e#21#70#0" expanded="true" />
           </folding>
         </state>
       </provider>

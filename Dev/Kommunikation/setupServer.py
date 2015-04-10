@@ -26,8 +26,13 @@ def config():
     for attr, value in control.get_balldepot.config.__dict__.iteritems():
         if not any(attr in s for s in noAttr):
             bdconfig.append({'attr': attr, 'value': value})
+    bfconfig = []
+    for attr, value in control.get_ballbefoerderung.config.__dict__.iteritems():
+        if not any(attr in s for s in noAttr):
+            bfconfig.append({'attr': attr, 'value': value})
     configData = {'zfconfig': zfconfig,
-                  'bdconfig': bdconfig}
+                  'bdconfig': bdconfig,
+                  'bfconfig': bfconfig}
     return render_template('config.html', configData=configData)
 
 @app.route("/testing")
@@ -85,7 +90,6 @@ def save_cam_config():
     zf.config.save_config()
     return config()
 
-
 @app.route("/save_config_balldepot", methods=['POST'])
 def save_config_balldepot():
     bd = control.get_balldepot
@@ -97,6 +101,14 @@ def save_config_balldepot():
     bd.save_config()
     return config()
 
+@app.route("/save_bfconfig", methods=['POST'])
+def save_bfconfig():
+    bf = control.get_ballbefoerderung
+    bf.config.pulse_length = float(request.form['pulse_length'])
+    bf.config.channel = get_int_from_request('channel')
+    bf.config.freq = get_int_from_request('freq')
+    bf.save_config()
+    return config()
 
 def get_int_from_request(name):
     return int(float(request.form[name]))
