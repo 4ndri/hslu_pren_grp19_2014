@@ -29,3 +29,11 @@ function runBalldepot(){
         $('#PREN_Error').html(err);
     });
 }
+
+function runBallbefoerderung(){
+    runAction('/test_ballbefoerderung').done(function(data){
+        $('#PREN_AsyncMsg').html(data);
+    }).fail(function(err){
+        $('#PREN_Error').html(err);
+    });
+}

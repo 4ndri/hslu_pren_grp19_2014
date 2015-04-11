@@ -10,6 +10,9 @@ class DCController:
         self.pulse_length = int(4096 * pulse_length)
         self.freq = freq
 
+    def __del__(self):
+        self.pwm.setPWM(self.channel, 0, 0)
+
     def run(self):
         self.pwm.setPWMFreq(self.freq)
         self.pwm.setPWM(self.channel, 0, self.pulse_length)

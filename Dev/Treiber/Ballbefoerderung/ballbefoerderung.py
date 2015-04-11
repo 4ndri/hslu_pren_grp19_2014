@@ -28,4 +28,5 @@ class Ballbefoerderung:
 
     def save_config(self):
         self.config.save_config()
+        self.dcMotor =None
         self.dcMotor = DCMotor.DCController(self.config.channel, self.config.pulse_length, self.config.freq)

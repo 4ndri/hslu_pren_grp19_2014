@@ -4,6 +4,7 @@ from flask import render_template, request, redirect
 import Dev.Steuerung.steuerung as ctrl
 import cv2
 import os
+import time
 
 app = Flask(__name__, static_url_path='')
 control = ctrl.Steuerung()
@@ -74,6 +75,19 @@ def test_balldepot():
     data = {'msg': balls}
     return str(data)
 
+@app.route("/pwm_to_zero")
+def pwm_to_zero():
+    control=None
+    control=ctrl.Steuerung()
+    return str("pwm zero")
+
+@app.route("/test_ballbefoerderung")
+def test_ballbefoerderung():
+    print "dc start running"
+    control.get_ballbefoerderung.run()
+    time.sleep(10)
+    data = {'msg': 'dc run finished'}
+    return str(data)
 
 @app.route("/save_config_zielerfassung", methods=['POST'])
 def save_cam_config():
@@ -98,6 +112,8 @@ def save_config_balldepot():
     bd.config.timeForBall = float(request.form['timeForBall'])
     bd.config.channel = get_int_from_request('channel')
     bd.config.freq = get_int_from_request('freq')
+    bd.config.duty_max = float(request.form['duty_max'])
+    bd.config.duty_min = float(request.form['duty_min'])
     bd.save_config()
     return config()
 

@@ -6,11 +6,14 @@ import os
 class BDConfig:
     def __init__(self):
         self.dirPath = os.path.dirname(os.path.abspath(__file__))
-        self.file_name = "balldepot.ini"
+        self.file_name = "Balldepot.ini"
         self.config = CF.ConfigHandler(self.dirPath + "/" + self.file_name)
         self.timeForBall = self.config.get_float("Balldepot", "timeForBall", 4)
         self.servo_min = self.config.get_number("Balldepot", "servo_min", 150)
         self.servo_max = self.config.get_number("Balldepot", "servo_max", 600)
+        self.duty_min = self.config.get_float("Balldepot", "duty_min", 1.4)
+        self.duty_max = self.config.get_float("Balldepot", "duty_max", 1.6)
+
         self.channel = self.config.get_number("Balldepot", "channel", 0)
         self.freq = self.config.get_number("Balldepot", "freq", 50)
 
@@ -39,3 +42,5 @@ class BDConfig:
         self.config.set_number("Balldepot", "servo_max", self.servo_max)
         self.config.set_number("Balldepot", "channel", self.channel)
         self.config.set_number("Balldepot", "freq", self.freq)
+        self.config.set_float("Balldepot", "duty_min", self.duty_min)
+        self.config.set_float("Balldepot", "duty_max", self.duty_max)
