@@ -11,9 +11,11 @@ class DCController:
         self.freq = freq
 
     def __del__(self):
+        print "BoardDC del"
         self.pwm.setPWM(self.channel, 0, 0)
 
     def run(self):
+        print "BoardDC run"
         self.pwm.setPWMFreq(self.freq)
         self.pwm.setPWM(self.channel, 0, self.pulse_length)
         print "DC on Channel " + str(self.channel) + " was set to " + str(self.pulse_length)
@@ -24,4 +26,5 @@ class DCController:
         print "DC on Channel " + str(self.channel) + " was set to " + str(self.pulse_length)
 
     def stop(self):
+        print "BoardDC stop"
         self.pwm.setPWM(self.channel, 0, 0)

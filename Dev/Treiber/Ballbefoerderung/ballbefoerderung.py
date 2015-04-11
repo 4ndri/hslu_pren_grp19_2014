@@ -9,7 +9,6 @@ class Ballbefoerderung:
         self.dcMotor = DCMotor.DCController(self.config.channel, self.config.pulse_length, self.config.freq)
         print "Ballbefoerderung inited"
 
-    @property
     def run(self):
         self.dcMotor.run()
         print "Ballbefoerderung run"

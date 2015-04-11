@@ -8,8 +8,7 @@ class Balldepot:
     def __init__(self):
         self.nbOfBalls = 5
         self.config = CFG.BDConfig()
-        self.wservo = WServo.ContinuousServo(self.config.servo_max, self.config.freq)
-        # self.servo = Servo.ContinuousServo(self.config.channel, self.config.servo_min, self.config.servo_max, self.config.freq)
+        self.servo = WServo.ContinuousServo(self.config.duty_min, self.config.duty_max)
         print "Balldepot inited"
 
     @property
@@ -20,12 +19,10 @@ class Balldepot:
         """
         print "Balldepot: load"
         if self.nbOfBalls >= 0:
-            # self.servo.turnRight(self.config.timeForBall)
-            self.wservo.turnRight(self.config.timeForBall)
+            self.servo.turnRight(self.config.timeForBall)
             self.nbOfBalls -= 1
         else:
-            # self.servo.turnLeft(self.config.timeForBall)
-            self.wservo.turnLeft(self.config.timeForBall)
+            self.servo.turnLeft(self.config.timeForBall)
             self.nbOfBalls += 1
         return self.nbOfBalls
 
@@ -36,6 +33,5 @@ class Balldepot:
     def save_config(self):
         print "save balldepot config"
         self.config.save_config()
-        self.wservo = None
-        self.wservo = WServo.ContinuousServo(self.config.freq, self.config.duty_min, self.config.duty_max)
-        #self.servo = Servo.ContinuousServo(self.config.channel, self.config.servo_max, self.config.servo_max, self.config.freq)
+        self.servo = None
+        self.servo = WServo.ContinuousServo(self.config.duty_min, self.config.duty_max)

@@ -16,7 +16,7 @@ function runAction(url){
 
 function getPicture(){
     runAction('/get_picture').done(function(){
-        $('#PREN_AsyncMsg').html('<img src="/images/image.jpg" />');
+        $('#PREN_AsyncMsg').html('<img src="/images/image.jpg?'+Math.floor(Math.random()*10000)+'" />');
     }).fail(function(err){
         $('#PREN_Error').html(err);
     });
