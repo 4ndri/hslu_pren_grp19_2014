@@ -1,29 +1,81 @@
 __author__ = 'endru'
 
 import time
-import Dev.Hardware.PWM.PWM_Servo_Driver as PWMDriver
+import pigpio
 
 
 class Stepper:
-    def __init__(self, channel=1, min_freq=50, max_freq=800, freq_step=10, freq_period=0.1):
-        self.pwm=PWMDriver.PWM.get_pwm()
-        self.channel =channel
-        self.min_freq=min_freq
-        self.max_freq=max_freq
-        self.freq_step=freq_step
-        self.freq_period=freq_period
+    def __init__(self, dir_pin, pulse_pin, min_delay=100, max_delay=5000, acc=100):
+        self.dir_pin = dir_pin
+        self.pulse_pin = pulse_pin
+        self.min_delay = min_delay
+        self.max_delay = max_delay
+        self.acc = acc
+        self.pi = pigpio.pi()
 
-    def turnRight(self, steps):
-        self.pwm.(self.min_freq)
-        self.pwm.setPWM(self.channel, 0, self.servo_min)
-        print "Servo on Channel " + str(self.channel)  + " was set to " + str(self.servo_min)
-        time.sleep(turningTime)
-        self.pwm.setPWM(self.channel, 0, 0)
-        print "Servo on Channel " + str(self.channel)  + " was set to 0"
 
-    def turnLeft(self, steps):
-        self.pwm.setPWM(self.channel, 0, self.servo_max)
-        print "Servo on Channel " + str(self.channel) + " was set to " + str(self.servo_max)
-        time.sleep(turningTime)
-        self.pwm.setPWM(self.channel, 0, 0)
-        print "Servo on Channel " + str(self.channel) + " was set to 0"
+    def __del__(self):
+        print "del stepper"
+        self.pi.wave_tx_stop()
+        self.pi.wave_clear()
+        self.pi.set_mode(self.pulse_pin, pigpio.OUTPUT)
+        self.pi.write(self.pulse_pin, 0)
+        self.pi.set_mode(self.dir_pin, pigpio.OUTPUT)
+        self.pi.write(self.dir_pin, 0)
+        self.pi.stop()
+
+    def steps_right(self, steps):
+        print "steps right: " + str(steps)
+        self.pi.set_mode(self.dir_pin, pigpio.OUTPUT)
+        self.pi.write(self.dir_pin, 1)
+        self.run_steps(steps)
+
+    def steps_left(self, steps):
+        print "steps left: " + str(steps)
+        self.pi.set_mode(self.dir_pin, pigpio.OUTPUT)
+        self.pi.write(self.dir_pin, 0)
+        self.run_steps(steps)
+
+    def run_steps(self, steps):
+        self.pi.wave_clear()
+
+        wf = []
+
+        final_delay = max(int(self.max_delay - int(float(steps) / 2) * self.acc), self.min_delay)
+        ramp_steps = int(float(self.max_delay - final_delay) / self.acc)
+        middle_steps = max(steps - ramp_steps, 0)
+        # build initial ramp up
+        for delay in range(self.max_delay, final_delay, -self.acc):
+            wf.append(pigpio.pulse(1 << self.pulse_pin, 0, delay))
+            wf.append(pigpio.pulse(0, 1 << self.pulse_pin, delay))
+
+        # middle steps
+        if middle_steps > 0:
+            for delay in range(middle_steps):
+                wf.append(pigpio.pulse(1 << self.pulse_pin, 0, final_delay))
+                wf.append(pigpio.pulse(0, 1 << self.pulse_pin, final_delay))
+
+        # build ramp down
+        for delay in range(self.final_delay, self.max_delay, +self.acc):
+            wf.append(pigpio.pulse(1 << self.pulse_pin, 0, delay))
+            wf.append(pigpio.pulse(0, 1 << self.pulse_pin, delay))
+
+        self.pi.wave_add_generic(wf)
+
+        # add after existing pulses
+
+        offset = self.pi.wave_get_micros()
+
+        wid1 = self.pi.wave_create()
+
+        # send ramp, stop when final rate reached
+
+        self.pi.wave_send_once(wid1)
+
+        time.sleep(float(offset) / 1000000.0)  # make sure it's a float
+
+        while self.pi.wave_tx_busy():
+            offset = self.pi.wave_get_micros()
+            time.sleep(float(offset) / 1000000.0)
+
+

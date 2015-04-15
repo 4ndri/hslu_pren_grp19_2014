@@ -9,22 +9,20 @@ class DCController:
         self.channel = channel
         self.pulse_length = int(4096 * pulse_length)
         self.freq = freq
-
-    def __del__(self):
-        print "BoardDC del"
+        self.pwm.setPWMFreq(self.freq)
         self.pwm.setPWM(self.channel, 0, 0)
 
-    def run(self):
-        print "BoardDC run"
-        self.pwm.setPWMFreq(self.freq)
-        self.pwm.setPWM(self.channel, 0, self.pulse_length)
-        print "DC on Channel " + str(self.channel) + " was set to " + str(self.pulse_length)
+    def __del__(self):
+        print "BoardDC del on channel " + str(self.channel)
+        self.pwm.setPWM(self.channel, 0, 0)
 
-    def set_pulse_length(self, pulse_length):
-        self.pulse_length = pulse_length
+    def run(self, pulse_length=0):
+        print "BoardDC run"
+        if pulse_length != 0:
+            self.pulse_length = pulse_length
         self.pwm.setPWM(self.channel, 0, self.pulse_length)
-        print "DC on Channel " + str(self.channel) + " was set to " + str(self.pulse_length)
+        print "BoardDC on Channel " + str(self.channel) + " was set to " + str(self.pulse_length)
 
     def stop(self):
-        print "BoardDC stop"
+        print "BoardDC stop on channel " + str(self.channel)
         self.pwm.setPWM(self.channel, 0, 0)

@@ -1,12 +1,17 @@
 __author__ = 'Andri'
 import Dev.Treiber.Ballbefoerderung.config as CFG
-import Dev.Hardware.DCMotor.BoardDC as DCMotor
+import Dev.Hardware.DCMotor.BoardDC as BDC
+import Dev.Hardware.DCMotor.WiringPiDC as WDC
 
 
 class Ballbefoerderung:
     def __init__(self):
         self.config = CFG.BFConfig()
-        self.dcMotor = DCMotor.DCController(self.config.channel, self.config.pulse_length, self.config.freq)
+        self.dcMotor = None
+        if self.config.dc_driver == 1:
+            self.dcMotor = BDC.DCController(self.config.channel, self.config.pulse_length, self.config.freq)
+        else:
+            self.dcMotor = WDC.DCController(self.config.pulse_length, self.config.freq, self.config.gpio_port)
         print "Ballbefoerderung inited"
 
     def run(self):
@@ -27,5 +32,8 @@ class Ballbefoerderung:
 
     def save_config(self):
         self.config.save_config()
-        self.dcMotor =None
-        self.dcMotor = DCMotor.DCController(self.config.channel, self.config.pulse_length, self.config.freq)
+        self.dcMotor = None
+        if self.config.dc_driver == 1:
+            self.dcMotor = BDC.DCController(self.config.channel, self.config.pulse_length, self.config.freq)
+        else:
+            self.dcMotor = WDC.DCController(self.config.pulse_length, self.config.freq, self.config.gpio_port)
