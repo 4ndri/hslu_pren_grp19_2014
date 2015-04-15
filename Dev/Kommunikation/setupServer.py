@@ -114,7 +114,7 @@ def save_cam_config():
     zf.config.resolution_h = get_int_from_request('resolution_h')
     zf.config.resolution_w = get_int_from_request('resolution_w')
     zf.config.threshold = get_int_from_request('threshold')
-    zf.config.save_config()
+    zf.save_config()
     return config()
 
 @app.route("/save_config_balldepot", methods=['POST'])

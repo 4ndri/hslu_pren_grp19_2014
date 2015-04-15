@@ -61,3 +61,9 @@ class Zielerfassung(IZielerfassung):
 
     def set_field(self):
         raise NotImplementedError()
+
+    def save_config(self):
+        self.config.save_config()
+        self.cntCalc = None
+        self.cntCalc = CF.ContourCalc(self.config)
+        self.cam.set_resolution(self.config.resolution_w,self.config.resolution_h)
