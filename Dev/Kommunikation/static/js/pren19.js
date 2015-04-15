@@ -37,3 +37,11 @@ function runBallbefoerderung(){
         $('#PREN_Error').html(err);
     });
 }
+
+function runAusrichtung(){
+    runAction('/test_ausrichtung').done(function(data){
+        $('#PREN_AsyncMsg').html(data);
+    }).fail(function(err){
+        $('#PREN_Error').html(err);
+    });
+}

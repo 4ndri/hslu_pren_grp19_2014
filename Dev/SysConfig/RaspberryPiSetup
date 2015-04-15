@@ -5,6 +5,16 @@ curl -SLs https://apt.adafruit.com/bootstrap | bash
 sudo apt-get install python-dev python-pip
 sudo pip install wiringpi2
 
+#pigipio
+wget abyz.co.uk/rpi/pigpio/pigpio.zip
+unzip pigpio.zip
+cd PIGPIO
+make
+make install
+
+#start
+sudo pigipio
+
 # OpenCV
 sudo apt-get install libcv-dev
 sudo apt-get install python-opencv

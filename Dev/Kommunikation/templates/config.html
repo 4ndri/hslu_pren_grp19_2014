@@ -51,5 +51,22 @@
             </tr>
         </table>
     </form>
+
+    <h1>Ausrichtung</h1>
+
+    <form action="/save_arconfig" method=post class="saveConfig">
+        <table>
+            {% for item in configData.arconfig: %}
+            <tr>
+                <td><label for="{{item.attr}}">{{item.attr}}</label></td>
+                <td><input type="text" name="{{item.attr}}" value="{{item.value}}"/></td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Save"/><input type="button" value="Cancel" onclick="location.href='/config';"/></td>
+            </tr>
+        </table>
+    </form>
 </div>
 {% endblock %}

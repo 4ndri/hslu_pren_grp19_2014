@@ -31,9 +31,14 @@ def config():
     for attr, value in control.get_ballbefoerderung.config.__dict__.iteritems():
         if not any(attr in s for s in noAttr):
             bfconfig.append({'attr': attr, 'value': value})
+    arconfig = []
+    for attr, value in control.get_ausrichtung.config.__dict__.iteritems():
+        if not any(attr in s for s in noAttr):
+            arconfig.append({'attr': attr, 'value': value})
     configData = {'zfconfig': zfconfig,
                   'bdconfig': bdconfig,
-                  'bfconfig': bfconfig}
+                  'bfconfig': bfconfig,
+                  'arconfig': arconfig}
     return render_template('config.html', configData=configData)
 
 @app.route("/testing")
@@ -89,6 +94,14 @@ def test_ballbefoerderung():
     data = {'msg': 'dc run finished'}
     return str(data)
 
+@app.route("/test_ausrichtung")
+def test_ausrichtung():
+    print "test_ausrichtung"
+    control.get_ausrichtung.moveXAngle(6.28)
+    control.get_ausrichtung.moveXAngle(-6.28)
+    data = {'msg': 'ausrichtung moveXAngle 6.28, -6.28 finished'}
+    return str(data)
+
 @app.route("/save_config_zielerfassung", methods=['POST'])
 def save_cam_config():
     zf = control.get_zielerfassung
@@ -123,7 +136,21 @@ def save_bfconfig():
     bf.config.pulse_length = float(request.form['pulse_length'])
     bf.config.channel = get_int_from_request('channel')
     bf.config.freq = get_int_from_request('freq')
+    bf.config.dc_driver = get_int_from_request('dc_driver')
+    bf.config.gpio_port = get_int_from_request('gpio_port')
     bf.save_config()
+    return config()
+
+@app.route("/save_arconfig", methods=['POST'])
+def save_arconfig():
+    ar = control.get_ausrichtung
+    ar.config.angle2Step = float(request.form['angle2Step'])
+    ar.config.pulse_pin = get_int_from_request('pulse_pin')
+    ar.config.dir_pin = get_int_from_request('dir_pin')
+    ar.config.acc = get_int_from_request('acc')
+    ar.config.max_delay = get_int_from_request('max_delay')
+    ar.config.min_delay= get_int_from_request('min_delay')
+    ar.save_config()
     return config()
 
 def get_int_from_request(name):

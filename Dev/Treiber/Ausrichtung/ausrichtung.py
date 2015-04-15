@@ -8,8 +8,11 @@ class Ausrichtung:
         self.stepper=Stp.Stepper(self.config.dir_pin,self.config.pulse_pin,self.config.min_delay)
 
     def moveXAngle(self, angle):
-        steps=angle*self.config.angle2Step
-        self.stepper.moveSteps(steps)
+        steps=abs(int(angle*self.config.angle2Step))
+        if angle<0:
+            self.stepper.steps_left(steps)
+        else:
+            self.stepper.steps_right(steps)
 
     @property
     def get_config(self):

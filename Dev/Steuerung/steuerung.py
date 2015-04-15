@@ -18,7 +18,7 @@ class Steuerung:
         self.balldepot = BD.Balldepot()
         self.zielerfassung = ZF.Zielerfassung()
         self.ballbefoerderung = BF.Ballbefoerderung()
-        # self.ausrichtung=AR.Ausrichtung()
+        self.ausrichtung=AR.Ausrichtung()
 
     def start(self):
         raise NotImplementedError()
@@ -32,7 +32,11 @@ class Steuerung:
 
     @property
     def get_ausrichtung(self):
-        raise NotImplementedError()
+        """
+
+        :rtype : AR.Ausrichtung
+        """
+        return self.ausrichtung
 
     @property
     def get_ballbefoerderung(self):
