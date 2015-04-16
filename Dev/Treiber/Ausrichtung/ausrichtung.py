@@ -6,6 +6,7 @@ class Ausrichtung:
     def __init__(self):
         self.config=CFG.ARConfig()
         self.stepper=Stp.Stepper(self.config.dir_pin,self.config.pulse_pin,self.config.min_delay)
+        print "Ausrichtung inited"
 
     def moveXAngle(self, angle):
         steps=abs(int(angle*self.config.angle2Step))
@@ -18,5 +19,8 @@ class Ausrichtung:
     def get_config(self):
         return self.config
 
-
+    def save_config(self):
+        self.config.save_config()
+        self.stepper = None
+        self.stepper=Stp.Stepper(self.config.dir_pin,self.config.pulse_pin,self.config.min_delay)
 

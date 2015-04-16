@@ -242,7 +242,6 @@ class ContourCalc:
         # img_gray = cv2.equalizeHist(img_gray)
         ret, thresh = cv2.threshold(img_gray, self.threshold, 255, cv2.THRESH_BINARY_INV)
 
-
         # th3 = cv2.adaptiveThreshold(img_gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
         # edges = cv2.Canny(img_gray, 100, 200)
         # if do_display:
