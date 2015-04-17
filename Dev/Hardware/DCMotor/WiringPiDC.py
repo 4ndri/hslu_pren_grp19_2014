@@ -3,9 +3,10 @@ import wiringpi2 as wiringpi
 
 
 class DCController:
-    def __init__(self, pulse_length=0.5, freq=1000, gpio_pin=13):
+    def __init__(self, pulse_length=0.5, freq=1000, gpio_pin=13, acc=0.05):
         self.gpio_pin = gpio_pin
         self.freq = freq
+        self.acc=acc
         self.pulse_length = pulse_length
         self.current_pulse_length = 0
         self.range = 1024
@@ -28,14 +29,27 @@ class DCController:
     def run(self, pulse_length=0):
         if pulse_length != 0:
             self.pulse_length = pulse_length
-        duty_range = int(float(self.range) * self.pulse_length)
-        wiringpi.pwmWrite(self.gpio_pin, duty_range)
+        duty_cycle=int(float(self.range) * self.pulse_length)
+        wiringpi.pwmWrite(self.gpio_pin, duty_cycle)
+        print "WiringPiDC turn to " + str(self.pulse_length)
+
+    def set_range(self, pulse_length=0):
+        if pulse_length != 0:
+            self.pulse_length = pulse_length
+        duty_cycle=int(float(self.range) * self.pulse_length)
+        wiringpi.pwmWrite(self.gpio_pin, duty_cycle)
         print "WiringPiDC turn to " + str(self.pulse_length)
 
     def set_pulse_length(self, pulse_length):
         self.pulse_length = pulse_length
         self.run()
         print "WiringPiDC on gpio " + str(self.gpio_pin) + " was set to " + str(self.pulse_length)
+
+    def ramp_dc(self, start, end):
+        while start<end:
+            self.set_range(start)
+            start=self.current_pulse_length
+
 
     def stop(self):
         print "WiringPiDC stop on gpio " + str(self.gpio_pin)
