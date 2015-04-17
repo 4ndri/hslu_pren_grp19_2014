@@ -7,6 +7,7 @@ class DCController:
         self.gpio_pin = gpio_pin
         self.freq = freq
         self.pulse_length = pulse_length
+        self.current_pulse_length = 0
         self.range = 1024
         self.clock = int(float(19200000) / self.range / self.freq)
         self.set_pwm()

@@ -86,12 +86,26 @@ def pwm_to_zero():
     control=ctrl.Steuerung()
     return str("pwm zero")
 
-@app.route("/test_ballbefoerderung")
-def test_ballbefoerderung():
+@app.route("/run_ballbefoerderung")
+def run_ballbefoerderung():
     print "dc start running"
     control.get_ballbefoerderung.run()
-    time.sleep(10)
-    data = {'msg': 'dc run finished'}
+    data = {'msg': 'dc running'}
+    return str(data)
+
+@app.route("/stop_ballbefoerderung")
+def stop_ballbefoerderung():
+    print "dc start running"
+    control.get_ballbefoerderung.run()
+    data = {'msg': 'dc running'}
+    return str(data)
+
+@app.route("/set_bfspeed", methods=['POST'])
+def set_bfspeed():
+    print "set ballbefoerderung speed"
+    speed = get_int_from_request('speed')
+    control.get_ballbefoerderung.set_speed(speed)
+    data = {'msg': 'dc speed set'}
     return str(data)
 
 @app.route("/test_ausrichtung")

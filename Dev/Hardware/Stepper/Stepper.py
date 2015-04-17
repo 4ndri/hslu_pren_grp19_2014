@@ -14,6 +14,14 @@ class Stepper:
         self.pi = pigpio.pi()
 
 
+    def init_pigpio_pins(self):
+        self.pi.wave_tx_stop()
+        self.pi.wave_clear()
+        self.pi.set_mode(self.pulse_pin, pigpio.OUTPUT)
+        self.pi.write(self.pulse_pin, 0)
+        self.pi.set_mode(self.dir_pin, pigpio.OUTPUT)
+        self.pi.write(self.dir_pin, 0)
+
     def __del__(self):
         print "del stepper"
         self.pi.wave_tx_stop()
@@ -43,9 +51,10 @@ class Stepper:
         wf = []
 
         final_delay = max(int(self.max_delay - int(float(steps) / 2) * self.acc), self.min_delay)
-        print "final_delay: " + str(final_delay)
+        print "final_delay: " + str(final_delay) + ", max_delay: " + str(self.max_delay) + ", min_delay: " + str(
+            self.min_delay)
         ramp_steps = int(float(self.max_delay - final_delay) / self.acc)
-        middle_steps = max(steps - 2*ramp_steps, 0)
+        middle_steps = max(steps - 2 * ramp_steps, 0)
         # build initial ramp up
         for delay in range(self.max_delay, final_delay, -self.acc):
             wf.append(pigpio.pulse(1 << self.pulse_pin, 0, delay))
@@ -77,7 +86,7 @@ class Stepper:
         time.sleep(float(offset) / 1000000.0)  # make sure it's a float
 
         # while self.pi.wave_tx_busy():
-        #offset = self.pi.wave_get_micros()
-        #time.sleep(float(offset) / 1000000.0)
+        # offset = self.pi.wave_get_micros()
+        # time.sleep(float(offset) / 1000000.0)
 
 

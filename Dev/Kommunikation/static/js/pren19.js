@@ -31,11 +31,35 @@ function runBalldepot(){
 }
 
 function runBallbefoerderung(){
-    runAction('/test_ballbefoerderung').done(function(data){
+    runAction('/run_ballbefoerderung').done(function(data){
         $('#PREN_AsyncMsg').html(data);
     }).fail(function(err){
         $('#PREN_Error').html(err);
     });
+}
+
+function stopBallbefoerderung(){
+    runAction('/stop_ballbefoerderung').done(function(data){
+        $('#PREN_AsyncMsg').html(data);
+    }).fail(function(err){
+        $('#PREN_Error').html(err);
+    });
+}
+
+function setBFSpeed(val){
+    $('#PREN_AsyncMsg').html('');
+    var d= $.Deferred();
+    var options= {
+        method: "POST",
+        url: "/set_bfspeed",
+        data:"speed="+val
+    };
+
+    $.ajax(options).done(function(data){
+        $('#PREN_AsyncMsg').html(data);
+    }).fail(function(err){
+        $('#PREN_Error').html(err);
+    })
 }
 
 function runAusrichtung(){

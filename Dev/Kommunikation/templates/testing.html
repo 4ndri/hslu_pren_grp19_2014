@@ -2,9 +2,16 @@
 {% block body %}
 <div id="testActions">
     <input type="button" value="Test Balldepot" onclick="runBalldepot();"/>
-    <input type="button" value="Test Ballbefoerderung" onclick="runBallbefoerderung();"/>
+
+    <div id="bf_testing">
+        <input type="button" value="Test Ballbefoerderung" onclick="runBallbefoerderung();"/>
+        <input type="button" value="Stop Ballbefoerderung" onclick="stopBallbefoerderung();"/>
+        <label for="bf_speed_control">Speed Control</label>
+        <input id="bf_speed_control" type="range" min="0" max="100" step="1" onchange="setBFSpeed(this.value);"
+               oninput="setBFSpeed(this.value);"/>
+    </div>
     <input type="button" value="Test Zielerfassung" onclick="location.href='/detect';"/>
-    <input type="button" value="Test Ballbefoerderung" onclick="runAusrichtung();"/>
+    <input type="button" value="Test Ausrichtung" onclick="runAusrichtung();"/>
     <input type="button" value="Show Picture" onclick="getPicture();"/>
 </div>
 {% endblock %}
