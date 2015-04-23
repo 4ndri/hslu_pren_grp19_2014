@@ -2,10 +2,10 @@ __author__ = 'endru'
 
 import time
 import pigpio
-
+import wiringpi2 as wiringpi
 
 class Stepper:
-    def __init__(self, dir_pin, pulse_pin, min_delay=100, max_delay=5000, acc=100):
+    def __init__(self, dir_pin, pulse_pin, min_delay=400, max_delay=5000, acc=100):
         self.dir_pin = dir_pin
         self.pulse_pin = pulse_pin
         self.min_delay = min_delay
@@ -24,13 +24,10 @@ class Stepper:
 
     def __del__(self):
         print "del stepper"
-        self.pi.wave_tx_stop()
-        self.pi.wave_clear()
         self.pi.set_mode(self.pulse_pin, pigpio.OUTPUT)
         self.pi.write(self.pulse_pin, 0)
         self.pi.set_mode(self.dir_pin, pigpio.OUTPUT)
         self.pi.write(self.dir_pin, 0)
-        self.pi.stop()
 
     def steps_right(self, steps):
         print "steps right: " + str(steps)
