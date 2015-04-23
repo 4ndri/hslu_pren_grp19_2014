@@ -24,10 +24,13 @@ class Stepper:
 
     def __del__(self):
         print "del stepper"
-        self.pi.set_mode(self.pulse_pin, pigpio.OUTPUT)
-        self.pi.write(self.pulse_pin, 0)
-        self.pi.set_mode(self.dir_pin, pigpio.OUTPUT)
-        self.pi.write(self.dir_pin, 0)
+        pi = pigpio.pi()
+        pi.wave_tx_stop()
+        pi.wave_clear()
+        pi.set_mode(self.pulse_pin, pigpio.OUTPUT)
+        pi.write(self.pulse_pin, 0)
+        pi.set_mode(self.dir_pin, pigpio.OUTPUT)
+        pi.write(self.dir_pin, 0)
 
     def steps_right(self, steps):
         print "steps right: " + str(steps)
