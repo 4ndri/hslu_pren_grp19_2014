@@ -58,6 +58,7 @@ class DCController:
             self.set_range(start)
             start = self.current_pulse_length + self.acc
             time.sleep(self.ramp_wait)
+        self.set_range(end)
 
     def stop(self):
         print "WiringPiDC stop on gpio " + str(self.gpio_pin)

@@ -22,6 +22,14 @@ function getPicture(){
     });
 }
 
+function testZielerfassung(){
+    runAction('/detect').done(function(data){
+        $('#PREN_AsyncMsg').html(data);
+    }).fail(function(err){
+        $('#PREN_Error').html(err);
+    });
+}
+
 function runBalldepot(){
     runAction('/test_balldepot').done(function(data){
         $('#PREN_AsyncMsg').html(data);
@@ -49,6 +57,7 @@ function stopBallbefoerderung(){
 function setBFSpeed(val){
     $('#PREN_AsyncMsg').html('');
     var d= $.Deferred();
+    val=val/100;
     var options= {
         method: "POST",
         url: "/set_bfspeed",
@@ -67,5 +76,16 @@ function runAusrichtung(){
         $('#PREN_AsyncMsg').html(data);
     }).fail(function(err){
         $('#PREN_Error').html(err);
+    });
+}
+
+function start(){
+    StartTimer();
+    runAction('/start').done(function(data){
+        StopTimer();
+        $('#PREN_AsyncMsg').html('<img src="/css/feuerwerk.jpg" /><div>'+data+'</div>');
+    }).fail(function(err){
+        $('#PREN_Error').html(err);
+        StopTimer();
     });
 }

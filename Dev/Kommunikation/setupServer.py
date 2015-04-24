@@ -46,11 +46,16 @@ def testing():
     return render_template('testing.html')
 
 
+@app.route("/start")
+def start():
+    control.start()
+    str_data = "fertig schluss schuss"
+    return str_data
+
 @app.route("/detect")
 def detect():
     pos = control.get_zielerfassung.detect
-    data = {'msg': pos}
-    return render_template('index.html', data=data)
+    return str(pos)
 
 
 @app.route("/images/img")
@@ -128,6 +133,7 @@ def save_cam_config():
     zf.config.resolution_h = get_int_from_request('resolution_h')
     zf.config.resolution_w = get_int_from_request('resolution_w')
     zf.config.threshold = get_int_from_request('threshold')
+    zf.config.pixelToCMFactor = float(request.form['pixelToCMFactor'])
     zf.save_config()
     return config()
 
@@ -164,6 +170,7 @@ def save_arconfig():
     ar.config.acc = get_int_from_request('acc')
     ar.config.max_delay = get_int_from_request('max_delay')
     ar.config.min_delay= get_int_from_request('min_delay')
+    ar.config.max_steps= get_int_from_request('max_steps')
     ar.save_config()
     return config()
 

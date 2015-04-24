@@ -1,18 +1,20 @@
 __author__ = 'endru'
 import Dev.Config.ConfigHandler as CF
 import os
+import math
 
 class ARConfig:
     def __init__(self):
         self.dirPath=os.path.dirname(os.path.abspath(__file__))
         self.file_name="ausrichtung.ini"
         self.config = CF.ConfigHandler(self.dirPath +"/"+ self.file_name)
-        self.angle2Step = self.config.get_float("Ausrichtung", "angle2Step", 4.0)
+        self.angle2Step = self.config.get_float("Ausrichtung", "angle2Step", float(1200)/math.pi)
         self.dir_pin = self.config.get_number("Ausrichtung", "dir_pin", 4)
         self.pulse_pin =self.config.get_number("Ausrichtung", "pulse_pin", 17)
         self.min_delay =self.config.get_number("Ausrichtung", "min_delay", 100)
         self.max_delay =self.config.get_number("Ausrichtung", "max_delay", 5000)
         self.acc =self.config.get_number("Ausrichtung", "acc", 100)
+        self.max_steps =self.config.get_number("Ausrichtung", "max_steps", 400)
 
     def get_angle2Step(self):
         return self.angle2Step

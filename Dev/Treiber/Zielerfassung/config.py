@@ -4,6 +4,7 @@ import os
 import Dev.Config.ConfigHandler as CFG
 import Dev.Treiber.Zielerfassung.ContourFinder as CF
 
+
 class ZFConfig:
     def __init__(self):
         self.dirPath = os.path.dirname(os.path.abspath(__file__))
@@ -19,6 +20,8 @@ class ZFConfig:
         self.approx_rect_w = self.config.get_number("Approx", "approx_rect_w", 100)
         self.approx_rect_h = self.config.get_number("Approx", "approx_rect_h", 120)
         self.threshold = self.config.get_number("Approx", "threshold", 65)
+        tmp = float(150) / (450 * 205)
+        self.pixelToCMFactor = self.config.get_float("ZF", "pixelToCMFactor", tmp)
 
     def set_resolution(self, resolution_rect):
         """
@@ -82,6 +85,9 @@ class ZFConfig:
 
     def save_threshold(self):
         self.config.set_number("Approx", "threshold", self.threshold)
+
+    def save_zf(self):
+        self.pixelToCMFactor = self.config.set_float("ZF", "pixelToCMFactor", self.pixelToCMFactor)
 
     def save_config(self):
         self.save_approx_rect()

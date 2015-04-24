@@ -3,10 +3,12 @@ __author__ = 'Andri'
 from abc import ABCMeta
 from abc import abstractproperty
 from abc import abstractmethod
+import math
 
 import Dev.Treiber.Zielerfassung.config as CFG
 import Dev.Treiber.Zielerfassung.ContourFinder as CF
 import Dev.Hardware.Camera.camera as camera
+
 
 class IZielerfassung:
     __metaclass__ = ABCMeta
@@ -31,19 +33,21 @@ class IZielerfassung:
     def set_field(self):
         raise NotImplementedError()
 
+
 class Zielerfassung(IZielerfassung):
     def __init__(self):
         self.cam = camera.get_camera()
         self.config = CFG.ZFConfig()
         self.cntCalc = CF.ContourCalc(self.config)
-        self.cam.set_resolution(self.config.resolution_w,self.config.resolution_h)
+        self.cam.set_resolution(self.config.resolution_w, self.config.resolution_h)
 
     @property
     def detect(self):
         img = self.cam.take_picture
-        cnt_info = self.cntCalc.find_contours(img,False)
+        cnt_info = self.cntCalc.find_contours(img, False)
         position = cnt_info.center_distance.x
-        print "position: " + str(position)
+        angle = math.atan(self.config.pixelToCMFactor * position)
+        print "position: pixel: " + str(position) + "   angle: " + str(angle)
         return position
 
     def get_threshold(self):
@@ -66,4 +70,4 @@ class Zielerfassung(IZielerfassung):
         self.config.save_config()
         self.cntCalc = None
         self.cntCalc = CF.ContourCalc(self.config)
-        self.cam.set_resolution(self.config.resolution_w,self.config.resolution_h)
+        self.cam.set_resolution(self.config.resolution_w, self.config.resolution_h)

@@ -21,7 +21,11 @@ class Steuerung:
         self.ausrichtung=AR.Ausrichtung()
 
     def start(self):
-        raise NotImplementedError()
+        angle = self.zielerfassung.detect
+        self.ausrichtung.moveXAngle(angle)
+        self.ballbefoerderung.run()
+        self.balldepot.load()
+        self.ballbefoerderung.stop()
 
     def reset(self):
         raise NotImplementedError()

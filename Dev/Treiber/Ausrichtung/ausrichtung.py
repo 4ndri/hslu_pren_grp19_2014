@@ -12,6 +12,7 @@ class Ausrichtung:
 
     def moveXAngle(self, angle):
         steps = abs(int(angle * self.config.angle2Step))
+        steps = min(self.config.max_steps,steps)
         if angle < 0:
             self.stepper.steps_left(steps)
         else:
