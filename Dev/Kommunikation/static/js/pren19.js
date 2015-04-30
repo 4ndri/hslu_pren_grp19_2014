@@ -89,3 +89,14 @@ function start(){
         StopTimer();
     });
 }
+
+function reset(){
+    StartTimer();
+    runAction('/reset').done(function(data){
+        StopTimer();
+        $('#PREN_AsyncMsg').html(data);
+    }).fail(function(err){
+        $('#PREN_Error').html(err);
+        StopTimer();
+    });
+}

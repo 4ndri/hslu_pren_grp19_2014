@@ -9,7 +9,7 @@ import time
 app = Flask(__name__, static_url_path='')
 control = ctrl.Steuerung()
 # control = None
-
+running=False
 
 @app.route("/")
 def index(name=None):
@@ -50,6 +50,12 @@ def testing():
 def start():
     control.start()
     str_data = "fertig schluss schuss"
+    return str_data
+
+@app.route("/reset")
+def reset():
+    control.reset()
+    str_data="control reset"
     return str_data
 
 @app.route("/detect")

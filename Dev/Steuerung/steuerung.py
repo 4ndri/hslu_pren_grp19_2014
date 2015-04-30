@@ -18,7 +18,7 @@ class Steuerung:
         self.balldepot = BD.Balldepot()
         self.zielerfassung = ZF.Zielerfassung()
         self.ballbefoerderung = BF.Ballbefoerderung()
-        self.ausrichtung=AR.Ausrichtung()
+        self.ausrichtung = AR.Ausrichtung()
 
     def start(self):
         angle = self.zielerfassung.detect
@@ -28,7 +28,9 @@ class Steuerung:
         self.ballbefoerderung.stop()
 
     def reset(self):
-        raise NotImplementedError()
+        self.ausrichtung.reset()
+        self.ballbefoerderung.stop()
+        self.balldepot.nbOfBalls = 5
 
     @property
     def get_zielerfassung(self):

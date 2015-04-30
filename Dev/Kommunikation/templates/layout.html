@@ -17,6 +17,10 @@
 </head>
 
 <body>
+<div id="PREN_wait" style="display: none;">
+
+</div>
+
 <div align="center">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -44,8 +48,9 @@
         <p style="font-family:'Arial'"><b> PREN2 - Gruppe 19 </b></p> <br/>
         <input type="text" style="text-align: center;" name="sTime" size=13 readonly="true" value="0:00:00"/>
         <br/> <br/>
-        <input type="button" value="Start" onclick="start()"/>
-        <input type="button" value="Init Steuerung" onclick="location.href='/init_control';"/>
+        <input type="button" class="btn btn-success" value="START" onclick="start();"/>
+        <input type="button" class="btn btn-warning" value="RESET" onclick="reset();"/>
+        <input type="button" class="btn btn-info" value="Init Steuerung" onclick="location.href='/init_control';"/>
 
     </form>
     <div>

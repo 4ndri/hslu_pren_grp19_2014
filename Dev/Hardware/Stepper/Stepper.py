@@ -5,6 +5,7 @@ import pigpio
 import math
 import wiringpi2 as wiringpi
 
+
 class Stepper:
     def __init__(self, dir_pin, pulse_pin, min_delay=400, max_delay=5000, acc=100):
         self.dir_pin = dir_pin
@@ -32,6 +33,16 @@ class Stepper:
         pi.write(self.pulse_pin, 0)
         pi.set_mode(self.dir_pin, pigpio.OUTPUT)
         pi.write(self.dir_pin, 0)
+
+    def move_steps(self, steps):
+        print "move steps: " + str(steps)
+        self.pi.set_mode(self.dir_pin, pigpio.OUTPUT)
+        if steps < 0:
+            self.pi.write(self.dir_pin, 0)
+            steps = -steps
+        else:
+            self.pi.write(self.dir_pin, 1)
+        self.run_steps(steps)
 
     def steps_right(self, steps):
         print "steps right: " + str(steps)
