@@ -2,6 +2,7 @@ __author__ = 'endru'
 
 import time
 import pigpio
+import math
 import wiringpi2 as wiringpi
 
 class Stepper:
@@ -53,7 +54,7 @@ class Stepper:
         final_delay = max(int(self.max_delay - int(float(steps) / 2) * self.acc), self.min_delay)
         print "final_delay: " + str(final_delay) + ", max_delay: " + str(self.max_delay) + ", min_delay: " + str(
             self.min_delay)
-        ramp_steps = int(float(self.max_delay - final_delay) / self.acc)
+        ramp_steps = int(math.ceil(float(self.max_delay - final_delay) / self.acc))
         middle_steps = max(steps - 2 * ramp_steps, 0)
         # build initial ramp up
         for delay in range(self.max_delay, final_delay, -self.acc):
