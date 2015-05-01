@@ -12,13 +12,16 @@
     <link href="/css/pren19.css" rel="stylesheet">
     <script type="text/javascript" src="/js/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/waitWindow.js"></script>
     <script type="text/javascript" src="/js/stoppuhr.js"></script>
     <script type="text/javascript" src="/js/pren19.js"></script>
 </head>
 
 <body>
 <div id="PREN_wait" style="display: none;">
+<div>
 
+</div>
 </div>
 
 <div align="center">
@@ -42,6 +45,7 @@
             </div>
         </div>
     </nav>
+    <div id="mainContainer">
     <form name="control">
         <br/><br/>
 
@@ -49,14 +53,19 @@
         <input type="text" style="text-align: center;" name="sTime" size=13 readonly="true" value="0:00:00"/>
         <br/> <br/>
         <input type="button" class="btn btn-success" value="START" onclick="start();"/>
-        <input type="button" class="btn btn-warning" value="RESET" onclick="reset();"/>
+        <input type="button" class="btn btn-warning" value="RESET" onclick="reset_control();"/>
         <input type="button" class="btn btn-info" value="Init Steuerung" onclick="location.href='/init_control';"/>
 
     </form>
-    <div>
+        </div>
+    <div id="contentContainer">
         {% block body %}{% endblock %}
         <div id="PREN_AsyncMsg"></div>
-        <div id="PREN_Error"></div>
+        <div id="PREN_Error_Container" class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            <div id="PREN_Error"></div>
+        </div>
     </div>
 </div>
 </body>

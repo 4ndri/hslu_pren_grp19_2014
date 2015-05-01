@@ -1,17 +1,52 @@
 {% extends "layout.html" %}
 {% block body %}
 <div id="testActions">
-    <input type="button" value="Test Balldepot" onclick="runBalldepot();"/>
+    <div class="row">
+        <div id="bd_testing" class="col-sm-6 col-md-3 tile">
+            <div>
+                <h3>Balldepot</h3>
 
-    <div id="bf_testing">
-        <input type="button" value="Test Ballbefoerderung" onclick="runBallbefoerderung();"/>
-        <input type="button" value="Stop Ballbefoerderung" onclick="stopBallbefoerderung();"/>
-        <label for="bf_speed_control">Speed Control</label>
-        <input id="bf_speed_control" type="range" min="0" max="100" step="1" onchange="setBFSpeed(this.value);"
-               oninput="setBFSpeed(this.value);"/>
+                <div class="btn-group-vertical" role="group" aria-label="Balldepot">
+                    <input type="button" value="Test Balldepot" class="btn btn-success" onclick="runBalldepot();"/>
+                </div>
+            </div>
+        </div>
+        <div id="bf_testing" class="col-sm-6 col-md-3 tile">
+            <div>
+                <h3>Ballbeförderung</h3>
+
+                <div class="btn-group-vertical" role="group" aria-label="Ballbeförderung">
+                    <input type="button" class="btn btn-success" value="Test Ballbefoerderung"
+                           onclick="runBallbefoerderung();"/>
+                    <input type="button" class="btn btn-success" value="Stop Ballbefoerderung"
+                           onclick="stopBallbefoerderung();"/>
+                    <label for="bf_speed_control">Speed Control</label>
+                    <input id="bf_speed_control" type="range" min="0" max="100" step="1"
+                           onchange="setBFSpeed(this.value);"
+                           oninput="setBFSpeed(this.value);"/>
+                </div>
+            </div>
+        </div>
+        <div id="zf_testing" class="col-sm-6 col-md-3 tile">
+            <div>
+                <h3>Zielerfassung</h3>
+
+                <div class="btn-group-vertical" role="group" aria-label="Zielerfassung">
+                    <input class="btn btn-success" type="button" value="Test Zielerfassung"
+                           onclick="location.href='/detect';"/>
+                    <input class="btn btn-success" type="button" value="Show Picture" onclick="getPicture();"/>
+                </div>
+            </div>
+        </div>
+        <div id="ar_testing" class="col-sm-6 col-md-3 tile">
+            <div>
+                <h3>Ausrichtung</h3>
+
+                <div class="btn-group-vertical" role="group" aria-label="Zielerfassung">
+                    <input class="btn btn-success" type="button" value="Test Ausrichtung" onclick="runAusrichtung();"/>
+                </div>
+            </div>
+        </div>
     </div>
-    <input type="button" value="Test Zielerfassung" onclick="location.href='/detect';"/>
-    <input type="button" value="Test Ausrichtung" onclick="runAusrichtung();"/>
-    <input type="button" value="Show Picture" onclick="getPicture();"/>
 </div>
 {% endblock %}

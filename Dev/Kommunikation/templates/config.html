@@ -1,72 +1,89 @@
 {% extends "layout.html" %}
 {% block body %}
-<div style="text-align: left;margin:20px;padding:10px;">
-    <h1>Camera</h1>
+<div class="row" style="text-align: left;">
+    <div id="zf_config" class="col-sm-6 col-md-3 tile">
+        <div>
+            <h3>Camera</h3>
 
-    <form action="/save_config_zielerfassung" method=post class="saveConfig">
-        <table>
-            {% for item in configData.zfconfig: %}
-            <tr>
-                <td><label for="{{item.attr}}">{{item.attr}}</label></td>
-                <td><input type="text" name="{{item.attr}}" value="{{item.value}}"/></td>
-            </tr>
-            {% endfor %}
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Save"/><input type="button" value="Cancel" onclick="location.href='/config';"/></td>
-            </tr>
-        </table>
-    </form>
+            <form action="/save_config_zielerfassung" method=post class="saveConfig">
+                <table>
+                    {% for item in configData.zfconfig: %}
+                    <tr>
+                        <td><label for="{{item.attr}}">{{item.attr}}</label></td>
+                        <td><input type="text" name="{{item.attr}}" value="{{item.value}}"/></td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Save"/><input type="button" value="Cancel"
+                                                                      onclick="location.href='/config';"/></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div id="bd_config" class="col-sm-6 col-md-3 tile">
+        <div>
+            <h3>Balldepot</h3>
 
-    <h1>Balldepot</h1>
+            <form action="/save_config_balldepot" method=post class="saveConfig">
+                <table>
+                    {% for item in configData.bdconfig: %}
+                    <tr>
+                        <td><label for="{{item.attr}}">{{item.attr}}</label></td>
+                        <td><input type="text" name="{{item.attr}}" value="{{item.value}}"/></td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Save"/><input type="button" value="Cancel"
+                                                                      onclick="location.href='/config';"/></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div id="bf_config" class="col-sm-6 col-md-3 tile">
+        <div>
+            <h3>Ballbefoerderung</h3>
 
-    <form action="/save_config_balldepot" method=post class="saveConfig">
-        <table>
-            {% for item in configData.bdconfig: %}
-            <tr>
-                <td><label for="{{item.attr}}">{{item.attr}}</label></td>
-                <td><input type="text" name="{{item.attr}}" value="{{item.value}}"/></td>
-            </tr>
-            {% endfor %}
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Save"/><input type="button" value="Cancel" onclick="location.href='/config';"/></td>
-            </tr>
-        </table>
-    </form>
+            <form action="/save_bfconfig" method=post class="saveConfig">
+                <table>
+                    {% for item in configData.bfconfig: %}
+                    <tr>
+                        <td><label for="{{item.attr}}">{{item.attr}}</label></td>
+                        <td><input type="text" name="{{item.attr}}" value="{{item.value}}"/></td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Save"/><input type="button" value="Cancel"
+                                                                      onclick="location.href='/config';"/></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div id="ar_config" class="col-sm-6 col-md-3 tile">
+        <div>
+            <h3>Ausrichtung</h3>
 
-    <h1>Ballbefoerderung</h1>
-
-    <form action="/save_bfconfig" method=post class="saveConfig">
-        <table>
-            {% for item in configData.bfconfig: %}
-            <tr>
-                <td><label for="{{item.attr}}">{{item.attr}}</label></td>
-                <td><input type="text" name="{{item.attr}}" value="{{item.value}}"/></td>
-            </tr>
-            {% endfor %}
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Save"/><input type="button" value="Cancel" onclick="location.href='/config';"/></td>
-            </tr>
-        </table>
-    </form>
-
-    <h1>Ausrichtung</h1>
-
-    <form action="/save_arconfig" method=post class="saveConfig">
-        <table>
-            {% for item in configData.arconfig: %}
-            <tr>
-                <td><label for="{{item.attr}}">{{item.attr}}</label></td>
-                <td><input type="text" name="{{item.attr}}" value="{{item.value}}"/></td>
-            </tr>
-            {% endfor %}
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Save"/><input type="button" value="Cancel" onclick="location.href='/config';"/></td>
-            </tr>
-        </table>
-    </form>
+            <form action="/save_arconfig" method=post class="saveConfig">
+                <table>
+                    {% for item in configData.arconfig: %}
+                    <tr>
+                        <td><label for="{{item.attr}}">{{item.attr}}</label></td>
+                        <td><input type="text" name="{{item.attr}}" value="{{item.value}}"/></td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Save"/><input type="button" value="Cancel"
+                                                                      onclick="location.href='/config';"/></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
 </div>
 {% endblock %}

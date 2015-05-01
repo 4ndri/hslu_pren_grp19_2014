@@ -1,7 +1,44 @@
-body { padding-top: 70px; }
-
-#bf_testing{
-    padding: 20px;
-    background: #5e5e5e;
+body {
+    padding-top: 70px;
 }
 
+#bd_testing div, #bd_config div{
+    background: #adba9f;
+}
+
+#bf_testing div, #bf_config div{
+    background: #ba7773;
+}
+
+#zf_testing div, #zf_config div{
+    background: #7688ba;
+}
+
+#ar_testing div, #ar_config div{
+
+    background: #ba9aae;
+}
+
+#mainContainer {
+    padding: 30px;
+}
+
+#contentContainer {
+    padding: 30px;
+    padding-top: 0;
+
+}
+
+#PREN_Error_Container {
+    display: none;
+}
+
+.tile {
+    padding: 20px;
+
+}
+.tile div{
+    border-radius: 30px;
+    padding:20px;
+    min-height: 150px;
+}

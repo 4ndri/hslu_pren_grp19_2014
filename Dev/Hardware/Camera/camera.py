@@ -11,9 +11,11 @@ import cv2.cv as cv
 import io
 import time
 from Dev.Test.video import create_capture
+
 try:
     import picamera
     import picamera.array
+
     pi_cam_available = True
 except ImportError:
     pi_cam_available = False
@@ -31,9 +33,10 @@ class AbstractFactory:
 class CamFactory:
     factories = {}
 
-    
+
     def add_factory(name, factory):
         CamFactory.factories[name] = factory
+
     add_factory = staticmethod(add_factory)
     # A Template Method:
 
@@ -43,10 +46,12 @@ class CamFactory:
         :rtype : ICamera
         """
         if not CamFactory.factories.has_key(name):
-            fac = eval(name+'.Factory()')
+            fac = eval(name + '.Factory()')
             CamFactory.add_factory(name, fac)
         return CamFactory.factories[name].create
+
     create_cam = staticmethod(create_cam)
+
 
 class ICamera:
     __metaclass__ = ABCMeta
@@ -128,11 +133,10 @@ class Camera(ICamera):
             return Camera(self.video_src)
 
 
-
-
 class PiCamera(ICamera):
     class PiCameraException(Exception):
-        msg="PiCameraException: "
+        msg = "PiCameraException: "
+
         def __init__(self, value):
             self.value = value
 
@@ -175,7 +179,6 @@ class PiCamera(ICamera):
             self.stream.truncate()
 
 
-
     def close(self):
         self.cam.close()
         print 'picamera closed'
@@ -198,7 +201,8 @@ class PiCamera(ICamera):
 
 class PiCamera2(ICamera):
     class PiCameraException(Exception):
-        msg="PiCameraException: "
+        msg = "PiCameraException: "
+
         def __init__(self, value):
             self.value = value
 
@@ -242,7 +246,7 @@ class PiCamera2(ICamera):
             self.stream.truncate()
 
     def close(self):
-        #self.cam.close()
+        # self.cam.close()
         print 'picamera closed'
 
     def set_resolution(self, w, h):
@@ -261,9 +265,11 @@ class PiCamera2(ICamera):
         def create(self):
             return PiCamera2()
 
+
 class ThreadPiCam(ICamera):
     class PiCameraException(Exception):
-        msg="PiCameraException: "
+        msg = "PiCameraException: "
+
         def __init__(self, value):
             self.value = value
 
@@ -299,7 +305,7 @@ class ThreadPiCam(ICamera):
             self.stream.truncate()
 
     def close(self):
-        #self.cam.close()
+        # self.cam.close()
         print 'picamera closed'
 
     def set_resolution(self, w, h):
@@ -325,9 +331,11 @@ def get_camera():
     :rtype : ICamera
     """
     camera = None
-    if pi_cam_available:
-        print "picamera available"
-        camera = CamFactory.create_cam('PiCamera2')
-    else:
-        camera = CamFactory.create_cam('Camera')
-    return camera
+    try:
+        if pi_cam_available:
+            print "picamera available"
+            camera = CamFactory.create_cam('PiCamera2')
+        else:
+            camera = CamFactory.create_cam('Camera')
+    finally:
+        return camera

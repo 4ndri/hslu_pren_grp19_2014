@@ -36,10 +36,13 @@ class IZielerfassung:
 
 class Zielerfassung(IZielerfassung):
     def __init__(self):
-        self.cam = camera.get_camera()
-        self.config = CFG.ZFConfig()
-        self.cntCalc = CF.ContourCalc(self.config)
-        self.cam.set_resolution(self.config.resolution_w, self.config.resolution_h)
+        try:
+            self.cam = camera.get_camera()
+            self.config = CFG.ZFConfig()
+            self.cntCalc = CF.ContourCalc(self.config)
+            self.cam.set_resolution(self.config.resolution_w, self.config.resolution_h)
+        except Exception as ex:
+            print ex.message
 
     @property
     def detect(self):
