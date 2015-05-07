@@ -18,7 +18,7 @@ class Ausrichtung:
         self.move_steps(steps)
 
     def move_steps(self, steps):
-        self.stepper.move_steps(steps);
+        #self.stepper.move_steps(steps)
         if steps < 0:
             steps = abs(steps)
             steps = max(min(self.config.max_steps + self.curr_pos, steps), 0)

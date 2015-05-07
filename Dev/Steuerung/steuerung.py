@@ -3,6 +3,7 @@ import Dev.Treiber.Zielerfassung.zielerfassung as ZF
 import Dev.Treiber.Ballbefoerderung.ballbefoerderung as BF
 import Dev.Treiber.Balldepot.balldepot as BD
 import Dev.Treiber.Ausrichtung.ausrichtung as AR
+import time
 
 
 class Steuerung:
@@ -24,7 +25,8 @@ class Steuerung:
         angle = self.zielerfassung.detect
         self.ausrichtung.moveXAngle(angle)
         self.ballbefoerderung.run()
-        self.balldepot.load()
+        while self.balldepot.load > 0:
+            time.sleep(0.5)
         self.ballbefoerderung.stop()
 
     def reset(self):

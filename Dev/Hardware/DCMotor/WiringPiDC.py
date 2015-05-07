@@ -63,7 +63,7 @@ class DCController:
     def stop(self):
         print "WiringPiDC stop on gpio " + str(self.gpio_pin)
         wiringpi.pwmWrite(self.gpio_pin, 0)
-        wiringpi.pinMode(self.gpio_pin, 1)
-        wiringpi.digitalWrite(self.gpio_pin, 0)
+        #wiringpi.pinMode(self.gpio_pin, 1)
+        #wiringpi.digitalWrite(self.gpio_pin, 0)
         self.current_pulse_length = 0
         self.is_running = False

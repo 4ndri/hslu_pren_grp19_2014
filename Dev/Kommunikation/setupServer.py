@@ -107,8 +107,8 @@ def run_ballbefoerderung():
 @app.route("/stop_ballbefoerderung")
 def stop_ballbefoerderung():
     print "dc start running"
-    control.get_ballbefoerderung.run()
-    data = {'msg': 'dc running'}
+    control.get_ballbefoerderung.stop()
+    data = {'msg': 'dc stop'}
     return str(data)
 
 @app.route("/set_bfspeed", methods=['POST'])

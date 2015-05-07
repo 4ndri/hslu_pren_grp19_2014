@@ -51,7 +51,7 @@ class Zielerfassung(IZielerfassung):
         position = cnt_info.center_distance.x
         angle = math.atan(self.config.pixelToCMFactor * position)
         print "position: pixel: " + str(position) + "   angle: " + str(angle)
-        return position
+        return angle
 
     def get_threshold(self):
         return self.config.threshold

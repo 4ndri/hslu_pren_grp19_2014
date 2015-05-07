@@ -18,12 +18,15 @@ class Balldepot:
         :rtype : int
         """
         print "Balldepot: load"
-        if self.nbOfBalls >= 0:
+        if self.nbOfBalls == 5:
+            self.servo.turnRight(self.config.timeForBall/2)
+            self.nbOfBalls -= 1
+        elif self.nbOfBalls >= 0:
             self.servo.turnRight(self.config.timeForBall)
             self.nbOfBalls -= 1
         else:
-            self.servo.turnLeft(self.config.timeForBall)
-            self.nbOfBalls += 1
+            self.servo.turnLeft(self.config.timeForBall/2)
+            self.nbOfBalls = 4
         return self.nbOfBalls
 
     @property

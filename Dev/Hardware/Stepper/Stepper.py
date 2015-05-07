@@ -95,8 +95,8 @@ class Stepper:
 
         self.pi.wave_send_once(wid1)
         print "wait offset: " + str(offset)
-        time.sleep(float(offset) / 1000000.0)  # make sure it's a float
-
+        time.sleep(float(offset+200) / 1000000.0)  # make sure it's a float
+        self.init_pigpio_pins()
         # while self.pi.wave_tx_busy():
         # offset = self.pi.wave_get_micros()
         # time.sleep(float(offset) / 1000000.0)
