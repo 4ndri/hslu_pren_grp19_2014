@@ -3,7 +3,6 @@ __author__ = 'endru'
 import time
 import pigpio
 import math
-import wiringpi2 as wiringpi
 
 
 class Stepper:

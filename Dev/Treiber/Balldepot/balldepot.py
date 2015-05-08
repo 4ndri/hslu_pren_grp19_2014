@@ -1,14 +1,13 @@
 __author__ = 'Andri'
 import Dev.Treiber.Balldepot.config as CFG
-import Dev.Hardware.Servo.servoContinuous as Servo
-import Dev.Hardware.Servo.WiringPiServo as WServo
-
+#import Dev.Hardware.Servo.WiringPiServo as Servo
+import Dev.Hardware.Servo.PigpioServo as Servo
 
 class Balldepot:
     def __init__(self):
         self.nbOfBalls = 5
         self.config = CFG.BDConfig()
-        self.servo = WServo.ContinuousServo(self.config.duty_min, self.config.duty_max)
+        self.servo = Servo.ContinuousServo(self.config.duty_min, self.config.duty_max)
         print "Balldepot inited"
 
     @property
@@ -37,4 +36,4 @@ class Balldepot:
         print "save balldepot config"
         self.config.save_config()
         self.servo = None
-        self.servo = WServo.ContinuousServo(self.config.duty_min, self.config.duty_max)
+        self.servo = Servo.ContinuousServo(self.config.duty_min, self.config.duty_max)
