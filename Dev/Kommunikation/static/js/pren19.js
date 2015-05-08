@@ -81,11 +81,38 @@ function setBFSpeed(val) {
         $('#PREN_AsyncMsg').html(data);
     }).fail(function (err) {
         handleError(err);
-    })
+    });
 }
 
 function runAusrichtung() {
     runAction('/test_ausrichtung').done(function (data) {
+        $('#PREN_AsyncMsg').html(data);
+    }).fail(function (err) {
+        handleError(err);
+    });
+}
+
+function testAusrichtungWithDetect(){
+    runAction('/test_ausrichtung_detect').done(function (data) {
+        $('#PREN_AsyncMsg').html(data);
+    }).fail(function (err) {
+        handleError(err);
+    });
+
+}
+
+function moveSteps(){
+    initAction();
+    waitingDialog.show();
+    var d = $.Deferred();
+    val = $('#ar_step_input').val();
+    var options = {
+        method: "POST",
+        url: "/set_bfspeed",
+        data: "steps=" + val
+    };
+
+    $.ajax(options).done(function (data) {
         $('#PREN_AsyncMsg').html(data);
     }).fail(function (err) {
         handleError(err);

@@ -149,13 +149,9 @@ def save_cam_config():
 @app.route("/save_config_balldepot", methods=['POST'])
 def save_config_balldepot():
     bd = control.get_balldepot
-    bd.config.servo_max = get_int_from_request('servo_max')
-    bd.config.servo_min = get_int_from_request('servo_min')
     bd.config.timeForBall = float(request.form['timeForBall'])
-    bd.config.channel = get_int_from_request('channel')
-    bd.config.freq = get_int_from_request('freq')
-    bd.config.duty_max = float(request.form['duty_max'])
-    bd.config.duty_min = float(request.form['duty_min'])
+    bd.config.duty = float(request.form['duty'])
+    bd.config.gpio_pin = get_int_from_request('gpio_pin')
     bd.save_config()
     return config()
 
@@ -163,9 +159,7 @@ def save_config_balldepot():
 def save_bfconfig():
     bf = control.get_ballbefoerderung
     bf.config.pulse_length = float(request.form['pulse_length'])
-    bf.config.channel = get_int_from_request('channel')
     bf.config.freq = get_int_from_request('freq')
-    bf.config.dc_driver = get_int_from_request('dc_driver')
     bf.config.gpio_port = get_int_from_request('gpio_port')
     bf.save_config()
     return config()

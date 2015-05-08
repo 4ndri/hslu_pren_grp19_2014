@@ -15,6 +15,7 @@ class Ausrichtung:
         steps = abs(int(angle * self.config.angle2Step))
         if angle < 0:
             steps = -steps
+        print "steps calc: "+str(steps)
         self.move_steps(steps)
 
     def move_steps(self, steps):
@@ -22,11 +23,11 @@ class Ausrichtung:
         if steps < 0:
             steps = abs(steps)
             steps = max(min(self.config.max_steps + self.curr_pos, steps), 0)
-            self.stepper.steps_left(steps)
+            self.stepper.steps_right(steps)
             self.curr_pos = self.curr_pos - steps
         else:
             steps = max(min(self.config.max_steps - self.curr_pos, steps), 0)
-            self.stepper.steps_right(steps)
+            self.stepper.steps_left(steps)
             self.curr_pos = self.curr_pos + steps
 
     def reset(self):
