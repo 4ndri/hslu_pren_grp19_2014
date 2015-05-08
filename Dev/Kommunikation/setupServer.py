@@ -80,8 +80,9 @@ def get_picture():
 
 @app.route("/init_control")
 def init_control():
-    control = ctrl.Steuerung()
-    return render_template('index.html', name=None)
+    control.reset_all()
+    data = {'msg': 'steuerung reset_all'}
+    return render_template('index.html', data=data)
 
 
 @app.route("/test_balldepot")
@@ -90,12 +91,6 @@ def test_balldepot():
     print "number of Balls: " + str(balls)
     data = {'msg': balls}
     return str(data)
-
-@app.route("/pwm_to_zero")
-def pwm_to_zero():
-    control=None
-    control=ctrl.Steuerung()
-    return str("pwm zero")
 
 @app.route("/run_ballbefoerderung")
 def run_ballbefoerderung():
@@ -122,9 +117,17 @@ def set_bfspeed():
 @app.route("/test_ausrichtung")
 def test_ausrichtung():
     print "test_ausrichtung"
-    control.get_ausrichtung.moveXAngle(6.28)
-    control.get_ausrichtung.moveXAngle(-6.28)
+    control.ausrichtung.moveXAngle(6.28)
+    control.ausrichtung.moveXAngle(-6.28)
     data = {'msg': 'ausrichtung moveXAngle 6.28, -6.28 finished'}
+    return str(data)
+
+@app.route("/test_ausrichtung_detect")
+def test_ausrichtung_with_detect():
+    print "test_ausrichtung with detection"
+    angle = control.zielerfassung.detect
+    control.ausrichtung.moveXAngle(angle)
+    data = {'msg': 'ausrichtung moveXAngle: '+str(angle)+' finished'}
     return str(data)
 
 @app.route("/save_config_zielerfassung", methods=['POST'])

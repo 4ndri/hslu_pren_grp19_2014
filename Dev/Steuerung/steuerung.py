@@ -34,6 +34,12 @@ class Steuerung:
         self.ballbefoerderung.stop()
         self.balldepot.nbOfBalls = 5
 
+    def reset_all(self):
+        self.balldepot = BD.Balldepot()
+        self.zielerfassung = ZF.Zielerfassung()
+        self.ballbefoerderung = BF.Ballbefoerderung()
+        self.ausrichtung = AR.Ausrichtung()
+
     @property
     def get_zielerfassung(self):
         return self.zielerfassung

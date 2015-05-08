@@ -16,9 +16,6 @@ class ARConfig:
         self.acc =self.config.get_number("Ausrichtung", "acc", 100)
         self.max_steps =self.config.get_number("Ausrichtung", "max_steps", 400)
 
-    def get_angle2Step(self):
-        return self.angle2Step
-
     def set_angle2Step(self, angle2Step):
         self.config.set_float("Ausrichtung", "angle2Step", angle2Step)
         self.angle2Step=angle2Step
@@ -29,3 +26,5 @@ class ARConfig:
         self.config.set_number("Ausrichtung", "pulse_pin", self.pulse_pin)
         self.config.set_number("Ausrichtung", "min_delay", self.min_delay)
         self.config.set_number("Ausrichtung", "max_delay", self.max_delay)
+        self.config.set_number("Ausrichtung", "acc", self.acc)
+        self.config.set_number("Ausrichtung", "max_steps", self.max_steps)

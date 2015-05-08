@@ -113,6 +113,17 @@ function reset_control() {
     });
 }
 
+function init_control(){
+    runAction('/init_control').done(function (data) {
+        StopTimer();
+        $('#PREN_AsyncMsg').html(data);
+    }).fail(function (err) {
+        handleError(err);
+        StopTimer();
+    });
+}
+
+
 function handleError(err) {
     $('#PREN_Error').html(err);
     $('#PREN_Error_Container').show();
