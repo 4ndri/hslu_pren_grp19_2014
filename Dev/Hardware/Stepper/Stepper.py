@@ -6,12 +6,14 @@ import math
 
 
 class Stepper:
-    def __init__(self, dir_pin, pulse_pin, min_delay=400, max_delay=5000, acc=100):
+    def __init__(self, dir_pin, pulse_pin,enable_pin, microsteps_pin, min_delay=400, max_delay=5000, acc=100):
         self.dir_pin = dir_pin
         self.pulse_pin = pulse_pin
         self.min_delay = min_delay
         self.max_delay = max_delay
         self.acc = acc
+        self.microsteps_pin=microsteps_pin
+        self.enable_pin=enable_pin
         self.pi = pigpio.pi()
 
 
@@ -32,6 +34,20 @@ class Stepper:
         pi.write(self.pulse_pin, 0)
         pi.set_mode(self.dir_pin, pigpio.OUTPUT)
         pi.write(self.dir_pin, 0)
+
+    def set_enable(self, enable):
+        self.pi.set_mode(self.enable_pin, pigpio.OUTPUT)
+        if enable:
+            self.pi.write(self.enable_pin, 0)
+        else:
+            self.pi.write(self.enable_pin, 1)
+
+    def set_microsteps(self, do_microsteps):
+        self.pi.set_mode(self.microsteps_pin, pigpio.OUTPUT)
+        if do_microsteps:
+            self.pi.write(self.microsteps_pin, 1)
+        else:
+            self.pi.write(self.microsteps_pin, 0)
 
     def move_steps(self, steps):
         print "move steps: " + str(steps)
