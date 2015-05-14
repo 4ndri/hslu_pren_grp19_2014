@@ -22,6 +22,13 @@ class ZFConfig:
         self.threshold = self.config.get_number("Approx", "threshold", 65)
         tmp = float(150) / (450 * 205)
         self.pixelToCMFactor = self.config.get_float("ZF", "pixelToCMFactor", tmp)
+        self.hitpoint_x = self.config.get_float("ZF", "hitpoint_x", 320)
+        self.hitpoint_y = self.config.get_float("ZF", "hitpoint_y", 240)
+
+        self.threshold_min = self.config.get_float("Canny", "threshold_min", 100)
+        self.threshold_max = self.config.get_float("Canny", "threshold_max", 100)
+
+        self.hough_threshold = self.config.get_number("Hough", "hough_threshold", 100)
 
     def set_resolution(self, resolution_rect):
         """
@@ -88,6 +95,24 @@ class ZFConfig:
 
     def save_zf(self):
         self.pixelToCMFactor = self.config.set_float("ZF", "pixelToCMFactor", self.pixelToCMFactor)
+        self.hitpoint_x = self.config.set_number("ZF", "hitpoint_x", self.hitpoint_x)
+        self.hitpoint_y = self.config.set_number("ZF", "hitpoint_y", self.hitpoint_y)
+
+    def save_canny(self):
+        self.threshold_min = self.config.set_float("Canny", "threshold_min", self.threshold_min)
+        self.threshold_max = self.config.set_float("Canny", "threshold_max", self.threshold_max)
+
+    def set_canny(self, threshold_min, threshold_max):
+        self.threshold_min = threshold_min
+        self.threshold_max = threshold_max
+        self.save_canny()
+
+    def set_hough(self, hough_threshold):
+        self.hough_threshold = hough_threshold
+        self.save_hough()
+
+    def save_hough(self):
+        self.hough_threshold = self.config.set_number("Hough", "hough_threshold", self.hough_threshold)
 
     def save_config(self):
         self.save_approx_rect()

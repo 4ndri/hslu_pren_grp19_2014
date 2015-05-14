@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a210c76-c31c-4a6a-a92f-54d56e48e663" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Hardware/Stepper/Stepper.py" afterPath="$PROJECT_DIR$/Dev/Hardware/Stepper/Stepper.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Treiber/Ausrichtung/config.py" afterPath="$PROJECT_DIR$/Dev/Treiber/Ausrichtung/config.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/zielerfassungv2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/config.py" afterPath="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/config.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/contourFinder.ini" afterPath="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/contourFinder.ini" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/hslu_pren_grp19_2014.iml" afterPath="$PROJECT_DIR$/.idea/hslu_pren_grp19_2014.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hslu_pren_grp19_2014.iws" />
@@ -37,7 +40,7 @@
       <file leaf-file-name="ausrichtung.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/Treiber/Ausrichtung/ausrichtung.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
+            <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="850">
               <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
               <folding />
             </state>
@@ -47,9 +50,12 @@
       <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/Treiber/Ausrichtung/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
-              <caret line="29" column="84" selection-start-line="29" selection-start-column="84" selection-end-line="29" selection-end-column="84" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="646">
+              <caret line="33" column="74" selection-start-line="33" selection-start-column="74" selection-end-line="33" selection-end-column="74" />
+              <folding>
+                <marker date="1431642682449" expanded="true" signature="97:1881" placeholder="..." />
+                <marker date="1431642682449" expanded="true" signature="121:471" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -57,10 +63,12 @@
       <file leaf-file-name="steuerung.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/Steuerung/steuerung.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="1200">
-              <caret line="27" column="41" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="1360">
+              <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
               <folding>
                 <element signature="e#21#73#0" expanded="true" />
+                <marker date="1431642682443" expanded="true" signature="257:1847" placeholder="..." />
+                <marker date="1431642682443" expanded="true" signature="614:921" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -69,8 +77,8 @@
       <file leaf-file-name="zielerfassung.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/Treiber/Zielerfassung/zielerfassung.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="189" max-vertical-offset="1140">
-              <caret line="51" column="45" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="782" max-vertical-offset="1292">
+              <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="67" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -79,51 +87,55 @@
       <file leaf-file-name="ContourFinder.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/Treiber/Zielerfassung/ContourFinder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="643" max-vertical-offset="4365">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2559" max-vertical-offset="4947">
               <caret line="64" column="8" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Stepper.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Stepper.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/Hardware/Stepper/Stepper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6940063" vertical-offset="0" max-vertical-offset="1875">
-              <caret line="44" column="6" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="6" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="1020" max-vertical-offset="2125">
+              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
               <folding>
                 <element signature="e#22#33#0" expanded="true" />
+                <marker date="1431642682437" expanded="true" signature="76:4022" placeholder="..." />
+                <marker date="1431642682437" expanded="true" signature="1298:1499" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_stepper.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/Hardware/Stepper/test_stepper.py">
+      <file leaf-file-name="contourFinder.ini" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dev/Treiber/Zielerfassung/contourFinder.ini">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="210">
-              <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+            <state vertical-scroll-proportion="-4.76" vertical-offset="153" max-vertical-offset="527">
+              <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setupServer.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/setupServer.py">
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dev/Treiber/Zielerfassung/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1650" max-vertical-offset="2775">
-              <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="179" max-vertical-offset="2108">
+              <caret line="25" column="71" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testing.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/templates/testing.html">
+      <file leaf-file-name="zielerfassungv2.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Dev/Treiber/Zielerfassung/zielerfassungv2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="915">
-              <caret line="48" column="44" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="44" />
-              <folding />
+            <state vertical-scroll-proportion="0.9119171" vertical-offset="362" max-vertical-offset="969">
+              <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+              <folding>
+                <element signature="e#29#75#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -131,7 +143,7 @@
       <file leaf-file-name="pren19.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/static/js/pren19.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1314" max-vertical-offset="2445">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1819" max-vertical-offset="2771">
               <caret line="107" column="27" selection-start-line="107" selection-start-column="27" selection-end-line="107" selection-end-column="27" />
               <folding />
             </state>
@@ -151,7 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Dev/Treiber/Ausrichtung/UnitTests/test_ARConfig.py" />
         <option value="$PROJECT_DIR$/Dev/Hardware/Stepper/stepper.py" />
         <option value="$PROJECT_DIR$/Dev/Hardware/Servo/servo.py" />
         <option value="$PROJECT_DIR$/Dev/SysConfig/ResizeSDCard" />
@@ -164,7 +175,6 @@
         <option value="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/test_zielerfassung.py" />
         <option value="$PROJECT_DIR$/Dev/Kommunikation/templates/showpicture.html" />
         <option value="$PROJECT_DIR$/Dev/Kommunikation/templates/index.html" />
-        <option value="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/contourFinder.ini" />
         <option value="$PROJECT_DIR$/Dev/Test/ContourFinder.py" />
         <option value="$PROJECT_DIR$/Dev/Hardware/Servo/servoContinuous.py" />
         <option value="$PROJECT_DIR$/Dev/Hardware/Servo/PWMKernelServo.py" />
@@ -178,7 +188,6 @@
         <option value="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/ContourFinder.py" />
         <option value="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/run_zielerfassung.py" />
         <option value="$PROJECT_DIR$/Dev/Hardware/DCMotor/test_DC_stop.py" />
-        <option value="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/config.py" />
         <option value="$PROJECT_DIR$/Dev/Hardware/Camera/camera.py" />
         <option value="$PROJECT_DIR$/Dev/Kommunikation/templates/config.html" />
         <option value="$PROJECT_DIR$/Dev/Kommunikation/static/css/pren19.css" />
@@ -202,6 +211,9 @@
         <option value="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/zielerfassung.py" />
         <option value="$PROJECT_DIR$/Dev/Treiber/Ausrichtung/config.py" />
         <option value="$PROJECT_DIR$/Dev/Hardware/Stepper/Stepper.py" />
+        <option value="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/contourFinder.ini" />
+        <option value="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/config.py" />
+        <option value="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/zielerfassungv2.py" />
       </list>
     </option>
   </component>
@@ -209,10 +221,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="24" />
-    <option name="width" value="1855" />
-    <option name="height" value="1056" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -253,7 +265,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -584,11 +595,12 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="FullScreen" value="false" />
-    <property name="options.lastSelected" value="preferences.keymap" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -618,7 +630,7 @@
       <recent name="C:\Users\Andri\Documents\Development\HSLU\PREN\hslu_pren_grp19_2014\Dev\Treiber\Zielerfassung" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.test_stepper">
+  <component name="RunManager" selected="Python.zielerfassungv2">
     <configuration default="false" name="setupServer" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -657,31 +669,6 @@
       <option name="METHOD_NAME" value="test_CreateARConfig" />
       <option name="FOLDER_NAME" value="" />
       <option name="TEST_TYPE" value="TEST_METHOD" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <RunnerSettings RunnerId="PythonRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Unittests in test_ARConfig" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Dev/Treiber/Ausrichtung/UnitTests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="hslu_pren_grp19_2014" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Dev/Treiber/Ausrichtung/UnitTests/test_ARConfig.py" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
       <option name="PUREUNITTEST" value="true" />
@@ -735,7 +722,27 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
-    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
+    <configuration default="false" name="zielerfassungv2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Dev/Treiber/Zielerfassung" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hslu_pren_grp19_2014" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Dev/Treiber/Zielerfassung/zielerfassungv2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -748,11 +755,32 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="hslu_pren_grp19_2014" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="TARGET" value="" />
-      <option name="SETTINGS_FILE" value="" />
-      <option name="CUSTOM_SETTINGS" value="false" />
-      <option name="USE_OPTIONS" value="false" />
-      <option name="OPTIONS" value="" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hslu_pren_grp19_2014" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="py.test">
@@ -780,7 +808,7 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="tests" factoryName="Nosetests">
+    <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -798,66 +826,6 @@
       <option name="TEST_TYPE" value="TEST_SCRIPT" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="hslu_pren_grp19_2014" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Unittests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="hslu_pren_grp19_2014" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="hslu_pren_grp19_2014" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="ADDITIONAL_ARGS" value="" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -880,30 +848,7 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <pass-parent-envs>true</pass-parent-envs>
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="hslu_pren_grp19_2014" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="ADDITIONAL_ARGS" value="" />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Attests">
+    <configuration default="true" type="tests" factoryName="Nosetests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -921,6 +866,8 @@
       <option name="TEST_TYPE" value="TEST_SCRIPT" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
     <configuration default="false" name="ContourFinder" type="PythonConfigurationType" factoryName="Python">
@@ -1025,17 +972,17 @@
       <item index="4" class="java.lang.String" itemvalue="Python.steuerung" />
       <item index="5" class="java.lang.String" itemvalue="Python.setupServer" />
       <item index="6" class="java.lang.String" itemvalue="Python tests.Unittest TestARConfig.test_CreateARConfig" />
-      <item index="7" class="java.lang.String" itemvalue="Python tests.Unittests in test_ARConfig" />
-      <item index="8" class="java.lang.String" itemvalue="Python.run_zielerfassung" />
-      <item index="9" class="java.lang.String" itemvalue="Python.test_stepper" />
+      <item index="7" class="java.lang.String" itemvalue="Python.run_zielerfassung" />
+      <item index="8" class="java.lang.String" itemvalue="Python.test_stepper" />
+      <item index="9" class="java.lang.String" itemvalue="Python.zielerfassungv2" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.test_stepper" />
-        <item index="1" class="java.lang.String" itemvalue="Python.run_zielerfassung" />
-        <item index="2" class="java.lang.String" itemvalue="Python.setupServer" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittest TestARConfig.test_CreateARConfig" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in test_ARConfig" />
+        <item index="0" class="java.lang.String" itemvalue="Python.zielerfassungv2" />
+        <item index="1" class="java.lang.String" itemvalue="Python.test_stepper" />
+        <item index="2" class="java.lang.String" itemvalue="Python.run_zielerfassung" />
+        <item index="3" class="java.lang.String" itemvalue="Python.setupServer" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittest TestARConfig.test_CreateARConfig" />
       </list>
     </recent_temporary>
   </component>
@@ -1288,30 +1235,30 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2489019" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18348624" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925585" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32861635" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39959225" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925585" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925585" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1386,19 +1333,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Dev/Kommunikation/static/js/pren19.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="654" max-vertical-offset="1440">
-          <caret line="62" column="28" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dev/Hardware/Stepper/Stepper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="316" max-vertical-offset="1470">
           <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
           <folding>
             <element signature="e#22#33#0" expanded="true" />
+            <marker date="1431642682437" expanded="true" signature="76:4022" placeholder="..." />
+            <marker date="1431642682437" expanded="true" signature="1298:1499" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1476,6 +1418,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#22#33#0" expanded="true" />
+            <marker date="1431642682437" expanded="true" signature="76:4022" placeholder="..." />
+            <marker date="1431642682437" expanded="true" signature="1298:1499" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1509,6 +1453,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#22#33#0" expanded="true" />
+            <marker date="1431642682437" expanded="true" signature="76:4022" placeholder="..." />
+            <marker date="1431642682437" expanded="true" signature="1298:1499" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1517,13 +1463,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33273703" vertical-offset="24399" max-vertical-offset="33375">
           <caret line="1642" column="75" selection-start-line="1642" selection-start-column="75" selection-end-line="1642" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python2.7/ConfigParser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="5038" max-vertical-offset="11385">
-          <caret line="357" column="8" selection-start-line="357" selection-start-column="8" selection-end-line="357" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -1541,13 +1480,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
           <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/Treiber/Zielerfassung/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1515">
-          <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -1675,7 +1607,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="951">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1683,7 +1614,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
           <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1691,9 +1621,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
           <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding>
-            <element signature="e#22#35#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1731,10 +1658,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Dev/Steuerung/steuerung.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="1200">
-          <caret line="27" column="41" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="1360">
+          <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
           <folding>
             <element signature="e#21#73#0" expanded="true" />
+            <marker date="1431642682443" expanded="true" signature="257:1847" placeholder="..." />
+            <marker date="1431642682443" expanded="true" signature="614:921" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Treiber/Ausrichtung/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="646">
+          <caret line="33" column="74" selection-start-line="33" selection-start-column="74" selection-end-line="33" selection-end-column="74" />
+          <folding>
+            <marker date="1431642682449" expanded="true" signature="97:1881" placeholder="..." />
+            <marker date="1431642682449" expanded="true" signature="121:471" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Treiber/Ausrichtung/ausrichtung.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
+          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dev/Hardware/Stepper/Stepper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="1020" max-vertical-offset="2125">
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding>
+            <element signature="e#22#33#0" expanded="true" />
+            <marker date="1431642682437" expanded="true" signature="76:4022" placeholder="..." />
+            <marker date="1431642682437" expanded="true" signature="1298:1499" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1749,34 +1709,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Dev/Treiber/Zielerfassung/zielerfassung.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="189" max-vertical-offset="1140">
-          <caret line="51" column="45" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="782" max-vertical-offset="1292">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="67" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/Treiber/Ausrichtung/config.py">
+    <entry file="file://$PROJECT_DIR$/Dev/Treiber/Zielerfassung/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
-          <caret line="29" column="84" selection-start-line="29" selection-start-column="84" selection-end-line="29" selection-end-column="84" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="179" max-vertical-offset="2108">
+          <caret line="25" column="71" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/Treiber/Ausrichtung/ausrichtung.py">
+    <entry file="file://$PROJECT_DIR$/Dev/Treiber/Zielerfassung/contourFinder.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+        <state vertical-scroll-proportion="-4.76" vertical-offset="153" max-vertical-offset="527">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dev/Hardware/Stepper/Stepper.py">
+    <entry file="file://$PROJECT_DIR$/Dev/Treiber/Zielerfassung/zielerfassungv2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6940063" vertical-offset="0" max-vertical-offset="1875">
-          <caret line="44" column="6" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.9119171" vertical-offset="362" max-vertical-offset="969">
+          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
           <folding>
-            <element signature="e#22#33#0" expanded="true" />
+            <element signature="e#29#75#0" expanded="true" />
           </folding>
         </state>
       </provider>
