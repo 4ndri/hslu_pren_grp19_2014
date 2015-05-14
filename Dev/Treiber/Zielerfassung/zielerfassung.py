@@ -37,6 +37,7 @@ class IZielerfassung:
 class Zielerfassung(IZielerfassung):
     def __init__(self):
         try:
+            self.dir=0
             self.cam = camera.get_camera()
             self.config = CFG.ZFConfig()
             self.cntCalc = CF.ContourCalc(self.config)

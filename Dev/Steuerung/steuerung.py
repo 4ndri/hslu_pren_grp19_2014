@@ -22,8 +22,11 @@ class Steuerung:
         self.ausrichtung = AR.Ausrichtung()
 
     def start(self):
-        angle = self.zielerfassung.detect
-        self.ausrichtung.moveXAngle(angle)
+        counter=0
+        angle=5
+        while counter<5 and angle>0.01:
+            angle = self.zielerfassung.detect
+            self.ausrichtung.moveXAngle(angle)
         self.ballbefoerderung.run()
         while self.balldepot.load > 0:
             time.sleep(0.5)
