@@ -37,7 +37,7 @@ class IZielerfassung:
 class Zielerfassung(IZielerfassung):
     def __init__(self):
         try:
-            self.dir=0
+            self.dir = 0
             self.cam = camera.get_camera()
             self.config = CFG.ZFConfig()
             self.cntCalc = CF.ContourCalc(self.config)
@@ -49,6 +49,16 @@ class Zielerfassung(IZielerfassung):
     def detect(self):
         img = self.cam.take_picture
         cnt_info = self.cntCalc.find_contours(img, False)
+        if self.dir == 0:
+            if cnt_info.center_distance.x < 0:
+                self.dir = -1
+            elif cnt_info.center_distance.x > 0:
+                self.dir = 1
+            else:
+                self.dir = 0
+        if self.dir<0:
+            right_x=cnt_info.rect.x+cnt_info.rect.width
+
         position = cnt_info.center_distance.x
         angle = math.atan(self.config.pixelToCMFactor * position)
         print "position: pixel: " + str(position) + "   angle: " + str(angle)

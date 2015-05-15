@@ -6,14 +6,16 @@ import math
 
 
 class Stepper:
-    def __init__(self, dir_pin, pulse_pin,enable_pin, microsteps_pin, min_delay=400, max_delay=5000, acc=100):
+    def __init__(self, dir_pin, pulse_pin, enable_pin, microsteps1_pin, microsteps2_pin, min_delay=400, max_delay=2000,
+                 acc=100):
         self.dir_pin = dir_pin
         self.pulse_pin = pulse_pin
         self.min_delay = min_delay
         self.max_delay = max_delay
         self.acc = acc
-        self.microsteps_pin=microsteps_pin
-        self.enable_pin=enable_pin
+        self.microsteps1_pin = microsteps1_pin
+        self.microsteps2_pin = microsteps2_pin
+        self.enable_pin = enable_pin
         self.pi = pigpio.pi()
 
 
@@ -43,11 +45,11 @@ class Stepper:
             self.pi.write(self.enable_pin, 1)
 
     def set_microsteps(self, do_microsteps):
-        self.pi.set_mode(self.microsteps_pin, pigpio.OUTPUT)
+        self.pi.set_mode(self.microsteps1_pin, pigpio.OUTPUT)
         if do_microsteps:
-            self.pi.write(self.microsteps_pin, 1)
+            self.pi.write(self.microsteps1_pin, 1)
         else:
-            self.pi.write(self.microsteps_pin, 0)
+            self.pi.write(self.microsteps1_pin, 0)
 
     def move_steps(self, steps):
         print "move steps: " + str(steps)
@@ -110,7 +112,7 @@ class Stepper:
 
         self.pi.wave_send_once(wid1)
         print "wait offset: " + str(offset)
-        time.sleep(float(offset+200) / 1000000.0)  # make sure it's a float
+        time.sleep(float(offset + 200) / 1000000.0)  # make sure it's a float
         self.init_pigpio_pins()
         # while self.pi.wave_tx_busy():
         # offset = self.pi.wave_get_micros()

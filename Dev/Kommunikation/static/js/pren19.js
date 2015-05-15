@@ -108,11 +108,12 @@ function moveSteps(){
     val = $('#ar_step_input').val();
     var options = {
         method: "POST",
-        url: "/set_bfspeed",
+        url: "/test_ausrichtung_steps",
         data: "steps=" + val
     };
 
     $.ajax(options).done(function (data) {
+        waitingDialog.hide();
         $('#PREN_AsyncMsg').html(data);
     }).fail(function (err) {
         handleError(err);

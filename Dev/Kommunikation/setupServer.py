@@ -117,17 +117,27 @@ def set_bfspeed():
 @app.route("/test_ausrichtung")
 def test_ausrichtung():
     print "test_ausrichtung"
-    control.ausrichtung.moveXAngle(6.28)
-    control.ausrichtung.moveXAngle(-6.28)
+    control.get_ausrichtung.moveXAngle(6.28)
+    control.get_ausrichtung.moveXAngle(-6.28)
     data = {'msg': 'ausrichtung moveXAngle 6.28, -6.28 finished'}
     return str(data)
 
 @app.route("/test_ausrichtung_detect")
 def test_ausrichtung_with_detect():
     print "test_ausrichtung with detection"
-    angle = control.zielerfassung.detect
-    control.ausrichtung.moveXAngle(angle)
+    angle = control.get_zielerfassung.detect
+    control.get_ausrichtung.moveXAngle(angle)
     data = {'msg': 'ausrichtung moveXAngle: '+str(angle)+' finished'}
+    return str(data)
+
+@app.route("/test_ausrichtung_steps", methods=['POST'])
+def test_ausrichtung_steps():
+    print "test_ausrichtung_steps"
+    steps=get_int_from_request('steps')
+    print "posted steps: "+str(steps)
+    control.get_ausrichtung.move_steps(steps)
+    control.get_ausrichtung.move_steps(-steps)
+    data = {'msg': 'ausrichtung move steps: '+str(steps)+', '+str(-steps)+' finished'}
     return str(data)
 
 @app.route("/save_config_zielerfassung", methods=['POST'])
@@ -170,6 +180,9 @@ def save_arconfig():
     ar.config.angle2Step = float(request.form['angle2Step'])
     ar.config.pulse_pin = get_int_from_request('pulse_pin')
     ar.config.dir_pin = get_int_from_request('dir_pin')
+    ar.config.enable_pin=get_int_from_request('enable_pin')
+    ar.config.microsteps1_pin=get_int_from_request('microsteps1_pin')
+    ar.config.microsteps2_pin=get_int_from_request('microsteps2_pin')
     ar.config.acc = get_int_from_request('acc')
     ar.config.max_delay = get_int_from_request('max_delay')
     ar.config.min_delay= get_int_from_request('min_delay')
