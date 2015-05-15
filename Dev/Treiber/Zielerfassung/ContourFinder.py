@@ -62,7 +62,7 @@ class Field:
 
 
 class ContourInfo:
-    def __init__(self, cnt, field):
+    def __init__(self, cnt, field, prev_dir,config):
         """
 
         :rtype : ContourInfo
@@ -72,13 +72,29 @@ class ContourInfo:
         """
         self.field = field
         self.cnt = cnt
+        self.prev_dir = prev_dir
 
         x, y, w, h = cv2.boundingRect(cnt)
         self.area = cv2.contourArea(cnt)
         self.m_cnt = Point(x + w / 2, y + h / 2)
         self.m_field = Point(self.field.width / 2, self.field.height / 2)
         self.center_distance = Point(self.m_cnt.x - self.m_field.x, self.m_cnt.y - self.m_field.y)
-        self.rect = Field(x, y, w, h)
+        self.bounding_rect = Field(x, y, w, h)
+
+        if self.prev_dir == 0:
+            if self.center_distance.x < 0:
+                self.dir = -1
+            elif self.center_distance.x > 0:
+                self.prev_dir = 1
+            else:
+                self.prev_dir = 0
+        if self.prev_dir < 0:
+            right_x = self.bounding_rect.x + self.bounding_rect.width
+            self.center_distance = (right_x - int(float(config.approx_rect_w) / 2)) - self.m_field.x
+        else:
+            left_x = self.bounding_rect.x
+            self.center_distance = (left_x + int(float(config.approx_rect_w) / 2)) - self.m_field.x
+
         self.img = None
 
 
@@ -226,7 +242,7 @@ class ContourCalc:
         p = p_area * 5 + p_width + p_height + p_center + float(1) / max(float(1) / sys.maxint, tmp_area)
         return p
 
-    def find_contours(self, img, save_image=False, do_display=False):
+    def find_contours(self, img, save_image=False, do_display=False, prev_dir=0):
 
         """
 
@@ -238,7 +254,7 @@ class ContourCalc:
         """
         img_crop = img[self.field.y:self.field.y + self.field.height, self.field.x:self.field.x + self.field.width]
         img_gray = cv2.cvtColor(img_crop, cv2.COLOR_BGR2GRAY)
-        #img_gray2 = cv2.fastNlMeansDenoising(img_gray)
+        # img_gray2 = cv2.fastNlMeansDenoising(img_gray)
         # img_gray = cv2.equalizeHist(img_gray)
         ret, thresh = cv2.threshold(img_gray, self.threshold, 255, cv2.THRESH_BINARY_INV)
 
@@ -254,7 +270,7 @@ class ContourCalc:
 
         cnt = cnt_sort[0]
 
-        cnt_info = ContourInfo(cnt, self.field)
+        cnt_info = ContourInfo(cnt, self.field, prev_dir)
         cnt_info.img = img
         if save_image or do_display:
             cv2.rectangle(img, (self.field.x, self.field.y),
@@ -262,13 +278,17 @@ class ContourCalc:
             cv2.rectangle(img_crop, (cnt_info.rect.x, cnt_info.rect.y),
                           (cnt_info.rect.x + cnt_info.rect.width, cnt_info.rect.y + cnt_info.rect.height),
                           (255, 255, 0), 3)
-            cv2.line(img_crop, (cnt_info.m_field.x, cnt_info.m_cnt.y), (cnt_info.m_cnt.x, cnt_info.m_cnt.y), (255, 0, 255), 3)
+            cv2.rectangle(img_crop, (cnt_info.rect.x, cnt_info.rect.y),
+                          (cnt_info.rect.x + cnt_info.rect.width, cnt_info.rect.y + cnt_info.rect.height),
+                          (0, 0, 255), 3)
+
+            cv2.line(img_crop, (cnt_info.m_field.x, cnt_info.m_cnt.y), (cnt_info.m_cnt.x, cnt_info.m_cnt.y),
+                     (255, 0, 255), 3)
             self.draw_str(img, (20, 20), 'threshold: %.1f' % self.threshold)
             self.draw_str(img, (20, 40), 'distance x: %.1f px' % cnt_info.center_distance.x)
             self.draw_str(img, (20, 60), 'area: %.1f px' % cnt_info.area)
             cv2.drawContours(img_crop, contours, -1, (100, 200, 0), 1)
             cv2.drawContours(img_crop, [cnt], -1, (0, 0, 255), 3)
-
 
         if do_display:
             # cv2.imshow('color', img_crop)
@@ -280,6 +300,6 @@ class ContourCalc:
         return cnt_info
 
     def draw_str(self, dst, (x, y), s):
-        cv2.putText(dst, s, (x+1, y+1), cv2.FONT_HERSHEY_PLAIN, 1.0, (0, 0, 0), thickness = 2, lineType=cv2.CV_AA)
+        cv2.putText(dst, s, (x + 1, y + 1), cv2.FONT_HERSHEY_PLAIN, 1.0, (0, 0, 0), thickness=2, lineType=cv2.CV_AA)
         cv2.putText(dst, s, (x, y), cv2.FONT_HERSHEY_PLAIN, 1.0, (255, 255, 255), lineType=cv2.CV_AA)
 
