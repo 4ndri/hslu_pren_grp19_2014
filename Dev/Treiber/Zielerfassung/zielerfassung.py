@@ -50,19 +50,19 @@ class Zielerfassung(IZielerfassung):
         img = self.cam.take_picture
         cnt_info = self.cntCalc.find_contours(img, False)
         position = cnt_info.center_distance.x
-        if self.dir == 0:
-            if cnt_info.center_distance.x < 0:
-                self.dir = -1
-            elif cnt_info.center_distance.x > 0:
-                self.dir = 1
-            else:
-                self.dir = 0
-        if self.dir < 0:
-            right_x = cnt_info.rect.x + cnt_info.rect.width
-            position = (right_x - int(float(self.config.approx_rect_w) / 2)) - cnt_info.m_field.x
-        else:
-            left_x = cnt_info.rect.x
-            position = (left_x + int(float(self.config.approx_rect_w) / 2)) - cnt_info.m_field.x
+        # if self.dir == 0:
+        #     if cnt_info.center_distance.x < 0:
+        #         self.dir = -1
+        #     elif cnt_info.center_distance.x > 0:
+        #         self.dir = 1
+        #     else:
+        #         self.dir = 0
+        # if self.dir < 0:
+        #     right_x = cnt_info.rect.x + cnt_info.rect.width
+        #     position = (right_x - int(float(self.config.approx_rect_w) / 2)) - cnt_info.m_field.x
+        # else:
+        #     left_x = cnt_info.rect.x
+        #     position = (left_x + int(float(self.config.approx_rect_w) / 2)) - cnt_info.m_field.x
         angle = math.atan(self.config.pixelToCMFactor * position)
         print "position: pixel: " + str(position) + "   angle: " + str(angle)
         return angle
