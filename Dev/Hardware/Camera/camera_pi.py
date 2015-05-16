@@ -1,55 +1,55 @@
 __author__ = 'endru'
-import time
-import io
-import threading
 import picamera
+import picamera.array
 
+class PiCamera:
+    def __init__(self):
+        self.width = 640
+        self.height = 480
 
-class Camera(object):
-    thread = None  # background thread that reads frames from camera
-    frame = None  # current frame is stored here by background thread
-    last_access = 0  # time of last client access to the camera
+    @property
+    def get_height(self):
+        return self.height
 
-    def initialize(self):
-        if Camera.thread is None:
-            # start background frame thread
-            Camera.thread = threading.Thread(target=self._thread)
-            Camera.thread.start()
+    @property
+    def get_width(self):
+        return self.width
 
-            # wait until frames start to be available
-            while self.frame is None:
-                time.sleep(0)
+    @property
+    def take_picture(self):
+        try:
+            image = None
+            with picamera.PiCamera() as camera:
+                camera.resolution = (self.width, self.height)
+                self.stream = picamera.array.PiRGBArray(camera)
+                camera.capture(self.stream, format='bgr', use_video_port=True)
+                # At this point the image is available as stream.array
+                image = self.stream.array
+                print "picture taken"
+            return image
+        finally:
+            self.stream.truncate()
 
-    def get_frame(self):
-        Camera.last_access = time.time()
-        self.initialize()
-        return self.frame
+    def close(self):
+        # self.cam.close()
+        print 'picamera closed'
 
-    @classmethod
-    def _thread(cls):
+    def set_resolution(self, w, h):
+        if w > 0:
+            self.width = w
+        if h > 0:
+            self.height = h
         with picamera.PiCamera() as camera:
-            # camera setup
-            camera.resolution = (320, 240)
-            camera.hflip = True
-            camera.vflip = True
+            camera.resolution = (w, h)
 
-            # let camera warm up
-            camera.start_preview()
-            time.sleep(2)
+    def __del__(self):
+        self.close()
+        print 'picamera object del'
 
-            stream = io.BytesIO()
-            for foo in camera.capture_continuous(stream, 'jpeg',
-                                                 use_video_port=True):
-                # store frame
-                stream.seek(0)
-                cls.frame = stream.read()
+    class Factory():
+        def __init__(self):
+            pass
 
-                # reset stream for next frame
-                stream.seek(0)
-                stream.truncate()
-
-                # if there hasn't been any clients asking for frames in
-                # the last 10 seconds stop the thread
-                if time.time() - cls.last_access > 10:
-                    break
-        cls.thread = None
+        @property
+        def create(self):
+            return PiCamera()

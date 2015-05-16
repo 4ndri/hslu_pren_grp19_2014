@@ -72,6 +72,7 @@ def return_img():
 def get_picture():
     cnt_info = control.get_zielerfassung.get_image
     dirPath = os.path.dirname(os.path.abspath(__file__))
+    print dirPath
     cv2.imwrite(dirPath + "/static/images/image.jpg", cnt_info.img)
     data = {'msg': "success"}
     return render_template('showpicture.html', data=data)
