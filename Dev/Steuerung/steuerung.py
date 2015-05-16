@@ -41,6 +41,7 @@ class Steuerung:
 
     def reset_all(self):
         self.balldepot = BD.Balldepot()
+        self.zielerfassung.close()
         self.zielerfassung = ZF.Zielerfassung()
         self.ballbefoerderung = BF.Ballbefoerderung()
         self.ausrichtung = AR.Ausrichtung()

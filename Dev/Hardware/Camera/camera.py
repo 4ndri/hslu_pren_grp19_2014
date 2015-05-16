@@ -10,7 +10,6 @@ import cv2
 import cv2.cv as cv
 import io
 import time
-import threading
 from Dev.Hardware.Camera.video import create_capture
 
 try:
@@ -33,7 +32,6 @@ class AbstractFactory:
 
 class CamFactory:
     factories = {}
-
 
     def add_factory(name, factory):
         CamFactory.factories[name] = factory
@@ -85,7 +83,8 @@ class ICamera:
 class Camera(ICamera):
     def __init__(self, video_src=0):
         self.video_src = video_src
-        self.cam = create_capture(video_src)
+        self.cam = cv2.VideoCapture(video_src)
+        #self.cam = create_capture(video_src)
         # self.height = 480
         # self.width = 640
         # self.set_resolution()
@@ -106,6 +105,8 @@ class Camera(ICamera):
         :rtype : np.numpy.array
         """
         ret, img = self.cam.read()
+        if not ret:
+            print "camera: error taking picture"
         return img
 
     def close(self):
@@ -178,7 +179,6 @@ class PiCamera(ICamera):
             return image
         finally:
             self.stream.truncate()
-
 
     def close(self):
         self.cam.close()
@@ -266,105 +266,7 @@ class PiCamera2(ICamera):
             return PiCamera2()
 
 
-class ThreadPiCam(threading.Thread):
-    class PiCameraException(Exception):
-        msg = "PiCameraException: "
 
-        def __init__(self, value):
-            self.value = value
-
-        def __str__(self):
-            return self.msg + self.value
-
-    lock1 = threading.Lock()
-    lock2 = threading.Lock()
-    image = None
-    stop = False
-
-    def __init__(self):
-        threading.Thread.__init__(self)
-        self._stop = threading.Event()
-        print "threadcam init"
-        ThreadPiCam.lock1.acquire()
-        ThreadPiCam.lock2.acquire()
-        if pi_cam_available:
-            self.stream = io.BytesIO()
-        else:
-            raise PiCamera.PiCameraException("initialization failed")
-        print "threadcam init finished"
-
-    def run(self):
-        print "threadcam run"
-        with picamera.PiCamera() as camera:
-            self.cam = camera
-            while not ThreadPiCam.stop:
-                print "threadcam while"
-                ThreadPiCam.lock1.acquire()
-                if ThreadPiCam.stop:
-                    print "threadcam stop"
-                    return
-                try:
-                    self.stream = picamera.array.PiRGBArray(camera)
-                    camera.capture(self.stream, format='bgr', use_video_port=True)
-                    # At this point the image is available as stream.array
-                    ThreadPiCam.image = self.stream.array
-                    print "picture taken"
-                finally:
-                    self.stream.truncate()
-                ThreadPiCam.lock2.release()
-            print "threadcam stop"
-
-
-    @property
-    def get_height(self):
-        return self.height
-
-    @property
-    def get_width(self):
-        return self.width
-
-    @property
-    def take_picture(self):
-        print "start take picture"
-        ThreadPiCam.lock1.release()
-        ThreadPiCam.lock2.acquire()
-        print "return picture"
-        return ThreadPiCam.image
-
-    def stop(self):
-        self._stop.set()
-        ThreadPiCam.stop=True
-        ThreadPiCam.lock1.release()
-
-    def stopped(self):
-        return self._stop.isSet()
-
-    def close(self):
-        # self.cam.close()
-        self.stop()
-        print 'threadcam closed'
-
-    def set_resolution(self, w, h):
-        if w > 0:
-            self.width = w
-        if h > 0:
-            self.height = h
-        self.cam.resolution = (w, h)
-
-    def __del__(self):
-        self.close()
-        print 'threadcam object del'
-
-    class Factory(AbstractFactory):
-        def __init__(self):
-            pass
-
-        @property
-        def create(self):
-            thread_cam = ThreadPiCam()
-            print "threadcam start"
-            thread_cam.start()
-            return thread_cam
 
 
 def get_camera():
@@ -381,4 +283,3 @@ def get_camera():
             camera = CamFactory.create_cam('Camera')
     finally:
         return camera
-
