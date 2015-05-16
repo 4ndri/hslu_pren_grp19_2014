@@ -8,5 +8,5 @@ cam.start()
 img = cam.take_picture
 
 
-cam.stop()
+cam.close()
 cam = None
