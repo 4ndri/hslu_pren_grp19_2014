@@ -4,7 +4,6 @@ from flask import render_template, request, redirect
 import Dev.Steuerung.steuerung as ctrl
 import cv2
 import os
-import time
 
 app = Flask(__name__, static_url_path='')
 control = ctrl.Steuerung()
@@ -192,7 +191,6 @@ def save_arconfig():
 
 def get_int_from_request(name):
     return int(float(request.form[name]))
-
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True)

@@ -83,22 +83,22 @@ class ContourInfo:
         self.approx_rect = Field(0, 0, approx_rect.width, approx_rect.height)
         if self.prev_dir == 0:
             if self.center_distance.x < 0:
-                self.dir = -1
+                self.prev_dir = -1
             elif self.center_distance.x > 0:
                 self.prev_dir = 1
             else:
                 self.prev_dir = 0
         if self.prev_dir < 0:
             right_x = self.bounding_rect.x + self.bounding_rect.width
-            self.approx_rect.x = right_x - self.approx_rect.width
+            self.approx_rect.x = max(right_x - self.approx_rect.width,0)
             self.approx_rect.y = self.bounding_rect.y
             self.center_distance.x = (right_x - int(float(approx_rect.width) / 2)) - self.m_field.x
         else:
             left_x = self.bounding_rect.x
-            self.approx_rect.x = left_x
+            self.approx_rect.x = max(left_x,0)
             self.approx_rect.y = self.bounding_rect.y
             self.center_distance.x = (left_x + int(float(approx_rect.width) / 2)) - self.m_field.x
-
+        self.m_approx=Point(self.approx_rect.x + self.approx_rect.width / 2, self.approx_rect.y + self.approx_rect.height / 2)
         self.img = None
 
 
@@ -246,7 +246,7 @@ class ContourCalc:
         p = p_area * 5 + p_width + p_height + p_center + float(1) / max(float(1) / sys.maxint, tmp_area)
         return p
 
-    def find_contours(self, img, save_image=False, do_display=False, prev_dir=0):
+    def find_contours(self, img, prev_dir=0, save_image=False, do_display=False):
 
         """
 
@@ -285,9 +285,9 @@ class ContourCalc:
             cv2.rectangle(img_crop, (cnt_info.approx_rect.x, cnt_info.approx_rect.y),
                           (cnt_info.approx_rect.x + cnt_info.approx_rect.width,
                            cnt_info.approx_rect.y + cnt_info.approx_rect.height),
-                          (0, 0, 255), 3)
+                          (255, 0, 0), 3)
 
-            cv2.line(img_crop, (cnt_info.m_field.x, cnt_info.m_cnt.y), (cnt_info.m_cnt.x, cnt_info.m_cnt.y),
+            cv2.line(img_crop, (cnt_info.m_field.x, cnt_info.m_approx.y), (cnt_info.m_approx.x, cnt_info.m_approx.y),
                      (255, 0, 255), 3)
             self.draw_str(img, (20, 20), 'threshold: %.1f' % self.threshold)
             self.draw_str(img, (20, 40), 'distance x: %.1f px' % cnt_info.center_distance.x)

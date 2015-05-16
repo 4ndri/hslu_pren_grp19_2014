@@ -10,7 +10,8 @@ import cv2
 import cv2.cv as cv
 import io
 import time
-from Dev.Test.video import create_capture
+import threading
+from Dev.Hardware.Camera.video import create_capture
 
 try:
     import picamera
@@ -210,6 +211,8 @@ class PiCamera2(ICamera):
             return self.msg + self.value
 
     def __init__(self):
+        self.width = 640
+        self.height = 480
         if pi_cam_available:
             self.stream = io.BytesIO()
         else:
@@ -224,18 +227,11 @@ class PiCamera2(ICamera):
         return self.width
 
     @property
-    def take_picture2(self):
-        self.cam.capture(self.stream, format="jpeg", use_video_port=True)
-        frame = np.fromstring(self.stream.getvalue(), dtype=np.uint8)
-        self.stream.seek(0)
-        frame = cv2.imdecode(frame, 1)
-        return frame
-
-    @property
     def take_picture(self):
         try:
             image = None
             with picamera.PiCamera() as camera:
+                camera.resolution = (self.width, self.height)
                 self.stream = picamera.array.PiRGBArray(camera)
                 camera.capture(self.stream, format='bgr', use_video_port=True)
                 # At this point the image is available as stream.array
@@ -250,6 +246,10 @@ class PiCamera2(ICamera):
         print 'picamera closed'
 
     def set_resolution(self, w, h):
+        if w > 0:
+            self.width = w
+        if h > 0:
+            self.height = h
         with picamera.PiCamera() as camera:
             camera.resolution = (w, h)
 
@@ -266,7 +266,7 @@ class PiCamera2(ICamera):
             return PiCamera2()
 
 
-class ThreadPiCam(ICamera):
+class ThreadPiCam(threading.Thread):
     class PiCameraException(Exception):
         msg = "PiCameraException: "
 
@@ -276,11 +276,44 @@ class ThreadPiCam(ICamera):
         def __str__(self):
             return self.msg + self.value
 
+    lock1 = threading.Lock()
+    lock2 = threading.Lock()
+    image = None
+    stop = False
+
     def __init__(self):
+        threading.Thread.__init__(self)
+        self._stop = threading.Event()
+        print "threadcam init"
+        ThreadPiCam.lock1.acquire()
+        ThreadPiCam.lock2.acquire()
         if pi_cam_available:
             self.stream = io.BytesIO()
         else:
             raise PiCamera.PiCameraException("initialization failed")
+        print "threadcam init finished"
+
+    def run(self):
+        print "threadcam run"
+        with picamera.PiCamera() as camera:
+            self.cam = camera
+            while not ThreadPiCam.stop:
+                print "threadcam while"
+                ThreadPiCam.lock1.acquire()
+                if ThreadPiCam.stop:
+                    print "threadcam stop"
+                    return
+                try:
+                    self.stream = picamera.array.PiRGBArray(camera)
+                    camera.capture(self.stream, format='bgr', use_video_port=True)
+                    # At this point the image is available as stream.array
+                    ThreadPiCam.image = self.stream.array
+                    print "picture taken"
+                finally:
+                    self.stream.truncate()
+                ThreadPiCam.lock2.release()
+            print "threadcam stop"
+
 
     @property
     def get_height(self):
@@ -292,29 +325,35 @@ class ThreadPiCam(ICamera):
 
     @property
     def take_picture(self):
-        try:
-            image = None
-            with picamera.PiCamera() as camera:
-                self.stream = picamera.array.PiRGBArray(camera)
-                camera.capture(self.stream, format='bgr', use_video_port=True)
-                # At this point the image is available as stream.array
-                image = self.stream.array
-                print "picture taken"
-            return image
-        finally:
-            self.stream.truncate()
+        print "start take picture"
+        ThreadPiCam.lock1.release()
+        ThreadPiCam.lock2.acquire()
+        print "return picture"
+        return ThreadPiCam.image
+
+    def stop(self):
+        self._stop.set()
+        ThreadPiCam.stop=True
+        ThreadPiCam.lock1.release()
+
+    def stopped(self):
+        return self._stop.isSet()
 
     def close(self):
         # self.cam.close()
-        print 'picamera closed'
+        self.stop()
+        print 'threadcam closed'
 
     def set_resolution(self, w, h):
-        with picamera.PiCamera() as camera:
-            camera.resolution = (w, h)
+        if w > 0:
+            self.width = w
+        if h > 0:
+            self.height = h
+        self.cam.resolution = (w, h)
 
     def __del__(self):
         self.close()
-        print 'picamera object del'
+        print 'threadcam object del'
 
     class Factory(AbstractFactory):
         def __init__(self):
@@ -322,7 +361,10 @@ class ThreadPiCam(ICamera):
 
         @property
         def create(self):
-            return ThreadPiCam()
+            thread_cam = ThreadPiCam()
+            print "threadcam start"
+            thread_cam.start()
+            return thread_cam
 
 
 def get_camera():
@@ -334,8 +376,9 @@ def get_camera():
     try:
         if pi_cam_available:
             print "picamera available"
-            camera = CamFactory.create_cam('PiCamera2')
+            camera = CamFactory.create_cam('ThreadPiCam')
         else:
             camera = CamFactory.create_cam('Camera')
     finally:
         return camera
+

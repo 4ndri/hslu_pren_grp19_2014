@@ -2,7 +2,6 @@ __author__ = 'endru'
 
 import os
 import Dev.Config.ConfigHandler as CFG
-import Dev.Treiber.Zielerfassung.ContourFinder as CF
 
 
 class ZFConfig:
