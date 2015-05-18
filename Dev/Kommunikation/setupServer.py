@@ -4,10 +4,13 @@ from flask import render_template, request, redirect
 import Dev.Steuerung.steuerung as ctrl
 import cv2
 import os
+import subprocess
+from random import randint
+
 
 app = Flask(__name__, static_url_path='')
-control = ctrl.Steuerung()
-# control = None
+# control = ctrl.Steuerung()
+control = None
 running=False
 
 @app.route("/")
@@ -57,11 +60,18 @@ def reset():
     str_data="control reset"
     return str_data
 
+# @app.route("/detect")
+# def detect():
+#     pos = control.get_zielerfassung.detect
+#     return str(pos)
+
 @app.route("/detect")
 def detect():
-    pos = control.get_zielerfassung.detect
-    return str(pos)
-
+    dirPath = os.path.dirname(os.path.abspath(__file__))
+    cmd="sudo python /home/pi/PREN/hslu_pren_grp19_2014/Dev/Steuerung/run_steuerung.py "+dirPath
+    print "command: "+cmd
+    subprocess.call(cmd, shell=True)
+    return '<img src="/images/image.jpg?' + str(randint(1, 10000)) + '" />'
 
 @app.route("/images/img")
 def return_img():
@@ -75,7 +85,7 @@ def get_picture():
     print dirPath
     cv2.imwrite(dirPath + "/static/images/image.jpg", cnt_info.img)
     data = {'msg': "success"}
-    return render_template('showpicture.html', data=data)
+    return "success"
 
 
 @app.route("/init_control")
