@@ -1,37 +1,12 @@
+from Dev.Treiber.Zielerfassung.IZielerfassung import IZielerfassung
+
 __author__ = 'Andri'
 
-from abc import ABCMeta
-from abc import abstractproperty
-from abc import abstractmethod
 import math
 
 import Dev.Treiber.Zielerfassung.config as CFG
 import Dev.Treiber.Zielerfassung.ContourFinder as CF
 import Dev.Hardware.Camera.camera as camera
-
-
-class IZielerfassung:
-    __metaclass__ = ABCMeta
-
-    @abstractproperty
-    def detect(self):
-        raise NotImplementedError()
-
-    @abstractmethod
-    def get_threshold(self):
-        raise NotImplementedError()
-
-    @abstractmethod
-    def set_threshold(self, threshold):
-        raise NotImplementedError()
-
-    @abstractproperty
-    def get_image(self):
-        raise NotImplementedError()
-
-    @abstractmethod
-    def set_field(self):
-        raise NotImplementedError()
 
 
 class Zielerfassung(IZielerfassung):
