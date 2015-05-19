@@ -2,7 +2,6 @@ __author__ = 'endru'
 
 import os
 import Dev.Config.ConfigHandler as CFG
-import Dev.Treiber.Zielerfassung.ContourFinder as CF
 
 
 class ZFConfig:
@@ -38,6 +37,10 @@ class ZFConfig:
         self.resolution_h = resolution_rect.height
         self.config.set_number("Camera", "resolution_h", self.resolution_h)
         self.resolution_w = resolution_rect.width
+        self.config.set_number("Camera", "resolution_w", self.resolution_w)
+
+    def save_resolution(self):
+        self.config.set_number("Camera", "resolution_h", self.resolution_h)
         self.config.set_number("Camera", "resolution_w", self.resolution_w)
 
     def set_field(self, field):
@@ -94,13 +97,13 @@ class ZFConfig:
         self.config.set_number("Approx", "threshold", self.threshold)
 
     def save_zf(self):
-        self.pixelToCMFactor = self.config.set_float("ZF", "pixelToCMFactor", self.pixelToCMFactor)
-        self.hitpoint_x = self.config.set_number("ZF", "hitpoint_x", self.hitpoint_x)
-        self.hitpoint_y = self.config.set_number("ZF", "hitpoint_y", self.hitpoint_y)
+        self.config.set_float("ZF", "pixelToCMFactor", self.pixelToCMFactor)
+        self.config.set_number("ZF", "hitpoint_x", self.hitpoint_x)
+        self.config.set_number("ZF", "hitpoint_y", self.hitpoint_y)
 
     def save_canny(self):
-        self.threshold_min = self.config.set_float("Canny", "threshold_min", self.threshold_min)
-        self.threshold_max = self.config.set_float("Canny", "threshold_max", self.threshold_max)
+        self.config.set_float("Canny", "threshold_min", self.threshold_min)
+        self.config.set_float("Canny", "threshold_max", self.threshold_max)
 
     def set_canny(self, threshold_min, threshold_max):
         self.threshold_min = threshold_min
@@ -112,10 +115,14 @@ class ZFConfig:
         self.save_hough()
 
     def save_hough(self):
-        self.hough_threshold = self.config.set_number("Hough", "hough_threshold", self.hough_threshold)
+        self.config.set_number("Hough", "hough_threshold", self.hough_threshold)
 
     def save_config(self):
+        self.save_resolution()
         self.save_approx_rect()
         self.save_field()
         self.save_threshold()
+        self.save_hough()
+        self.save_canny()
+        self.save_zf()
         print 'config saved'

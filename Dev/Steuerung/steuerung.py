@@ -22,9 +22,10 @@ class Steuerung:
         self.ausrichtung = AR.Ausrichtung()
 
     def start(self):
-        counter=0
-        angle=5
-        while counter<5 and angle>0.01:
+        counter = 0
+        angle = 5
+        self.zielerfassung.dir = 0
+        while counter < 5 and angle > 0.01:
             angle = self.zielerfassung.detect
             self.ausrichtung.moveXAngle(angle)
         self.ballbefoerderung.run()
@@ -36,9 +37,11 @@ class Steuerung:
         self.ausrichtung.reset()
         self.ballbefoerderung.stop()
         self.balldepot.nbOfBalls = 5
+        self.zielerfassung.dir = 0
 
     def reset_all(self):
         self.balldepot = BD.Balldepot()
+        #self.zielerfassung.close()
         self.zielerfassung = ZF.Zielerfassung()
         self.ballbefoerderung = BF.Ballbefoerderung()
         self.ausrichtung = AR.Ausrichtung()
