@@ -9,17 +9,21 @@ from random import randint
 
 
 app = Flask(__name__, static_url_path='')
-# control = ctrl.Steuerung()
+
 control = None
 running=False
 
 @app.route("/")
 def index(name=None):
+    global control
+    control=None
     return render_template('index.html', name=name)
 
 
 @app.route("/config")
 def config():
+    global control
+    control = ctrl.Steuerung()
     zfconfig = []
     noAttr = ["config", "dirPath", "file_name"]
     for attr, value in control.get_zielerfassung.config.__dict__.iteritems():
@@ -45,6 +49,14 @@ def config():
 
 @app.route("/testing")
 def testing():
+    global control
+    control = ctrl.Steuerung()
+    return render_template('testing.html')
+
+@app.route("/testing_other")
+def testing_other():
+    global control
+    control=None
     return render_template('testing.html')
 
 

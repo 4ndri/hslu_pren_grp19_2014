@@ -30,7 +30,7 @@ if len(sys.argv)>1:
 else:
     dirPath = os.path.dirname(os.path.abspath(__file__))
 print dirPath
-cv2.imwrite(dirPath + "/static/images/image.jpg", img)
+cv2.imwrite(dirPath + "/static/images/image.jpg", img.img)
 print "steuerung done"
 
 

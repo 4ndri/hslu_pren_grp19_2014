@@ -14,6 +14,7 @@ class Zielerfassung(IZielerfassung):
     def __init__(self):
         self.config = CFG.ZFConfig()
         self.cam = camera.PiCamera()
+        print "zielerfassungv2 inited"
 
 
     def detect(self):

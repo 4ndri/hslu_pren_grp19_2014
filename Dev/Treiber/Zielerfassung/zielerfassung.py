@@ -1,19 +1,23 @@
-from Dev.Treiber.Zielerfassung.IZielerfassung import IZielerfassung
-
 __author__ = 'Andri'
 
 import math
 
 import Dev.Treiber.Zielerfassung.config as CFG
 import Dev.Treiber.Zielerfassung.ContourFinder as CF
+
+#import Dev.Hardware.Camera.camera_pi as camera
 import Dev.Hardware.Camera.camera as camera
+#import Dev.Hardware.Camera.thread_camera as th_cam
+import time
 
 
-class Zielerfassung(IZielerfassung):
+class Zielerfassung:
     def __init__(self):
         try:
             self.dir = 0
             self.cam = camera.PiCamera()
+            # self.cam=th_cam.ThreadPiCam()
+            # self.cam.start()
             self.config = CFG.ZFConfig()
             self.cntCalc = CF.ContourCalc(self.config)
             self.cam.set_resolution(self.config.resolution_w, self.config.resolution_h)
@@ -21,24 +25,14 @@ class Zielerfassung(IZielerfassung):
             print ex.message
 
     def detect(self):
+        t = time.time()
         img = self.cam.take_picture
-        cnt_info = self.cntCalc.find_contours(img, False)
+        cnt_info = self.cntCalc.find_contours(img, self.dir, False, False)
+        self.dir = cnt_info.prev_dir
         position = cnt_info.center_distance.x
-        if self.dir == 0:
-            if cnt_info.center_distance.x < 0:
-                self.dir = -1
-            elif cnt_info.center_distance.x > 0:
-                self.dir = 1
-            else:
-                self.dir = 0
-        if self.dir < 0:
-            right_x = cnt_info.rect.x + cnt_info.rect.width
-            position = (right_x - int(float(self.config.approx_rect_w) / 2)) - cnt_info.m_field.x
-        else:
-            left_x = cnt_info.rect.x
-            position = (left_x + int(float(self.config.approx_rect_w) / 2)) - cnt_info.m_field.x
         angle = math.atan(self.config.pixelToCMFactor * position)
-        print "position: pixel: " + str(position) + "   angle: " + str(angle)
+        dt = time.time() - t
+        print "position: pixel: " + str(position) + "  |  angle: " + str(angle) + "  |  time: " + str(dt * 1000)
         return angle
 
     def get_threshold(self):
@@ -48,9 +42,16 @@ class Zielerfassung(IZielerfassung):
         self.config.set_threshold(threshold)
 
     def get_image(self):
+        t = time.time()
         img = self.cam.take_picture
-        cnt_info = self.cntCalc.find_contours(img, True, False)
-        print "position: " + str(cnt_info.center_distance.x)
+        cnt_info = self.cntCalc.find_contours(img, self.dir, True, False)
+        if cnt_info is None:
+            print "zf: no object found"
+        self.dir = cnt_info.prev_dir
+        position = cnt_info.center_distance.x
+        angle = math.atan(self.config.pixelToCMFactor * position)
+        dt = time.time() - t
+        print "position: pixel: " + str(position) + "  |  angle: " + str(angle) + "  |  time: " + str(dt * 1000)
         return cnt_info
 
     def set_field(self):
@@ -61,3 +62,6 @@ class Zielerfassung(IZielerfassung):
         self.cntCalc = None
         self.cntCalc = CF.ContourCalc(self.config)
         self.cam.set_resolution(self.config.resolution_w, self.config.resolution_h)
+
+    def close(self):
+        self.cam.close()
