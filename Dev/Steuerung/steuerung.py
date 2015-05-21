@@ -26,7 +26,7 @@ class Steuerung:
         angle = 5
         self.zielerfassung.dir = 0
         while counter < 5 and angle > 0.01:
-            angle = self.zielerfassung.detect
+            angle = self.zielerfassung.detect()
             self.ausrichtung.moveXAngle(angle)
         self.ballbefoerderung.run()
         while self.balldepot.load > 0:

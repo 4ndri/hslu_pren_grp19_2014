@@ -13,14 +13,13 @@ class Zielerfassung(IZielerfassung):
     def __init__(self):
         try:
             self.dir = 0
-            self.cam = camera.get_camera()
+            self.cam = camera.PiCamera()
             self.config = CFG.ZFConfig()
             self.cntCalc = CF.ContourCalc(self.config)
             self.cam.set_resolution(self.config.resolution_w, self.config.resolution_h)
         except Exception as ex:
             print ex.message
 
-    @property
     def detect(self):
         img = self.cam.take_picture
         cnt_info = self.cntCalc.find_contours(img, False)
@@ -48,7 +47,6 @@ class Zielerfassung(IZielerfassung):
     def set_threshold(self, threshold):
         self.config.set_threshold(threshold)
 
-    @property
     def get_image(self):
         img = self.cam.take_picture
         cnt_info = self.cntCalc.find_contours(img, True, False)

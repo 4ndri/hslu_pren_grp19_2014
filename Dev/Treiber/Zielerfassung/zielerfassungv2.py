@@ -4,7 +4,6 @@ __author__ = 'Flavio Boss'
 
 
 import Dev.Treiber.Zielerfassung.config as CFG
-import Dev.Treiber.Zielerfassung.ContourFinder as CF
 import Dev.Hardware.Camera.camera as camera
 import cv2
 import numpy as np
@@ -14,7 +13,7 @@ class Zielerfassung(IZielerfassung):
 
     def __init__(self):
         self.config = CFG.ZFConfig()
-        self.cam = camera.get_camera()
+        self.cam = camera.PiCamera()
 
 
     def detect(self):
@@ -62,7 +61,7 @@ class Zielerfassung(IZielerfassung):
         else:
             self.distance += self.config.approx_rect_w/2
 
-        return np.arctan(self.distance)
+        return np.arctan(self.config.pixelToCMFactor*self.distance)
 
     def get_image(self):
         self.detect()
@@ -98,7 +97,7 @@ class Zielerfassung(IZielerfassung):
                 cv2.line(self.searcharea,(x1,y1),(x2,y2),(0,0,255),2)
 
 
-        output = np.concatenate((self.input, self.canny), axis=0)
+        output = np.concatenate((self.searcharea, self.canny), axis=0)
 
         return output
 
