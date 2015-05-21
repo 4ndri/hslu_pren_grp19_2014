@@ -62,7 +62,7 @@ def reset():
 
 # @app.route("/detect")
 # def detect():
-#     pos = control.get_zielerfassung.detect
+#     pos = control.get_zielerfassung.detect()
 #     return str(pos)
 
 @app.route("/detect")
@@ -80,7 +80,7 @@ def return_img():
 
 @app.route("/get_picture")
 def get_picture():
-    cnt_info = control.get_zielerfassung.get_image
+    cnt_info = control.get_zielerfassung.get_image()
     dirPath = os.path.dirname(os.path.abspath(__file__))
     print dirPath
     cv2.imwrite(dirPath + "/static/images/image.jpg", cnt_info.img)
@@ -135,7 +135,7 @@ def test_ausrichtung():
 @app.route("/test_ausrichtung_detect")
 def test_ausrichtung_with_detect():
     print "test_ausrichtung with detection"
-    angle = control.get_zielerfassung.detect
+    angle = control.get_zielerfassung.detect()
     control.get_ausrichtung.moveXAngle(angle)
     data = {'msg': 'ausrichtung moveXAngle: '+str(angle)+' finished'}
     return str(data)
