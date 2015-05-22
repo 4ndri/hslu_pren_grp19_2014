@@ -17,6 +17,7 @@ class Stepper:
         self.microsteps2_pin = microsteps2_pin
         self.enable_pin = enable_pin
         self.pi = pigpio.pi()
+        self.set_enable(True)
 
 
     def init_pigpio_pins(self):
@@ -44,12 +45,27 @@ class Stepper:
         else:
             self.pi.write(self.enable_pin, 1)
 
-    def set_microsteps(self, do_microsteps):
+    def set_fullstep(self):
+        self.microsteps1_pin(False)
+        self.microsteps2_pin(False)
+
+    def set_microsteps(self):
+        self.microsteps1_pin(True)
+        self.microsteps2_pin(True)
+
+    def set_microsteps1(self, do_microsteps):
         self.pi.set_mode(self.microsteps1_pin, pigpio.OUTPUT)
         if do_microsteps:
             self.pi.write(self.microsteps1_pin, 1)
         else:
             self.pi.write(self.microsteps1_pin, 0)
+
+    def set_microsteps2(self, do_microsteps):
+        self.pi.set_mode(self.microsteps2_pin, pigpio.OUTPUT)
+        if do_microsteps:
+            self.pi.write(self.microsteps2_pin, 1)
+        else:
+            self.pi.write(self.microsteps2_pin, 0)
 
     def move_steps(self, steps):
         print "move steps: " + str(steps)
@@ -84,6 +100,7 @@ class Stepper:
             self.min_delay)
         ramp_steps = int(math.ceil(float(self.max_delay - final_delay) / self.acc))
         middle_steps = max(steps - 2 * ramp_steps, 0)
+
         # build initial ramp up
         for delay in range(self.max_delay, final_delay, -self.acc):
             wf.append(pigpio.pulse(1 << self.pulse_pin, 0, delay))
@@ -99,6 +116,10 @@ class Stepper:
         for delay in range(final_delay, self.max_delay, +self.acc):
             wf.append(pigpio.pulse(1 << self.pulse_pin, 0, delay))
             wf.append(pigpio.pulse(0, 1 << self.pulse_pin, delay))
+
+        if len(wf)==0:
+            print "no steps"
+            return
 
         self.pi.wave_add_generic(wf)
 

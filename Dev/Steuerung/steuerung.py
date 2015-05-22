@@ -29,8 +29,10 @@ class Steuerung:
             angle = self.zielerfassung.detect()
             self.ausrichtung.moveXAngle(angle)
         self.ballbefoerderung.run()
+        time.sleep(self.balldepot.config.waitTime1)
         while self.balldepot.load > 0:
-            time.sleep(0.5)
+            time.sleep(self.balldepot.config.waitTimeOther)
+        time.sleep(0.1)
         self.ballbefoerderung.stop()
 
     def reset(self):

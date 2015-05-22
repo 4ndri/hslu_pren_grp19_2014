@@ -19,6 +19,7 @@ class Ausrichtung:
         self.move_steps(steps)
 
     def move_steps(self, steps):
+        self.stepper.set_microsteps()
         if steps < 0:
             steps = abs(steps)
             steps = max(min(self.config.max_steps + self.curr_pos, steps), 0)
@@ -28,6 +29,7 @@ class Ausrichtung:
             steps = max(min(self.config.max_steps - self.curr_pos, steps), 0)
             self.stepper.steps_left(steps)
             self.curr_pos = self.curr_pos + steps
+        self.stepper.set_fullstep()
 
     def reset(self):
         self.move_steps(-self.curr_pos)

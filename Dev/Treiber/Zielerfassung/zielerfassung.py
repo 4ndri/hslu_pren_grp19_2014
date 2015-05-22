@@ -5,8 +5,8 @@ import math
 import Dev.Treiber.Zielerfassung.config as CFG
 import Dev.Treiber.Zielerfassung.ContourFinder as CF
 
-#import Dev.Hardware.Camera.camera_pi as camera
-import Dev.Hardware.Camera.camera as camera
+import Dev.Hardware.Camera.camera_pi as camera
+#import Dev.Hardware.Camera.camera as camera
 #import Dev.Hardware.Camera.thread_camera as th_cam
 import time
 

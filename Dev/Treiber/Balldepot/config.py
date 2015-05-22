@@ -8,7 +8,9 @@ class BDConfig:
         self.dirPath = os.path.dirname(os.path.abspath(__file__))
         self.file_name = "Balldepot.ini"
         self.config = CF.ConfigHandler(self.dirPath + "/" + self.file_name)
-        self.timeForBall = self.config.get_float("Balldepot", "timeForBall", 1)
+        self.timeForBall = self.config.get_float("Balldepot", "timeForBall", 1.2)
+        self.waitTime1 = self.config.get_float("Balldepot", "waitTime1", 1.0)
+        self.waitTimeOther = self.config.get_float("Balldepot", "waitTimeOther", 1.0)
         self.duty = self.config.get_float("Balldepot", "duty", 1.52)
         self.gpio_pin = self.config.get_number("Balldepot", "gpio_pin", 18)
 
@@ -24,3 +26,5 @@ class BDConfig:
         self.config.set_float("Balldepot", "timeForBall", self.timeForBall)
         self.config.set_number("Balldepot", "gpio_pin", self.gpio_pin)
         self.config.set_float("Balldepot", "duty", self.duty)
+        self.config.set_float("Balldepot", "waitTime1", self.waitTime1)
+        self.config.set_float("Balldepot", "waitTimeOther", self.waitTimeOther)

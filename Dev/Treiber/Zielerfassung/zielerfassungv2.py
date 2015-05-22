@@ -4,7 +4,7 @@ __author__ = 'Flavio Boss'
 
 
 import Dev.Treiber.Zielerfassung.config as CFG
-import Dev.Hardware.Camera.camera as camera
+import Dev.Hardware.Camera.camera_pi as camera
 import cv2
 import numpy as np
 import math

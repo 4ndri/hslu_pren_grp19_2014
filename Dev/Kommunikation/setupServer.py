@@ -2,28 +2,28 @@ __author__ = 'endru'
 from flask import Flask
 from flask import render_template, request, redirect
 import Dev.Steuerung.steuerung as ctrl
+import Dev.Steuerung.subprocess_handler as proc_handler
 import cv2
 import os
-import subprocess
-from random import randint
 
 
 app = Flask(__name__, static_url_path='')
-
-control = None
+control = ctrl.Steuerung()
+#control = None
 running=False
 
 @app.route("/")
 def index(name=None):
     global control
-    control=None
+    #control=None
     return render_template('index.html', name=name)
 
 
 @app.route("/config")
 def config():
     global control
-    control = ctrl.Steuerung()
+    #control=None
+    #control = ctrl.Steuerung()
     zfconfig = []
     noAttr = ["config", "dirPath", "file_name"]
     for attr, value in control.get_zielerfassung.config.__dict__.iteritems():
@@ -50,24 +50,28 @@ def config():
 @app.route("/testing")
 def testing():
     global control
-    control = ctrl.Steuerung()
+    #control=None
+    #control = ctrl.Steuerung()
     return render_template('testing.html')
 
 @app.route("/testing_other")
 def testing_other():
     global control
-    control=None
+    #control=None
     return render_template('testing.html')
 
 
 @app.route("/start")
 def start():
     control.start()
+    #proc_handler.start()
     str_data = "fertig schluss schuss"
     return str_data
 
 @app.route("/reset")
 def reset():
+    if control is None:
+        return "no control"
     control.reset()
     str_data="control reset"
     return str_data
@@ -80,10 +84,8 @@ def reset():
 @app.route("/detect")
 def detect():
     dirPath = os.path.dirname(os.path.abspath(__file__))
-    cmd="sudo python /home/pi/PREN/hslu_pren_grp19_2014/Dev/Steuerung/run_steuerung.py "+dirPath
-    print "command: "+cmd
-    subprocess.call(cmd, shell=True)
-    return '<img src="/images/image.jpg?' + str(randint(1, 10000)) + '" />'
+    ret = proc_handler.get_image(dirPath)
+    return ret
 
 @app.route("/images/img")
 def return_img():
@@ -182,6 +184,8 @@ def save_cam_config():
 def save_config_balldepot():
     bd = control.get_balldepot
     bd.config.timeForBall = float(request.form['timeForBall'])
+    bd.config.waitTime1 = float(request.form['waitTime1'])
+    bd.config.waitTimeOther = float(request.form['waitTimeOther'])
     bd.config.duty = float(request.form['duty'])
     bd.config.gpio_pin = get_int_from_request('gpio_pin')
     bd.save_config()
