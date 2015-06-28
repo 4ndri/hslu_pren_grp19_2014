@@ -1,5 +1,5 @@
 __author__ = 'Andri'
-import Dev.Treiber.Zielerfassung.zielerfassung as ZF
+import Dev.Treiber.Zielerfassung.zielerfassungv3 as ZF
 import Dev.Treiber.Ballbefoerderung.ballbefoerderung as BF
 import Dev.Treiber.Balldepot.balldepot as BD
 import Dev.Treiber.Ausrichtung.ausrichtung as AR
@@ -25,9 +25,13 @@ class Steuerung:
         counter = 0
         angle = 5
         self.zielerfassung.dir = 0
-        while counter < 5 and angle > 0.01:
-            angle = self.zielerfassung.detect()
-            self.ausrichtung.moveXAngle(angle)
+        # while counter < 5 and angle > 0.01:
+        #     angle = self.zielerfassung.detect()
+        #     self.ausrichtung.moveXAngle(angle)
+
+        angle = self.zielerfassung.detect()
+        self.ausrichtung.moveXAngle(angle)
+
         self.ballbefoerderung.run()
         time.sleep(self.balldepot.config.waitTime1)
         while self.balldepot.load > 0:

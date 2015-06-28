@@ -51,7 +51,7 @@ class Zielerfassung:
         position = cnt_info.center_distance.x
         angle = math.atan(self.config.pixelToCMFactor * position)
         dt = time.time() - t
-        print "position: pixel: " + str(position) + "  |  angle: " + str(angle) + "  |  time: " + str(dt * 1000)
+        # print "position: pixel: " + str(position) + "  |  angle: " + str(angle) + "  |  time: " + str(dt * 1000)
         return cnt_info
 
     def set_field(self):

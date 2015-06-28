@@ -46,12 +46,12 @@ class Stepper:
             self.pi.write(self.enable_pin, 1)
 
     def set_fullstep(self):
-        self.microsteps1_pin(False)
-        self.microsteps2_pin(False)
+        self.set_microsteps1(False)
+        self.set_microsteps2(False)
 
     def set_microsteps(self):
-        self.microsteps1_pin(True)
-        self.microsteps2_pin(True)
+        self.set_microsteps1(True)
+        self.set_microsteps2(True)
 
     def set_microsteps1(self, do_microsteps):
         self.pi.set_mode(self.microsteps1_pin, pigpio.OUTPUT)

@@ -6,75 +6,87 @@ import Dev.Steuerung.subprocess_handler as proc_handler
 import cv2
 import os
 
-
 app = Flask(__name__, static_url_path='')
 control = ctrl.Steuerung()
-#control = None
-running=False
+# control = None
+running = False
+
 
 @app.route("/")
 def index(name=None):
     global control
-    #control=None
+    # control=None
     return render_template('index.html', name=name)
 
 
 @app.route("/config")
 def config():
     global control
-    #control=None
-    #control = ctrl.Steuerung()
+    # control=None
+    # control = ctrl.Steuerung()
     zfconfig = []
     noAttr = ["config", "dirPath", "file_name"]
     for attr, value in control.get_zielerfassung.config.__dict__.iteritems():
         if not any(attr in s for s in noAttr):
             zfconfig.append({'attr': attr, 'value': value})
+    zfconfig = sorted(zfconfig)
+
     bdconfig = []
     for attr, value in control.get_balldepot.config.__dict__.iteritems():
         if not any(attr in s for s in noAttr):
             bdconfig.append({'attr': attr, 'value': value})
+    bdconfig = sorted(bdconfig)
+
     bfconfig = []
     for attr, value in control.get_ballbefoerderung.config.__dict__.iteritems():
         if not any(attr in s for s in noAttr):
             bfconfig.append({'attr': attr, 'value': value})
+    bfconfig = sorted(bfconfig)
+
     arconfig = []
     for attr, value in control.get_ausrichtung.config.__dict__.iteritems():
         if not any(attr in s for s in noAttr):
             arconfig.append({'attr': attr, 'value': value})
+    arconfig = sorted(arconfig)
+
     configData = {'zfconfig': zfconfig,
                   'bdconfig': bdconfig,
                   'bfconfig': bfconfig,
                   'arconfig': arconfig}
     return render_template('config.html', configData=configData)
 
+
 @app.route("/testing")
 def testing():
     global control
-    #control=None
-    #control = ctrl.Steuerung()
+    # control=None
+    # control = ctrl.Steuerung()
     return render_template('testing.html')
+
 
 @app.route("/testing_other")
 def testing_other():
     global control
-    #control=None
+    # control=None
     return render_template('testing.html')
 
 
 @app.route("/start")
 def start():
     control.start()
-    #proc_handler.start()
+    # proc_handler.start()
     str_data = "fertig schluss schuss"
     return str_data
+
 
 @app.route("/reset")
 def reset():
     if control is None:
         return "no control"
     control.reset()
-    str_data="control reset"
+    str_data = "control reset"
     return str_data
+
 
 # @app.route("/detect")
 # def detect():
@@ -87,6 +99,7 @@ def detect():
     ret = proc_handler.get_image(dirPath)
     return ret
 
+
 @app.route("/images/img")
 def return_img():
     return app.send_static_file('/images/image.jpg')
@@ -95,10 +108,10 @@ def return_img():
 @app.route("/get_picture")
 def get_picture():
     cnt_info = control.get_zielerfassung.get_image()
-    dirPath = os.path.dirname(os.path.abspath(__file__))
-    print dirPath
-    cv2.imwrite(dirPath + "/static/images/image.jpg", cnt_info.img)
-    data = {'msg': "success"}
+    # dirPath = os.path.dirname(os.path.abspath(__file__))
+    # print dirPath
+    # cv2.imwrite(dirPath + "/static/images/image.jpg", cnt_info.img)
+
     return "success"
 
 
@@ -116,6 +129,7 @@ def test_balldepot():
     data = {'msg': balls}
     return str(data)
 
+
 @app.route("/run_ballbefoerderung")
 def run_ballbefoerderung():
     print "dc start running"
@@ -123,12 +137,14 @@ def run_ballbefoerderung():
     data = {'msg': 'dc running'}
     return str(data)
 
+
 @app.route("/stop_ballbefoerderung")
 def stop_ballbefoerderung():
     print "dc start running"
     control.get_ballbefoerderung.stop()
     data = {'msg': 'dc stop'}
     return str(data)
+
 
 @app.route("/set_bfspeed", methods=['POST'])
 def set_bfspeed():
@@ -138,6 +154,7 @@ def set_bfspeed():
     data = {'msg': 'dc speed set'}
     return str(data)
 
+
 @app.route("/test_ausrichtung")
 def test_ausrichtung():
     print "test_ausrichtung"
@@ -146,23 +163,26 @@ def test_ausrichtung():
     data = {'msg': 'ausrichtung moveXAngle 6.28, -6.28 finished'}
     return str(data)
 
+
 @app.route("/test_ausrichtung_detect")
 def test_ausrichtung_with_detect():
     print "test_ausrichtung with detection"
     angle = control.get_zielerfassung.detect()
     control.get_ausrichtung.moveXAngle(angle)
-    data = {'msg': 'ausrichtung moveXAngle: '+str(angle)+' finished'}
+    data = {'msg': 'ausrichtung moveXAngle: ' + str(angle) + ' finished'}
     return str(data)
+
 
 @app.route("/test_ausrichtung_steps", methods=['POST'])
 def test_ausrichtung_steps():
     print "test_ausrichtung_steps"
-    steps=get_int_from_request('steps')
-    print "posted steps: "+str(steps)
+    steps = get_int_from_request('steps')
+    print "posted steps: " + str(steps)
     control.get_ausrichtung.move_steps(steps)
     control.get_ausrichtung.move_steps(-steps)
-    data = {'msg': 'ausrichtung move steps: '+str(steps)+', '+str(-steps)+' finished'}
+    data = {'msg': 'ausrichtung move steps: ' + str(steps) + ', ' + str(-steps) + ' finished'}
     return str(data)
+
 
 @app.route("/save_config_zielerfassung", methods=['POST'])
 def save_cam_config():
@@ -180,6 +200,7 @@ def save_cam_config():
     zf.save_config()
     return config()
 
+
 @app.route("/save_config_balldepot", methods=['POST'])
 def save_config_balldepot():
     bd = control.get_balldepot
@@ -191,6 +212,7 @@ def save_config_balldepot():
     bd.save_config()
     return config()
 
+
 @app.route("/save_bfconfig", methods=['POST'])
 def save_bfconfig():
     bf = control.get_ballbefoerderung
@@ -200,24 +222,27 @@ def save_bfconfig():
     bf.save_config()
     return config()
 
+
 @app.route("/save_arconfig", methods=['POST'])
 def save_arconfig():
     ar = control.get_ausrichtung
     ar.config.angle2Step = float(request.form['angle2Step'])
     ar.config.pulse_pin = get_int_from_request('pulse_pin')
     ar.config.dir_pin = get_int_from_request('dir_pin')
-    ar.config.enable_pin=get_int_from_request('enable_pin')
-    ar.config.microsteps1_pin=get_int_from_request('microsteps1_pin')
-    ar.config.microsteps2_pin=get_int_from_request('microsteps2_pin')
+    ar.config.enable_pin = get_int_from_request('enable_pin')
+    ar.config.microsteps1_pin = get_int_from_request('microsteps1_pin')
+    ar.config.microsteps2_pin = get_int_from_request('microsteps2_pin')
     ar.config.acc = get_int_from_request('acc')
     ar.config.max_delay = get_int_from_request('max_delay')
-    ar.config.min_delay= get_int_from_request('min_delay')
-    ar.config.max_steps= get_int_from_request('max_steps')
+    ar.config.min_delay = get_int_from_request('min_delay')
+    ar.config.max_steps = get_int_from_request('max_steps')
     ar.save_config()
     return config()
 
+
 def get_int_from_request(name):
     return int(float(request.form[name]))
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True)
