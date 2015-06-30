@@ -42,15 +42,17 @@ class Zielerfassung:
         self.config.set_threshold(threshold)
 
     def get_image(self):
-        t = time.time()
+        #t = time.time()
         img = self.cam.take_picture
         cnt_info = self.cntCalc.find_contours(img, self.dir, True, False)
         if cnt_info is None:
             print "zf: no object found"
+            self.dir=0
+            return None
         self.dir = cnt_info.prev_dir
         position = cnt_info.center_distance.x
-        angle = math.atan(self.config.pixelToCMFactor * position)
-        dt = time.time() - t
+        #angle = math.atan(self.config.pixelToCMFactor * position)
+        #dt = time.time() - t
         # print "position: pixel: " + str(position) + "  |  angle: " + str(angle) + "  |  time: " + str(dt * 1000)
         return cnt_info
 

@@ -11,13 +11,16 @@ class Ballbefoerderung:
         self.dcMotor = DC.DCController(self.config.pulse_length, self.config.freq, self.config.gpio_port)
         print "Ballbefoerderung inited"
 
-    def run(self):
+    def run(self,pulse_length=0):
+        if pulse_length==0:
+            pulse_length=self.config.pulse_length
+        self.dcMotor.set_pulse_length(pulse_length)
         self.dcMotor.run()
         print "Ballbefoerderung run"
 
     def set_speed(self, pulse_length):
-        self.config.set_pulse_length(pulse_length)
-        self.dcMotor.set_pulse_length(self.config.pulse_length)
+        #self.config.set_pulse_length(pulse_length)
+        self.dcMotor.set_pulse_length(pulse_length)
 
     def stop(self):
         self.dcMotor.stop()

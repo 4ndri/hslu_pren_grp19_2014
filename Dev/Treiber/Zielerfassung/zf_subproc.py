@@ -14,10 +14,11 @@ detector = ZF.Zielerfassung()
 while True:
     detector.dir = 0
     cnt_info = detector.get_image()
-    cv2.imwrite(work_path+"/image.jpg", cnt_info.img)
-    with open(work_path+"/detect.txt", 'w') as detect_file:
-        detect_file.write(str(cnt_info.center_distance.x))
-        detect_file.close()
-    time.sleep(1)
+    if cnt_info is not None:
+        cv2.imwrite(work_path+"/image.jpg", cnt_info.img)
+        with open(work_path+"/detect.txt", 'w') as detect_file:
+            detect_file.write(str(cnt_info.center_distance.x))
+            detect_file.close()
+        time.sleep(0.8)
     #print "detect: " + str(cnt_info.center_distance.x)
 print "done"

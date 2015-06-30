@@ -22,15 +22,20 @@ class Steuerung:
         self.ausrichtung = AR.Ausrichtung()
 
     def start(self):
-        counter = 0
-        angle = 5
+        # counter = 0
+        # angle = 5
         self.zielerfassung.dir = 0
         # while counter < 5 and angle > 0.01:
         #     angle = self.zielerfassung.detect()
         #     self.ausrichtung.moveXAngle(angle)
 
         angle = self.zielerfassung.detect()
-        self.ballbefoerderung.run()
+        print "angle: " +str(angle)
+        diff_pulse = self.ballbefoerderung.config.pulse_length_max-self.ballbefoerderung.config.pulse_length
+        pulse_length=self.ballbefoerderung.config.pulse_length+float(diff_pulse)/0.426627*abs(angle)
+        pulse_length=min(pulse_length,self.ballbefoerderung.config.pulse_length_max)
+        print "running duty: " +str(pulse_length)
+        self.ballbefoerderung.run(pulse_length)
         self.ausrichtung.moveXAngle(angle)
 
         time.sleep(self.balldepot.config.waitTime1)

@@ -1,4 +1,5 @@
 scp -r ~/Dev/hslu_pren_grp19_2014 pi@192.168.0.107:/home/pi/PREN/
+scp -r ~/PREN/hslu_pren_grp19_2014/Dev pi@192.168.0.10:/home/pi/PREN/hslu_pren_grp19_2014/
 
 ssh -Y pi@192.168.0.106
 

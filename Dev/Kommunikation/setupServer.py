@@ -220,6 +220,7 @@ def save_config_balldepot():
 def save_bfconfig():
     bf = control.get_ballbefoerderung
     bf.config.pulse_length = float(request.form['pulse_length'])
+    bf.config.pulse_length_max = float(request.form['pulse_length_max'])
     bf.config.freq = get_int_from_request('freq')
     bf.config.gpio_port = get_int_from_request('gpio_port')
     bf.save_config()
