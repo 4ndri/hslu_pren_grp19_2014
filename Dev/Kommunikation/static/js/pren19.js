@@ -131,6 +131,30 @@ function start() {
     });
 }
 
+function start_camera(){
+    runAction('/start_camera').done(function (data) {
+        $('#PREN_AsyncMsg').html(data);
+    }).fail(function (err) {
+        handleError(err);
+    });
+}
+
+function stop_camera(){
+    runAction('/stop_camera').done(function (data) {
+        $('#PREN_AsyncMsg').html(data);
+    }).fail(function (err) {
+        handleError(err);
+    });
+}
+
+function shut_down(){
+    runAction('/shut_down').done(function (data) {
+        $('#PREN_AsyncMsg').html(data);
+    }).fail(function (err) {
+        handleError(err);
+    });
+}
+
 function reset_control() {
     runAction('/reset').done(function (data) {
         StopTimer();

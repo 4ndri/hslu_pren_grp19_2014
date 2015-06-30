@@ -85,3 +85,27 @@ sudo apt-get install python-pip
 sudo pip install flask
 
 
+#ssh save passphrase
+# on pi
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+ssh-keygen -t rsa
+
+#on desktop
+ssh-copy-id pi@192.168.0.107
+
+
+############startup script###############
+chmod 755 /home/pi/PREN/hslu_pren_grp19_2014/Dev/Kommunikation/setupServer.py
+sudo cp /home/pi/PREN/hslu_pren_grp19_2014/Dev/SysConfig/PREN19Daemon.sh /etc/init.d
+sudo chmod 755 /etc/init.d/PREN19Daemon.sh
+sudo update-rc.d PREN19Daemon.sh defaults
+
+sudo /etc/init.d/PREN19Daemon.sh start
+sudo /etc/init.d/PREN19Daemon.sh stop
+
+
+##############install python app#############
+sudo cat /home/pi/PREN/hslu_pren_grp19_2014/files.txt | sudo xargs rm -rf
+cd ~/PREN/hslu_pren_grp19_2014
+sudo python setup.py install --record files.txt

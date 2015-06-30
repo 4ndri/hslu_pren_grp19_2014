@@ -49,10 +49,18 @@ class DCController:
             self.run()
 
     def ramp_dc(self, start, end):
-        while start < end:
-            self.set_range(start)
-            start = self.current_pulse_length + self.acc
-            time.sleep(self.ramp_wait)
+        start=max(0,start)
+        end=max(0,end)
+        if start<end:
+            while start < end:
+                self.set_range(start)
+                start = self.current_pulse_length + self.acc
+                time.sleep(self.ramp_wait)
+        else:
+            while start > end:
+                self.set_range(start)
+                start = self.current_pulse_length - self.acc
+                time.sleep(self.ramp_wait)
         self.set_range(end)
 
     def stop(self):

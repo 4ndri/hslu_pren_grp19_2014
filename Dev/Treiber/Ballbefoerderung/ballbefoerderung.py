@@ -1,7 +1,8 @@
 __author__ = 'Andri'
 import Dev.Treiber.Ballbefoerderung.config as CFG
 #import Dev.Hardware.DCMotor.WiringPiDC as DC
-import Dev.Hardware.DCMotor.PigpioDC as DC
+import Dev.Hardware.DCMotor.PigpioSWDC as DC
+#import Dev.Hardware.DCMotor.PigpioDC as DC
 
 class Ballbefoerderung:
     def __init__(self):

@@ -1,10 +1,11 @@
+#!/usr/bin/env python
 __author__ = 'endru'
 from flask import Flask
 from flask import render_template, request, redirect
 import Dev.Steuerung.steuerung as ctrl
-import Dev.Steuerung.subprocess_handler as proc_handler
 import cv2
 import os
+import subprocess
 
 app = Flask(__name__, static_url_path='')
 control = ctrl.Steuerung()
@@ -58,26 +59,27 @@ def config():
 
 @app.route("/testing")
 def testing():
-    global control
-    # control=None
-    # control = ctrl.Steuerung()
-    return render_template('testing.html')
-
-
-@app.route("/testing_other")
-def testing_other():
-    global control
-    # control=None
     return render_template('testing.html')
 
 
 @app.route("/start")
 def start():
     control.start()
-    # proc_handler.start()
     str_data = "fertig schluss schuss"
     return str_data
 
+@app.route("/start_camera")
+def start_camera():
+    control.zielerfassung.stop_subproc()
+    control.zielerfassung.start_subproc()
+    str_data = "camera started"
+    return str_data
+
+@app.route("/stop_camera")
+def stop_camera():
+    control.zielerfassung.stop_subproc()
+    str_data = "camera stopped"
+    return str_data
 
 @app.route("/reset")
 def reset():
@@ -88,17 +90,18 @@ def reset():
     return str_data
 
 
-# @app.route("/detect")
-# def detect():
-#     pos = control.get_zielerfassung.detect()
-#     return str(pos)
+
 
 @app.route("/detect")
 def detect():
-    dirPath = os.path.dirname(os.path.abspath(__file__))
-    ret = proc_handler.get_image(dirPath)
-    return ret
+    angle = control.get_zielerfassung.detect()
+    return str(angle)
 
+@app.route("/shut_down")
+def shut_down():
+    cmd="sudo killall python && sudo shutdown -h now"
+    subprocess.Popen(cmd, shell=True)
+    return "killall"
 
 @app.route("/images/img")
 def return_img():

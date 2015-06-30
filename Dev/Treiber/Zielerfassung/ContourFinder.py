@@ -194,7 +194,7 @@ class ContourCalc:
         self.set_field(new_field)
 
     def calc_values(self):
-        self.approx_area = self.approx_rect.width * self.approx_rect.height
+        self.approx_area = self.approx_rect.width * min(self.approx_rect.height,self.field.height)
         self.field_area = self.field.width * self.field.height
         self.max_area_diff = max(calc_area_diff(self.field_area, self.approx_area), calc_area_diff(self.approx_area, 0))
         self.max_width_diff = max(self.field.width - self.approx_rect.width, self.approx_rect.width)
@@ -229,12 +229,12 @@ class ContourCalc:
         width_diff = abs(self.approx_rect.width - w)
         p_width = float(width_diff) / self.max_width_diff
 
-        height_diff = abs(self.approx_rect.height - h)
-        p_height = float(height_diff) / self.max_height_diff
+        # height_diff = abs(self.approx_rect.height - h)
+        # p_height = float(height_diff) / self.max_height_diff
 
-        tmp_ratio = calc_ratio_compare(w, h)
-        ratio_diff = abs(tmp_ratio - self.approx_ratio)
-        p_ratio = float(ratio_diff) / self.max_ratio_diff
+        # tmp_ratio = calc_ratio_compare(w, h)
+        # ratio_diff = abs(tmp_ratio - self.approx_ratio)
+        # p_ratio = float(ratio_diff) / self.max_ratio_diff
 
         m = Point(x + w / 2, y + h / 2)
 
@@ -243,7 +243,8 @@ class ContourCalc:
         p_center = float(center_diff) / self.max_center_diff
 
         # p = p_area * 4 + p_width * 2 + p_height * 2 + p_ratio  + p_center * 2
-        p = p_area * 5 + p_width + p_height + p_center + float(1) / max(float(1) / sys.maxint, tmp_area)
+        # p = p_area * 5 + p_width*2 + p_height + p_center*3 + float(1) / max(float(1) / sys.maxint, tmp_area)
+        p = p_area * 2 + p_width*2 + p_center*6
         return p
 
     def find_contours(self, img, prev_dir=0, save_image=False, do_display=False):
