@@ -19,7 +19,7 @@ class ZFConfig:
         self.approx_rect_w = self.config.get_number("Approx", "approx_rect_w", 100)
         self.approx_rect_h = self.config.get_number("Approx", "approx_rect_h", 120)
         self.threshold = self.config.get_number("Approx", "threshold", 65)
-        tmp = float(150) / (450 * 190)
+        tmp = float(150) / (500 * 170) #0.00176470588
         self.pixelToCMFactor = self.config.get_float("ZF", "pixelToCMFactor", tmp)
         self.hitpoint_x = self.config.get_float("ZF", "hitpoint_x", 320)
         self.hitpoint_y = self.config.get_float("ZF", "hitpoint_y", 240)

@@ -9,6 +9,7 @@ class Ausrichtung:
         self.stepper = Stp.Stepper(self.config.dir_pin, self.config.pulse_pin,self.config.enable_pin, self.config.microsteps1_pin,self.config.microsteps2_pin, self.config.min_delay,
                                    self.config.max_delay, self.config.acc)
         self.curr_pos = 0
+        self.stepper.set_fullstep()
         print "Ausrichtung inited"
 
     def moveXAngle(self, angle):
@@ -33,6 +34,7 @@ class Ausrichtung:
 
     def reset(self):
         self.move_steps(-self.curr_pos)
+        self.curr_pos=0
 
     @property
     def get_config(self):

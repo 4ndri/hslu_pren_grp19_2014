@@ -8,7 +8,7 @@ class ARConfig:
         self.dirPath=os.path.dirname(os.path.abspath(__file__))
         self.file_name="ausrichtung.ini"
         self.config = CF.ConfigHandler(self.dirPath +"/"+ self.file_name)
-        self.angle2Step = self.config.get_float("Ausrichtung", "angle2Step", float(1200)/math.pi)
+        self.angle2Step = self.config.get_float("Ausrichtung", "angle2Step", 2970.8922) #float(100*float(140)/12)/math.pi*8
         self.dir_pin = self.config.get_number("Ausrichtung", "dir_pin", 10)
         self.pulse_pin =self.config.get_number("Ausrichtung", "pulse_pin", 22)
         self.enable_pin =self.config.get_number("Ausrichtung", "enable_pin", 24)
@@ -17,7 +17,7 @@ class ARConfig:
         self.min_delay =self.config.get_number("Ausrichtung", "min_delay", 300)
         self.max_delay =self.config.get_number("Ausrichtung", "max_delay", 2000)
         self.acc =self.config.get_number("Ausrichtung", "acc", 100)
-        self.max_steps =self.config.get_number("Ausrichtung", "max_steps", 400)
+        self.max_steps =self.config.get_number("Ausrichtung", "max_steps", 3200)
 
     def set_angle2Step(self, angle2Step):
         self.config.set_float("Ausrichtung", "angle2Step", angle2Step)

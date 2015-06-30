@@ -62,12 +62,12 @@ class Field:
 
 
 class ContourInfo:
-    def __init__(self, cnt, field, prev_dir, approx_rect):
+    def __init__(self, cnt, field, prev_dir, approx_rect, center):
         """
 
         :rtype : ContourInfo
         :param field: Point
-        :type center_distance: Point
+        :param center: Point
         :param cnt: object
         """
         self.field = field
@@ -77,7 +77,8 @@ class ContourInfo:
         x, y, w, h = cv2.boundingRect(cnt)
         self.area = cv2.contourArea(cnt)
         self.m_cnt = Point(x + w / 2, y + h / 2)
-        self.m_field = Point(self.field.width / 2, self.field.height / 2)
+        #self.m_field = Point(self.field.width / 2, self.field.height / 2)
+        self.m_field = center
         self.center_distance = Point(self.m_cnt.x - self.m_field.x, self.m_cnt.y - self.m_field.y)
         self.bounding_rect = Field(x, y, w, h)
         self.approx_rect = Field(0, 0, approx_rect.width, approx_rect.height)
@@ -244,7 +245,7 @@ class ContourCalc:
 
         # p = p_area * 4 + p_width * 2 + p_height * 2 + p_ratio  + p_center * 2
         #p = p_area * 5 + p_width*2 + p_height + p_center*3 + float(1) / max(float(1) / sys.maxint, tmp_area)
-        p = p_area * 4 + p_width*2 + p_center*2
+        p = p_area * 4 + p_width*2 + p_center*3
         return p
 
     def find_contours(self, img, prev_dir=0, save_image=False, do_display=False):
@@ -274,7 +275,8 @@ class ContourCalc:
         cnt_sort = sorted(contours, key=self.magic_sort, reverse=False)
 
         cnt = cnt_sort[0]
-        cnt_info = ContourInfo(cnt, self.field, prev_dir, self.approx_rect)
+        center = Point(self.config.hitpoint_x,self.config.hitpoint_y)
+        cnt_info = ContourInfo(cnt, self.field, prev_dir, self.approx_rect,center)
         cnt_info.img = img
         if save_image or do_display:
             cv2.rectangle(img, (self.field.x, self.field.y),
