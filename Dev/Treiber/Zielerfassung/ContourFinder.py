@@ -299,11 +299,7 @@ class ContourCalc:
             cv2.drawContours(img_crop, [cnt], -1, (0, 0, 255), 3)
 
         if do_display:
-            # cv2.imshow('color', img_crop)
             cv2.imshow('Objekterkennung', img)
-            # mask = np.zeros(img_gray.shape, np.uint8)
-            # cv2.drawContours(mask, [cnt], 0, 255, -1)
-            # cv2.imshow('mask', mask)
 
         return cnt_info
 

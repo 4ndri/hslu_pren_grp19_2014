@@ -19,6 +19,6 @@ while True:
         with open(work_path+"/detect.txt", 'w') as detect_file:
             detect_file.write(str(cnt_info.center_distance.x))
             detect_file.close()
-        time.sleep(0.8)
+        time.sleep(1.5)
     #print "detect: " + str(cnt_info.center_distance.x)
 print "done"

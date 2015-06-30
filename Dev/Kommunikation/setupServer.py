@@ -200,6 +200,8 @@ def save_cam_config():
     zf.config.resolution_w = get_int_from_request('resolution_w')
     zf.config.threshold = get_int_from_request('threshold')
     zf.config.pixelToCMFactor = float(request.form['pixelToCMFactor'])
+    zf.config.hitpoint_x=get_int_from_request('hitpoint_x')
+    zf.config.hitpoint_y=get_int_from_request('hitpoint_y')
     zf.save_config()
     return config()
 
